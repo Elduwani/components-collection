@@ -1,9 +1,8 @@
 import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom"
 import { ProvideAuth } from "./auth/use-auth.js"
-// import Navbar from "./components/Navbar"
-// import Signin from "./components/Signin"
 import Tasks from "./components/Tasks"
+import Calculator from "./calculator"
 
 function App() {
   return (
@@ -12,7 +11,8 @@ function App() {
         <div className="container">
           <Switch>
             {/* <Route exact path='/account' render={(props) => <Signin />} /> */}
-            <Route path='/' component={Tasks} />
+            <Route exact path='/tasks' component={Tasks} />
+            <Route path='/' component={Calculator} />
           </Switch>
         </div>
       </ProvideAuth>
