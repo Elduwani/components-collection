@@ -14,6 +14,7 @@ const Calculator = () => {
         if (currentValue && prevValue) {
             if (lastEntry !== 'dot') evaluate()
         }
+        // eslint-disable-next-line
     }, [currentValue, prevValue])
 
     const handleInput = e => {
@@ -38,7 +39,6 @@ const Calculator = () => {
     }
 
     const modulo = () => {
-        console.log(typeof result);
         const newVal = result / 100
         setResult(newVal)
         setDisplayData(x => x + '/100')
