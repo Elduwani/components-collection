@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import "./calculator.css"
 
 const Calculator = () => {
+
+    document.title += " Calculator | Elduwani"
+
     const [prevValue, setPrevValue] = useState('')
     const [currentValue, setCurrentValue] = useState('')
     const [operator, setOperator] = useState(null)
@@ -89,47 +92,50 @@ const Calculator = () => {
     }
 
     return (
-        <div className="main-wrapper">
-            <div className="screen-group">
-                <div className="input">{displayData || "0"}</div>
-                <div className="result">{result}</div>
-            </div>
-            <div className="keypad-group">
-                <div className="sub-button-group white">
-                    <div
-                        className="button white"
-                        onClick={reset}
-                    >C</div>
-                    <div className="button" onClick={handleInput}>7</div>
-                    <div className="button" onClick={handleInput}>4</div>
-                    <div className="button" onClick={handleInput}>1</div>
-                    <div className="button" onClick={handleInput}>00</div>
+        <>
+            <div className="main-wrapper">
+                <div className="screen-group">
+                    <div className="input">{displayData || "0"}</div>
+                    <div className="result">{result}</div>
                 </div>
-                <div className="sub-button-group">
-                    <div className="button white">+/-</div>
-                    <div className="button" onClick={handleInput}>8</div>
-                    <div className="button" onClick={handleInput}>5</div>
-                    <div className="button" onClick={handleInput}>2</div>
-                    <div className="button" onClick={handleInput}>0</div>
-                </div>
-                <div className="sub-button-group">
-                    <div className="button white" onClick={modulo}>%</div>
-                    <div className="button" onClick={handleInput}>9</div>
-                    <div className="button" onClick={handleInput}>6</div>
-                    <div className="button" onClick={handleInput}>3</div>
-                    <div className="button white" onClick={addDot}>.</div>
-                </div>
-                <div className="sub-button-group">
-                    <div className="button operator" onClick={() => handleOperation('/')}>/</div>
-                    <div className="button operator" onClick={() => handleOperation('x')}>x</div>
-                    <div className="button operator" onClick={() => handleOperation('-')}>-</div>
-                    <div className="button operator" onClick={() => handleOperation('+')}>+</div>
-                    <div className="button operator">
-                        <span className="round">=</span>
+                <div className="keypad-group">
+                    <div className="sub-button-group white">
+                        <div
+                            className="button white"
+                            onClick={reset}
+                        >C</div>
+                        <div className="button" onClick={handleInput}>7</div>
+                        <div className="button" onClick={handleInput}>4</div>
+                        <div className="button" onClick={handleInput}>1</div>
+                        <div className="button" onClick={handleInput}>00</div>
+                    </div>
+                    <div className="sub-button-group">
+                        <div className="button white">+/-</div>
+                        <div className="button" onClick={handleInput}>8</div>
+                        <div className="button" onClick={handleInput}>5</div>
+                        <div className="button" onClick={handleInput}>2</div>
+                        <div className="button" onClick={handleInput}>0</div>
+                    </div>
+                    <div className="sub-button-group">
+                        <div className="button white" onClick={modulo}>%</div>
+                        <div className="button" onClick={handleInput}>9</div>
+                        <div className="button" onClick={handleInput}>6</div>
+                        <div className="button" onClick={handleInput}>3</div>
+                        <div className="button white" onClick={addDot}>.</div>
+                    </div>
+                    <div className="sub-button-group">
+                        <div className="button operator" onClick={() => handleOperation('/')}>/</div>
+                        <div className="button operator" onClick={() => handleOperation('x')}>x</div>
+                        <div className="button operator" onClick={() => handleOperation('-')}>-</div>
+                        <div className="button operator" onClick={() => handleOperation('+')}>+</div>
+                        <div className="button operator">
+                            <span className="round">=</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <footer className="footer calc-footer">❤ El</footer>
+        </>
     );
 }
 
