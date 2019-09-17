@@ -12,7 +12,16 @@
     --lightgray: rgb(238, 238, 238);
 }
 body{
-    background: rgb(44, 46, 51);
+    background: #2c2e33;
+}
+.animated {
+    transition: all 0.3s ease;
+}
+.hidden {
+    display: none !important;
+}
+.justify-content-center {
+    justify-content: center !important;
 }
 .main-wrapper{
     max-width: 400px;
@@ -25,7 +34,6 @@ body{
     display: flex;
     flex-direction: column;
     font-family: 'Ubuntu', sans-serif;
-    transition: all 0.3s ease;
 }
 .screen-group{
     display: flex;
@@ -53,6 +61,7 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    /* border: 1px solid var(--darkergray); */
 }
 .sub-button-group{
     display: flex;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import "./calculator.css"
 
 const Calculator = () => {
-
     document.title += " Calculator | Elduwani"
 
     const [prevValue, setPrevValue] = useState('')
@@ -12,6 +11,7 @@ const Calculator = () => {
     const [prevResult, setPrevResult] = useState(0)
     const [result, setResult] = useState(0)
     const [lastEntry, setLastEntry] = useState(null)
+    const [switchDisplay, setSwitchDisplay] = useState(false)
 
     useEffect(() => {
         if (currentValue && prevValue) {
@@ -25,6 +25,7 @@ const Calculator = () => {
         setCurrentValue(input => input + val)
         setDisplayData(input => input + val)
         setLastEntry(null)
+        setSwitchDisplay(false)
     }
 
     const handleOperation = (operand) => {
@@ -32,6 +33,7 @@ const Calculator = () => {
 
         if (lastEntry !== 'operator') {
             setOperator(operand)
+            setSwitchDisplay(false)
             setLastEntry("operator")
             setDisplayData(input => input + operand)
 
@@ -76,8 +78,9 @@ const Calculator = () => {
             default:
                 break;
         }
-
-        if (String(computed).indexOf('.') > 0) computed = computed.toFixed(2)
+        const index = String(computed).indexOf('.')
+        if (index > 0 && index < 3) computed = computed.toFixed(3)
+        else computed = Math.ceil(computed)
         setResult(computed)
     }
 
@@ -89,14 +92,24 @@ const Calculator = () => {
         setPrevResult(0)
         setResult(0)
         setLastEntry(null)
+        setSwitchDisplay(false)
+    }
+
+    const toggleDisplay = () => {
+        if (result !== 0) {
+            setPrevValue('') //necessary for useEffect to not fire and run evaluation
+            setSwitchDisplay(true)
+            setCurrentValue(String(result))
+            setDisplayData(String(result))
+        }
     }
 
     return (
         <>
-            <div className="main-wrapper">
-                <div className="screen-group">
-                    <div className="input">{displayData || "0"}</div>
-                    <div className="result">{result}</div>
+            <div className="main-wrapper animated">
+                <div className={`screen-group animated ${switchDisplay ? 'justify-content-center' : ''}`}>
+                    <div className={`input ${switchDisplay ? "hidden" : ""} animated`}>{displayData || "0"}</div>
+                    <div className={`result animated `}>{result}</div>
                 </div>
                 <div className="keypad-group">
                     <div className="sub-button-group white">
@@ -129,7 +142,7 @@ const Calculator = () => {
                         <div className="button operator" onClick={() => handleOperation('-')}>-</div>
                         <div className="button operator" onClick={() => handleOperation('+')}>+</div>
                         <div className="button operator">
-                            <span className="round">=</span>
+                            <span className="round" onClick={toggleDisplay}>=</span>
                         </div>
                     </div>
                 </div>
