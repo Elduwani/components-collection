@@ -21,11 +21,13 @@ const Calculator = () => {
     }, [currentValue, prevValue])
 
     const handleInput = e => {
-        const val = e.target.innerText
-        setCurrentValue(input => input + val)
-        setDisplayData(input => input + val)
-        setLastEntry(null)
-        setSwitchDisplay(false)
+        if (currentValue.length < 8) {
+            const val = e.target.innerText
+            setCurrentValue(input => input + val)
+            setDisplayData(input => input + val)
+            setLastEntry(null)
+            setSwitchDisplay(false)
+        }
     }
 
     const handleOperation = (operand) => {
