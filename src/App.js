@@ -3,7 +3,7 @@ import { Switch, BrowserRouter as Router, Route } from "react-router-dom"
 import { ProvideAuth } from "./auth/use-auth.js"
 import Tasks from "./components/Tasks"
 import Calculator from "./calculator"
-import Navigation from "./navigation"
+import Navigation from "./navigation/index.js"
 
 function App() {
   return (

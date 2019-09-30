@@ -5,10 +5,8 @@
     margin: 0;
     text-decoration: none;
 }
-html, body {
-    background: rgb(126, 191, 255);
-}
 .nav-wrapper{
+    background: rgb(126, 191, 255);
     padding: 20px;
 }
 .sidebar-parent{
@@ -20,11 +18,18 @@ html, body {
 }
 .sidebar-parent ul, .sidebar-parent li{
     padding: 10px;
-    /* border: 1px solid darkseagreen; */
 }
-.sidebar-parent ul{
+.sidebar-parent ul.parent{
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid darkseagreen;
     padding-bottom: 0;
     padding-top: 0;
+    transition: all 1s ease;
+}
+.sidebar-parent ul.parent.expanded{
+    height: inherit;
+    overflow: auto;    
 }
 .sidebar-parent li {
     cursor: pointer;
