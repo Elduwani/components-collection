@@ -66,7 +66,7 @@
     transform: rotate(135deg);
     margin-bottom: 4px;
 }
-.sidebar-parent li:hover, .sidebar-parent li.arrow.expanded {
+.sidebar-parent li.arrow.expanded {
     background: dodgerblue;
     color: white;
 }

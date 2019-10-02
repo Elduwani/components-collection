@@ -2,6 +2,8 @@ import React, { useReducer } from 'react';
 import items from './items'
 import './Sidebar.css'
 
+document.title = "React Navigation Components | Elduwani"
+
 const Sidebar = () => {
     const [selectedOptions, dispatch] = useReducer((state, action) => {
         const { name, payload, type } = action
