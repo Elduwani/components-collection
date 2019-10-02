@@ -35,10 +35,6 @@
     background: rgb(234, 243, 248);
     border: none;
 }
-.sidebar-parent li[data-level="20"] ~ ul{
-    background: rgb(215, 232, 243);
-    border: none;
-}
 .sidebar-parent li[data-level="30"] ~ ul{
     background: rgb(214, 219, 223);
     border: none;
@@ -70,6 +66,10 @@
     transform: rotate(135deg);
     margin-bottom: 4px;
 }
+.sidebar-parent li:hover, .sidebar-parent li.arrow.expanded {
+    background: dodgerblue;
+    color: white;
+}
 .sidebar-parent ul{
     border-bottom: 1px solid #f7f7f7;
     transition: all 0.3s ease;
@@ -79,8 +79,4 @@
 }
 .sidebar-parent li {
     cursor: pointer;
-}
-.sidebar-parent li:hover{
-    background: dodgerblue;
-    color: white;
 }

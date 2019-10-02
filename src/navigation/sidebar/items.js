@@ -15,12 +15,11 @@ const sidebarItems = [
                 name: "Apps",
                 children: [
                     { name: "BodyMovin" },
-                    { name: "Red Giant" },
+                    { name: "Cinema 4D Release 21" },
                     { name: "Popmotion.io" },
                 ]
             },
             { name: "Files" },
-            { name: "Google Web Designer" },
             {
                 name: "Design",
                 children: [
@@ -36,7 +35,7 @@ const sidebarItems = [
         name: "Music",
         children: [
             { name: "iTunes" },
-            { name: "Playlists" },
+            { name: "Deezer Playlists" },
             { name: "Spotify" }
         ]
     },
