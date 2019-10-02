@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import items from './items'
 import './Sidebar.css'
 
@@ -26,34 +26,35 @@ const Sidebar = () => {
                     options={items}
                     selectedOptions={selectedOptions}
                     dispatch={dispatch}
+                    level={10}
                 />
             }
         </div>
     );
 }
 
-const OptionsList = ({ options, selectedOptions, dispatch }) => {
+const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
 
     if (options) return (
         options.map((option, index) => {
             const { name, children } = option
+            const result = () => selectedOptions.some(obj => obj.name === name)
+            const arrow = children ? "arrow" : ""
+
             return (
-                <ul key={name + index} className={`parent ${name}`}>
+                <ul key={name + index}>
                     <li
-                        className={`child ${name}`}
+                        className={`child ${name} ${arrow} ${result() ? 'expanded' : ''}`}
+                        data-level={level}
+                        style={{ paddingLeft: (level + 15) + 'px' }}
                         onClick={(e) => {
                             e.stopPropagation()
                             if (children) {
-                                const result = selectedOptions.some(obj => obj.name === name)
-                                if (result) {
-                                    //REMOVE ITEM
-                                    console.log("Removing", name, "...");
+                                if (result()) {
                                     dispatch({
                                         type: 'remove', name
                                     })
                                 } else {
-                                    //ADD ITEM
-                                    console.log("Adding", name, "...");
                                     dispatch({
                                         type: 'add',
                                         payload: { name, children }
@@ -61,13 +62,15 @@ const OptionsList = ({ options, selectedOptions, dispatch }) => {
                                 }
                             }
                         }}
-                    >{name}</li>
+                    ><span>{name}</span> <span className="count">{children && children.length + " items"}</span></li>
                     {
-                        children && selectedOptions.some(obj => obj.name === name) ?
+                        children && result() ?
                             <OptionsList
                                 options={children}
                                 selectedOptions={selectedOptions}
                                 dispatch={dispatch}
+                                level={level + 10}
+                                arrow={arrow}
                             />
                             : null
                     }

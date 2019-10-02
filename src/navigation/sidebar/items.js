@@ -17,7 +17,6 @@ const sidebarItems = [
                     { name: "BodyMovin" },
                     { name: "Red Giant" },
                     { name: "Popmotion.io" },
-                    { name: "Invision Studio" }
                 ]
             },
             { name: "Files" },
@@ -37,7 +36,6 @@ const sidebarItems = [
         name: "Music",
         children: [
             { name: "iTunes" },
-            { name: "Niniola - This Is Me" },
             { name: "Playlists" },
             { name: "Spotify" }
         ]
@@ -49,7 +47,11 @@ const sidebarItems = [
         name: "Network"
     },
     {
-        name: "OS"
+        name: "OS",
+        children: [
+            { name: "Mac OS" },
+            { name: "iOS 13" }
+        ]
     }
 ]
 
