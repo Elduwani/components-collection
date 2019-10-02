@@ -12,9 +12,9 @@ function App() {
         <div className="body-container">
           <Switch>
             {/* <Route exact path='/account' render={(props) => <Signin />} /> */}
-            <Route exact path='/navigation-components' component={Navigation} />
+            <Route exact path='/' component={Navigation} />
             <Route exact path='/tasks' component={Tasks} />
-            <Route path='/' component={Calculator} />
+            <Route path='/calculator' component={Calculator} />
           </Switch>
         </div>
       </ProvideAuth>
