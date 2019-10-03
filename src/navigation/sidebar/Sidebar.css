@@ -66,7 +66,8 @@
     transform: rotate(135deg);
     margin-bottom: 4px;
 }
-.sidebar-parent li.arrow.expanded {
+.sidebar-parent li.arrow.expanded,
+.sidebar-parent ul li:hover {
     background: dodgerblue;
     color: white;
 }
@@ -79,4 +80,7 @@
 }
 .sidebar-parent li {
     cursor: pointer;
+}
+@media (hover: none) {
+    .sidebar-parent ul li:hover { background: inherit; color: inherit; }
 }
