@@ -9,12 +9,13 @@
     padding: 20px;
 }
 .sidebar-parent{
-    max-width: 350px;
+    max-width: 300px;
     box-shadow: rgba(5, 5, 5, 0.2) 0px 20px 40px;
     /* box-shadow: rgba(45, 80, 146, 0.493) 0px 20px 40px; */
-    border-radius: 10px;
+    border-radius: 5px;
     background: #fff;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 .sidebar-parent li{
     padding: 20px 0;
