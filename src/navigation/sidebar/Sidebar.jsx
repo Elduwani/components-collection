@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+import React, { useReducer } from 'react'
+import { FiFolder, FiChevronRight } from "react-icons/fi";
 import items from './items'
 import './Sidebar.css'
 
@@ -46,25 +47,19 @@ const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
             return (
                 <ul key={name + index}>
                     <li
-                        className={`child ${name} ${arrow} ${result() ? 'expanded' : ''}`}
+                        className={`${arrow} ${result() ? 'expanded' : ''}`}
                         data-level={level}
                         style={{ paddingLeft: (level + 15) + 'px' }}
                         onClick={(e) => {
                             e.stopPropagation()
                             if (children) {
-                                if (result()) {
-                                    dispatch({
-                                        type: 'remove', name
-                                    })
-                                } else {
-                                    dispatch({
-                                        type: 'add',
-                                        payload: { name, children }
-                                    })
-                                }
+                                if (result()) dispatch({ type: 'remove', name })
+                                else dispatch({ type: 'add', payload: { name, children } })
                             }
                         }}
-                    ><span>{name}</span> <span className="count">{children && children.length + " items"}</span></li>
+                    >
+                        <div className="icon-wrapper">{children && children.length ? <FiFolder className="icon" /> : <FiChevronRight className="icon-gray" />}</div>
+                        <span>{name}</span> <span className="count">{children && children.length + " items"}</span></li>
                     {
                         children && result() ?
                             <OptionsList

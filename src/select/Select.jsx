@@ -16,23 +16,23 @@ const Select = () => {
 
         const regex = new RegExp(val, 'gi')
         const data = users.filter(user => user.firstName.match(regex) || user.lastName.match(regex))
-        if(val.length) setOptionsData(data)
+        if (val.length) setOptionsData(data)
         else setOptionsData([])
     }
-    
+
     return (
         <div className="select-parent">
-            <section className="input-wrapper flex box-shadow">
+            <div className="input-wrapper flex box-shadow">
                 {
-                    selected.length ? 
+                    selected.length ?
                         <div className="selected-parent">
                             {
-                                selected.map(sel => 
+                                selected.map(sel =>
                                     <div className="selected" key={sel.id}>{`${sel.firstName}`}</div>
                                 )
                             }
                         </div>
-                    : null
+                        : null
                 }
                 {
                     selected.length < 4 ?
@@ -44,16 +44,16 @@ const Select = () => {
                             value={inputValue}
                             ref={inputRef}
                         />
-                    : 
-                        <div 
-                            className="clear" 
+                        :
+                        <div
+                            className="clear"
                             onClick={() => {
                                 setSelected([])
                                 setUsers(items)
                             }}
                         >X</div>
                 }
-            </section>
+            </div>
 
             {
                 optionsData.length ?
@@ -61,7 +61,7 @@ const Select = () => {
                         {
                             optionsData.map(user => {
                                 return (
-                                    <div 
+                                    <div
                                         key={user.id}
                                         className="option"
                                         onClick={() => {
@@ -79,10 +79,10 @@ const Select = () => {
                             })
                         }
                     </div>
-                : null
+                    : null
 
             }
-            
+
 
         </div>
     );

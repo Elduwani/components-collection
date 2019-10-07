@@ -1,0 +1,25 @@
+.progress-wrapper {
+    padding: 20px;
+    color: white;
+    /* border: 1px solid red; */
+    align-items: center;
+}
+.progress-wrapper .progress-parent {
+    flex: 1;
+    height: 40px;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progress-wrapper .progress {
+    background: dodgerblue;
+    height: 100%;
+}
+.progress-wrapper .buttons-wrapper{
+    margin-left: 10px;
+}
+.progress-wrapper .buttons-wrapper .icon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
