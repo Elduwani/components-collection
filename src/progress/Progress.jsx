@@ -25,7 +25,7 @@ const Progress = () => {
                     onClick={() => {
                         if ((state < 95)) {
                             if (state > 90) setState(st => st + 1)
-                            else setState(st => st + 10)
+                            else setState(st => st + 5)
                         }
                     }}
                 />

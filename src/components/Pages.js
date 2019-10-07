@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from "../navigation/sidebar/Sidebar"
 import Select from "../select/Select"
+import Progress from "../progress/Progress"
 import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
@@ -8,7 +9,7 @@ import "./pages.css"
 const Pages = () => {
     return (
         <div className="pages">
-            <section className="">
+            <section>
                 <div className="content">
                     <h2><FiBox className="icon"/> Recursive Tree Component</h2>
                     <p>
@@ -18,14 +19,23 @@ const Pages = () => {
                 </div>
                 <Sidebar />
             </section>
-            <section className="">
-            <   div className="content">
+            <section>
+                <div className="content">
                     <h2>Array Select Component</h2>
                     <p>
                         Search and Select component
                     </p>
                 </div>
                 <Select />
+            </section>
+            <section>
+                <div className="content">
+                    <h2>Progress Bar</h2>
+                    <p>
+                        Search and Select component
+                    </p>
+                </div>
+                <Progress />
             </section>
         </div>
     )
