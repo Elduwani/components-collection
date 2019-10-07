@@ -1,5 +1,6 @@
 .progress-wrapper {
     color: white;
+    max-width: 360px;
     /* border: 1px solid red; */
     /* align-items: center; */
 }
@@ -14,6 +15,7 @@
     background: dodgerblue;
     /* border-radius: 5px; */
     height: 100%;
+    transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .progress-wrapper .buttons-wrapper .icon{
     margin-left: 10px;

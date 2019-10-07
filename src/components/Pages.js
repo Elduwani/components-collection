@@ -32,7 +32,7 @@ const Pages = () => {
                 <div className="content">
                     <h2>Progress Bar</h2>
                     <p>
-                        Search and Select component
+                        Click to fill it up
                     </p>
                 </div>
                 <Progress />

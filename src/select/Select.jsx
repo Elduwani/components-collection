@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { FiXCircle } from "react-icons/fi"
 import items from "./names.js"
 import "./select.css"
 
@@ -51,7 +52,7 @@ const Select = () => {
                                 setSelected([])
                                 setUsers(items)
                             }}
-                        >X</div>
+                        ><FiXCircle /></div>
                 }
             </div>
 

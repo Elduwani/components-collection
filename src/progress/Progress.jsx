@@ -15,8 +15,8 @@ const Progress = () => {
                     className="icon"
                     onClick={() => {
                         if (state > 5) {
-                            if (state < 11) setState(st => st - 1)
-                            else setState(st => st - 10)
+                            if (state < 11) setState(st => st - 2)
+                            else setState(st => st - 20)
                         }
                     }}
                 />
@@ -24,8 +24,8 @@ const Progress = () => {
                     className="icon"
                     onClick={() => {
                         if ((state < 95)) {
-                            if (state > 90) setState(st => st + 1)
-                            else setState(st => st + 5)
+                            if (state > 89) setState(st => st + 1)
+                            else setState(st => st + 20)
                         }
                     }}
                 />
