@@ -1,11 +1,11 @@
 import React, { useReducer } from 'react'
 import { FiFolder, FiChevronRight } from "react-icons/fi";
 import items from './items'
-import './Sidebar.css'
+import './Filesystem.css'
 
 document.title = "React Navigation Components | Elduwani"
 
-const Sidebar = () => {
+const Filesystem = () => {
     const [selectedOptions, dispatch] = useReducer((state, action) => {
         const { name, payload, type } = action
         switch (type) {
@@ -42,12 +42,11 @@ const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
         options.map((option, index) => {
             const { name, children } = option
             const result = () => selectedOptions.some(obj => obj.name === name)
-            const arrow = children ? "arrow" : ""
 
             return (
                 <ul key={name + index}>
                     <li
-                        className={`${arrow} ${result() ? 'expanded' : ''}`}
+                        className={`${result() ? 'expanded' : ''}`}
                         data-level={level}
                         style={{ paddingLeft: (level + 15) + 'px' }}
                         onClick={(e) => {
@@ -67,7 +66,6 @@ const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
                                 selectedOptions={selectedOptions}
                                 dispatch={dispatch}
                                 level={level + 10}
-                                arrow={arrow}
                             />
                             : null
                     }
@@ -77,4 +75,4 @@ const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
     )
 }
 
-export default Sidebar;
+export default Filesystem;

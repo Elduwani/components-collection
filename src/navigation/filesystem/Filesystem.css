@@ -38,23 +38,7 @@
     background: rgb(214, 219, 223);
     border: none;
 }
-/* .sidebar-parent li.arrow::after {
-    background: #fff;
-    content: '';
-    width: 8px;
-    height: 8px;
-    margin-left: 20px;
-    border-top: 3px solid rgb(73, 189, 38); 
-    border-right: 3px solid rgb(73, 189, 38);
-    transform: rotate(45deg); 
-    background: transparent;
-    transition: all 0.2s ease;
-}
-.sidebar-parent li.arrow.expanded::after {
-    transform: rotate(135deg);
-    margin-bottom: 4px;
-} */
-.sidebar-parent li.arrow.expanded,
+.sidebar-parent ul li.expanded,
 .sidebar-parent ul li:hover {
     background: dodgerblue;
     color: white;
@@ -79,7 +63,7 @@
     /* border: 1px solid red; */
 }
 .sidebar-parent ul li .icon{
-    color: dodgerblue;
+    /* color: dodgerblue; */
 }
 .sidebar-parent ul li .icon-gray{
     color: #ccc;
@@ -91,4 +75,5 @@
 
 @media (hover: none) {
     .sidebar-parent ul li:hover { background: inherit; color: inherit; }
+    /* .sidebar-parent ul li.expanded .icon{color: white;} */
 }

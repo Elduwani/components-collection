@@ -1,8 +1,8 @@
 import React from 'react'
-import Sidebar from "../navigation/sidebar/Sidebar"
+import Sidebar from "../navigation/filesystem/Filesystem"
 import Select from "../select/Select"
 import Progress from "../progress/Progress"
-import { FiBox } from "react-icons/fi"
+// import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
 
@@ -11,19 +11,18 @@ const Pages = () => {
         <div className="pages">
             <section>
                 <div className="content">
-                    <h2><FiBox className="icon"/> Recursive Tree Component</h2>
+                    <h2>Directory Component</h2>
                     <p>
-                        Dynamic depth traversal with a React recursive component, 
-                        calling itself depending on props
+                        Dynamic depth traversal with a recursive component. Uses data whose entries are defined in a hierarchical manner. Examples of such case may include a corporate hierarchy, a directory structure, and so on.
                     </p>
                 </div>
                 <Sidebar />
             </section>
             <section>
                 <div className="content">
-                    <h2>Array Select Component</h2>
-                    <p>
-                        Search and Select component
+                    <h2>Autocomplete Select</h2>
+                    <p>A dropdown menu with Autocomplete for displaying choices -
+                        an elegant alternative to the native <code>select</code> element.
                     </p>
                 </div>
                 <Select />
