@@ -1,36 +1,34 @@
 import React, { useState } from 'react'
+import StorageDetails from "./StorageDetails"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 import "./progress.css"
 
 const Progress = () => {
-    const [state, setState] = useState(10)
+    const [state, setState] = useState(40)
 
     return (
-        <div className="progress-wrapper flex">
-            <div className="progress-parent">
-                <div className="progress" style={{ width: state + "%" }}></div>
+        <>
+            <div className="progress-wrapper flex">
+                <div className="progress-parent">
+                    <div className="progress" style={{ width: state + "%" }}></div>
+                </div>
+                <div className="buttons-wrapper">
+                    <FiChevronLeft
+                        className="icon"
+                        onClick={() => {
+                            if (state > 30) setState(st => st - 5)
+                        }}
+                    />
+                    <FiChevronRight
+                        className="icon"
+                        onClick={() => {
+                            if ((state < 95)) setState(st => st + 5)
+                        }}
+                    />
+                </div>
             </div>
-            <div className="buttons-wrapper">
-                <FiChevronLeft
-                    className="icon"
-                    onClick={() => {
-                        if (state > 5) {
-                            if (state < 11) setState(st => st - 2)
-                            else setState(st => st - 20)
-                        }
-                    }}
-                />
-                <FiChevronRight
-                    className="icon"
-                    onClick={() => {
-                        if ((state < 95)) {
-                            if (state > 89) setState(st => st + 1)
-                            else setState(st => st + 20)
-                        }
-                    }}
-                />
-            </div>
-        </div>
+            <StorageDetails state={state} />
+        </>
     );
 }
 

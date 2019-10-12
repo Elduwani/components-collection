@@ -39,3 +39,11 @@ code {
   display: flex;
   flex-direction: column;
 }
+.flex-right{
+  display: flex;
+  margin-left: auto;
+}
+.flex-left{
+  display: flex;
+  margin-right: auto;
+}
