@@ -16,7 +16,7 @@
 .pages .content h2{
     display: flex;
     align-items: center;
-    color: rgb(96, 176, 255);
+    /* color: rgb(96, 176, 255); */
     margin-bottom: 5px;
 }
 .pages .content h2 .icon{

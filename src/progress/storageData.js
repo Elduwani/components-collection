@@ -24,16 +24,6 @@ const data = {
             info: "Choose which temporary files to remove"
         },
         {
-            name: "Desktop",
-            size: 26.5,
-            info: "Manage the Desktop folder"
-        },
-        {
-            name: "Other",
-            size: 30,
-            info: "Manage other large folders"
-        },
-        {
             name: "Music",
             size: 20.4,
             info: "Manage the Music folder"

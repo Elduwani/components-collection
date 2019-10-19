@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from "../navigation/filesystem/Filesystem"
 import Select from "../select/Select"
 import Progress from "../progress/Progress"
+import Buttons from "../buttons/Buttons"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
@@ -35,6 +36,15 @@ const Pages = () => {
                     </p>
                 </div>
                 <Progress />
+            </section>
+            <section>
+                <div className="content">
+                    <h2>Buttons</h2>
+                    <p>
+                        Click to fill it up
+                    </p>
+                </div>
+                <Buttons />
             </section>
         </div>
     )
