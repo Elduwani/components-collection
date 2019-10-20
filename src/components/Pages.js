@@ -32,7 +32,7 @@ const Pages = () => {
                 <div className="content">
                     <h2>Progress Bar</h2>
                     <p>
-                        Click to fill it up
+                        A component for visualising space allocation between children components and parent.
                     </p>
                 </div>
                 <Progress />
@@ -41,7 +41,7 @@ const Pages = () => {
                 <div className="content">
                     <h2>Buttons</h2>
                     <p>
-                        Click to fill it up
+                        A set of buttons for iOS, Android and Windows with state transition animations.
                     </p>
                 </div>
                 <Buttons />

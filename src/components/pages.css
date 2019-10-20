@@ -2,11 +2,12 @@
     padding: 20px 30px;
     margin: 0 auto;
     /* border: 1px solid red; */
+    box-sizing: border-box;
     min-width: 350px;
     max-width: 420px;
 }
 .pages section {
-    margin: 30px 0;
+    margin: 40px 0;
     /* border: 1px solid red; */
 }
 .pages .content {
@@ -25,4 +26,5 @@
 .pages .content p{
     color: #999;
     font-size: 0.8rem;
+    width: 85%;
 }
