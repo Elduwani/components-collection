@@ -4,6 +4,7 @@ import Select from "./select/Select"
 import Progress from "./progress/Progress"
 import Buttons from "./buttons/Buttons"
 import Loader from "./loader/Loader"
+import Ratings from "./ratings/Ratings"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
@@ -55,14 +56,24 @@ const Pages = () => {
                 <div className="content">
                     <h2>Loaders</h2>
                     <p>
-                        Loader components for async events.
+                        Loader components for async events. Tap to pause/play.
                     </p>
                 </div>
-                <div className="flex">
-                    <Loader size={40} stroke={5} color='#6c5b7b' duration={0.5} />
-                    <Loader size={70} stroke={10} color='#c06c84' />
+                <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Loader size={100} stroke={15} color='#f67280' />
+                    <Loader size={70} stroke={10} color='#c06c84' paused={true} />
+                    <Loader size={40} stroke={5} color='#6c5b7b' paused={true} duration={0.5} />
                 </div>
+            </section>
+
+            <section>
+                <div className="content">
+                    <h2>Ratings</h2>
+                    <p>
+                        Ratings components for async events. Tap to pause/play.
+                    </p>
+                </div>
+                <Ratings number={5} />
             </section>
         </div>
     )
