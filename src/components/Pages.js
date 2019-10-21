@@ -5,7 +5,7 @@ import Progress from "./progress/Progress"
 import Buttons from "./buttons/Buttons"
 import Loader from "./loader/Loader"
 import Ratings from "./ratings/Ratings"
-import Dropdown from "./dropdown/Dropdown"
+import Carousel from "./carousel/Carousel"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
@@ -61,7 +61,7 @@ const Pages = () => {
                     </p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <Loader size={100} stroke={15} color='#f67280' />
+                    <Loader size={100} stroke={15} color='#f67280' paused={true} />
                     <Loader size={70} stroke={10} color='#c06c84' paused={true} />
                     <Loader size={40} stroke={5} color='#6c5b7b' paused={true} duration={0.5} />
                 </div>
@@ -79,10 +79,10 @@ const Pages = () => {
 
             <section>
                 <div className="content">
-                    <h2>Dropdown</h2>
-                    <p>Dropdown components for async events.</p>
+                    <h2>Carousel</h2>
+                    <p>Carousel components for galleries and multi-step information.</p>
                 </div>
-                <Dropdown />
+                <Carousel />
             </section>
         </div>
     )
