@@ -3,7 +3,7 @@ const sidebarItems = [
         name: "Documents",
         children: [
             {
-                name: "Adobe",
+                name: "Creative Cloud",
                 children: [
                     { name: "XD" },
                     { name: "Photoshop" },
@@ -16,7 +16,7 @@ const sidebarItems = [
                 children: [
                     { name: "BodyMovin" },
                     { name: "Cinema 4D Release 21" },
-                    { name: "Popmotion.io" },
+                    { name: "VSCode" },
                 ]
             },
             { name: "Files" },
@@ -40,7 +40,11 @@ const sidebarItems = [
         ]
     },
     {
-        name: "Movies"
+        name: "Movies",
+        children: [
+            { name: "Joker" },
+            { name: "Scott Pilgrim vs The World" },
+        ]
     },
     {
         name: "Network"

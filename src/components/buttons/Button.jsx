@@ -17,7 +17,7 @@ const Button = (props) => {
                 cursor: "pointer",
                 borderRadius: rounded ? 999 : 3,
             }}
-            className={name}
+            className={`btn-container ${name} ${x === end ? 'active' : ''}`}
             onClick={() => animate()}
         >
             <motion.div

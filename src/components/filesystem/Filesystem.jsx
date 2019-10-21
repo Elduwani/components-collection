@@ -3,7 +3,7 @@ import { FiFolder, FiChevronRight } from "react-icons/fi";
 import items from './items'
 import './Filesystem.css'
 
-document.title = "React Navigation Components | Elduwani"
+document.title = "React Components | Elduwani"
 
 const Filesystem = () => {
     const [selectedOptions, dispatch] = useReducer((state, action) => {
@@ -57,7 +57,14 @@ const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
                             }
                         }}
                     >
-                        <div className="icon-wrapper">{children && children.length ? <FiFolder className="icon" /> : <FiChevronRight className="icon-gray" />}</div>
+                        <div className="icon-wrapper">
+                            {
+                                children &&
+                                    children.length ?
+                                    <FiFolder className="icon" /> :
+                                    <FiChevronRight className="icon-gray" />
+                            }
+                        </div>
                         <span>{name}</span> <span className="count">{children && children.length + " items"}</span></li>
                     {
                         children && result() ?
