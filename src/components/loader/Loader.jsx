@@ -18,8 +18,6 @@ const Loader = ({ size, stroke, color, duration }) => {
                 width: size || 70,
                 height: size || 70,
                 marginRight: 20,
-                // border: stroke + 'px solid red',
-                background: 'dodgerblue',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
