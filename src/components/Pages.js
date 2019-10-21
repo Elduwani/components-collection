@@ -15,7 +15,7 @@ const Pages = () => {
                 <div className="content">
                     <h2>Directory Component</h2>
                     <p>
-                        Dynamic depth traversal with a recursive component. Uses data whose entries are defined in a hierarchical manner. Examples of such case may include a corporate hierarchy, a directory structure, and so on.
+                        A recursive component. Uses data whose entries are defined in a hierarchical manner. Useful for file structure exploration and so on.
                     </p>
                 </div>
                 <Sidebar />

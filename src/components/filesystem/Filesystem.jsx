@@ -11,6 +11,7 @@ const Filesystem = () => {
         switch (type) {
             case "add":
                 const newArr = [...state, payload]
+                console.log(newArr);
                 return state = newArr
 
             case "remove":
@@ -20,7 +21,7 @@ const Filesystem = () => {
             default:
                 return state
         }
-    }, [])
+    }, [{ name: "OS" }])
 
     return (
         <div className="sidebar-parent">
