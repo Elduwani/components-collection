@@ -1,5 +1,4 @@
 .btn-wrapper{
-    background: #35477d;
     height: 250px;
     width: 300px;
     display: flex;
@@ -45,7 +44,6 @@
     border-radius: 3px;
 }
 .windows-btn-wrapper .toggle-icon {
-    box-shadow: rgba(95, 158, 160, 0.8) 0px 5px 10px;
     box-shadow: #56466379 0px 5px 10px;
     background: #f67280;
 }

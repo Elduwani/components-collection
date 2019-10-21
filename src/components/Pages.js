@@ -5,6 +5,7 @@ import Progress from "./progress/Progress"
 import Buttons from "./buttons/Buttons"
 import Loader from "./loader/Loader"
 import Ratings from "./ratings/Ratings"
+import Dropdown from "./dropdown/Dropdown"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
@@ -74,6 +75,14 @@ const Pages = () => {
                     </p>
                 </div>
                 <Ratings number={5} />
+            </section>
+
+            <section>
+                <div className="content">
+                    <h2>Dropdown</h2>
+                    <p>Dropdown components for async events.</p>
+                </div>
+                <Dropdown />
             </section>
         </div>
     )

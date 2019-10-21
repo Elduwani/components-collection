@@ -1,0 +1,33 @@
+._dropdown{
+    max-width: 300px;
+    position: relative;
+}
+._dropdown .input-wrapper {
+    display: flex;
+    background: #e6d3a7;
+    height: 40px;
+}
+._dropdown .input-wrapper input {
+    background: transparent;
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    flex: 1;
+}
+.input-wrapper .dropdown-icon {
+    background: #59a985;
+    height: 100%;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.input-wrapper .dropdown-icon svg{
+    /* color: red; */
+    width: 30px;
+    height: 30px;
+}
+._dropdown .data{
+    
+}

@@ -3,7 +3,7 @@ import { motion, useCycle } from "framer-motion"
 
 const Button = (props) => {
 
-    const { name, pWidth, pHeight, cWidth, cHeight, rounded, offset } = props
+    const { name, pWidth, pHeight, cWidth, cHeight, rounded, offset, mode, setMode } = props
     const end = (pWidth - cWidth) - (offset ? offset : 0)
     const [x, animate] = useCycle(offset || 0, end)
 
@@ -18,7 +18,10 @@ const Button = (props) => {
                 borderRadius: rounded ? 999 : 3,
             }}
             className={`btn-container ${name} ${x === end ? 'active' : ''}`}
-            onClick={() => animate()}
+            onClick={() => {
+                animate()
+                if (setMode) setMode(!mode)
+            }}
         >
             <motion.div
                 className="toggle-icon"

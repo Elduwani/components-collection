@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from './Button'
 import './buttons.css'
 
 const Buttons = () => {
 
+    const [mode, setMode] = useState(false)
     let parentWidth = 80, parentHeight = 35
 
     return (
-        <div className="btn-wrapper">
+        <div
+            className="btn-wrapper"
+            style={{ background: mode ? '#aaa' : '#35477d' }}
+        >
             <Button
                 name="ios-btn-wrapper"
                 pWidth={parentWidth}
@@ -24,6 +28,8 @@ const Buttons = () => {
                 cWidth={36}
                 cHeight={36}
                 rounded={true}
+                mode={mode}
+                setMode={setMode}
             />
             <Button
                 name="windows-btn-wrapper"
