@@ -82,7 +82,7 @@ const Pages = () => {
                     <h2>Carousel</h2>
                     <p>Carousel components for galleries and multi-step information.</p>
                 </div>
-                <Carousel />
+                <Carousel count={null} />
             </section>
         </div>
     )
