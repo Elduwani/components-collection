@@ -6,6 +6,7 @@ import Buttons from "./buttons/Buttons"
 import Loader from "./loader/Loader"
 import Ratings from "./ratings/Ratings"
 import Carousel from "./carousel/Carousel"
+import Plans from "./plans/Plans"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
@@ -69,6 +70,14 @@ const Pages = () => {
 
             <section>
                 <div className="content">
+                    <h2>Carousel</h2>
+                    <p>Carousel components for galleries and multi-step information.</p>
+                </div>
+                <Carousel count={null} />
+            </section>
+
+            <section>
+                <div className="content">
                     <h2>Ratings</h2>
                     <p>
                         Ratings components for async events. Tap to pause/play.
@@ -76,13 +85,14 @@ const Pages = () => {
                 </div>
                 <Ratings number={5} />
             </section>
-
             <section>
                 <div className="content">
-                    <h2>Carousel</h2>
-                    <p>Carousel components for galleries and multi-step information.</p>
+                    <h2>Pricing Plans</h2>
+                    <p>
+                        Ratings components for async events. Tap to pause/play.
+                    </p>
                 </div>
-                <Carousel count={null} />
+                <Plans />
             </section>
         </div>
     )

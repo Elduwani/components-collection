@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import useInterval from "../../functions/useInterval"
 import { motion } from "framer-motion"
 import "./carousel.css"
 // import { FiChevronDown } from "react-icons/fi"
 
 const Carousel = ({ count }) => {
     let num = count || 5
+
     const [id, setID] = useState(0)
     const indicators = []
     const boxes = []
@@ -13,14 +15,14 @@ const Carousel = ({ count }) => {
     for (let i = 0; i < num; i++) {
         boxes.push(
             <div
-                className="box"
+                className="box rounded"
                 key={i}
                 style={{
                     backgroundColor: colors[i],
                     color: colors[i + 1] || colors[i - 3]
                 }}
             >
-                <span>{`item ${i + 1}`}</span>
+                <span>{i + 1}</span>
             </div>
         )
         indicators.push(
@@ -34,13 +36,17 @@ const Carousel = ({ count }) => {
         )
     }
 
+    useInterval(() => {
+        setID(st => st < num - 1 ? st + 1 : 0)
+    }, 3000)
+
     return (
         <div className={'_carousel rounded'}>
             <div className="slides-wrapper rounded">
                 <motion.div
                     className="boxes-wrapper"
-                    animate={{ x: id * -200 }}
-                    transition={{ type: 'spring', stiffness: 80 }}
+                    animate={{ x: id * -260 }}
+                    transition={{ type: 'spring', stiffness: 80, damping: 12 }}
                 >
                     {boxes}
                 </motion.div>

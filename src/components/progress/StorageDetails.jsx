@@ -18,7 +18,7 @@ const StorageDetails = ({ state }) => {
 
     const percent = (num) => {
         const x = (state * num * 3) / 100
-        if (x > 98) return "95.0"
+        if (x > 98) return "95"
         else return String(Math.round(x))
     }
 
