@@ -89,7 +89,7 @@ const Pages = () => {
                 <div className="content">
                     <h2>Pricing Plans</h2>
                     <p>
-                        Ratings components for async events. Tap to pause/play.
+                        Pricing options component for customizing payment plans.
                     </p>
                 </div>
                 <Plans />

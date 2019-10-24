@@ -1,12 +1,13 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: 'Nanum Gothic', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 :root{
+  --bg: #19191b;
   --darkgray: rgb(119, 119, 119);
   --darkergray: rgb(90, 90, 90);
   --orange: #f67280;
@@ -18,7 +19,7 @@ body {
   --darkgreen: #3a7563;
 }
 body{
-  background: #19191b;
+  background: var(--bg);
 }
 .animated {
   transition: all 0.3s ease;

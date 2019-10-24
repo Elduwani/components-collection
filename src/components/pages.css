@@ -2,7 +2,6 @@
     padding: 20px 30px;
     margin: 0 auto;
     padding-bottom: 200px;
-    /* border: 1px solid red; */
     box-sizing: border-box;
     min-width: 350px;
     max-width: 420px;
@@ -18,7 +17,10 @@
 .pages .content h2{
     display: flex;
     align-items: center;
-    /* color: rgb(96, 176, 255); */
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight:800;
+    letter-spacing: 0.3rem;
     margin-bottom: 5px;
 }
 .pages .content h2 .icon{
@@ -28,4 +30,5 @@
     color: #999;
     font-size: 0.8rem;
     width: 85%;
+    line-height: 1.2rem;
 }
