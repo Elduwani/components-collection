@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PlanList from "./PlanList"
 import { data } from "./plansData"
 import { FiXCircle } from "react-icons/fi"
@@ -9,7 +9,7 @@ const Plans = () => {
         <div className="plans-wrapper rounded">
 
             <div className="top-info">
-                <span className="title">Upgrade Flavor</span>
+                <span>Upgrade Flavor</span>
                 <FiXCircle className="icon" />
             </div>
 
@@ -28,6 +28,10 @@ const Plans = () => {
                     )
                 }
             </ul>
+            <div className="buttons-wrapper">
+                <span>Cancel</span>
+                <div className="button-x rounded">Confirm</div>
+            </div>
         </div>
     )
 }

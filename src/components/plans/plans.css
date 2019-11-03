@@ -21,6 +21,7 @@
 .plans-wrapper ul.plans {
     overflow: hidden;
     border: 1px solid #3d3d47;
+    margin-bottom: 15px;
 }
 .plans-wrapper ul.plans li {
     display: grid;
@@ -64,4 +65,24 @@
     font-size: 0.6rem;
     margin-top: 2px;
     color: var(--darkergray);
+}
+.plans-wrapper .buttons-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.8rem;
+}
+.plans-wrapper .buttons-wrapper span{
+    color: var(--darkgray);
+}
+.plans-wrapper .buttons-wrapper .button-x{
+    width: 80px;
+    padding: 10px;
+    display: flex;
+    color: #fff;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    background: var(--violet);
+    cursor: pointer;
 }

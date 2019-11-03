@@ -7,6 +7,7 @@ import Loader from "./loader/Loader"
 import Ratings from "./ratings/Ratings"
 import Carousel from "./carousel/Carousel"
 import Plans from "./plans/Plans"
+import BrightnessController from "./brightnessController/BrightnessController"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
@@ -93,6 +94,12 @@ const Pages = () => {
                     </p>
                 </div>
                 <Plans />
+            </section>
+            <section>
+                <div className="content">
+                    <h2>Brightness Controller</h2>
+                </div>
+                <BrightnessController />
             </section>
         </div>
     )

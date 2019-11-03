@@ -1,0 +1,37 @@
+.b-c-wrapper{
+    width: 350px;
+    height: 150px;
+    color: white;
+    background: var(--violet);
+}
+.b-c-wrapper .items {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.b-c-wrapper .b-overlay {
+    /* background: #fff; */
+    height: 100%;
+    width: 100%;
+}
+.b-c-wrapper .b-slider {
+    width: 220px;
+    height: 6px;
+    margin-left: 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    background: var(--orange);
+}
+.b-c-wrapper .b-slider-button {
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 999px;
+}
+.b-c-wrapper .b-icon {
+    width: 25px;
+    height: 25px;
+}
