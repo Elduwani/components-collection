@@ -12,17 +12,27 @@ import BrightnessController from "./brightnessController/BrightnessController"
 
 import "./pages.css"
 
+document.title = "Components with Hooks | Elduwani"
+
 const Pages = () => {
     return (
-        <div className="pages">
+        <div className="pages" style={{ color: 'white' }}>
             <section>
                 <div className="content">
-                    <h2>Directory Component</h2>
+                    <h2>Folder Tree</h2>
                     <p>
                         A recursive component. Uses data whose entries are defined in a hierarchical manner. Useful for file structure exploration and so on.
                     </p>
                 </div>
                 <Sidebar />
+            </section>
+
+            <section>
+                <div className="content">
+                    <h2>Controller</h2>
+                    <p>Slide to adjust</p>
+                </div>
+                <BrightnessController />
             </section>
 
             <section>
@@ -39,7 +49,7 @@ const Pages = () => {
                 <div className="content">
                     <h2>Progress Bar</h2>
                     <p>
-                        A component for visualising space allocation between children components and parent.
+                        A component for visualising space allocation between parent and childnodes.
                     </p>
                 </div>
                 <Progress />
@@ -57,22 +67,22 @@ const Pages = () => {
 
             <section>
                 <div className="content">
-                    <h2>Loaders</h2>
+                    <h2>Spinners</h2>
                     <p>
-                        Loader components for async events. Tap to pause/play.
+                        Spinner components for async events and loading states. Tap to pause/play.
                     </p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <Loader size={100} stroke={15} color='#f67280' paused={true} />
+                    <Loader size={40} stroke={5} color='#6c5b7b' duration={0.5} />
                     <Loader size={70} stroke={10} color='#c06c84' paused={true} />
-                    <Loader size={40} stroke={5} color='#6c5b7b' paused={true} duration={0.5} />
+                    <Loader size={100} stroke={15} color='#f67280' paused={true} />
                 </div>
             </section>
 
             <section>
                 <div className="content">
                     <h2>Carousel</h2>
-                    <p>Carousel components for galleries and multi-step information.</p>
+                    <p>Carousel component for galleries and multi-step information.</p>
                 </div>
                 <Carousel count={null} />
             </section>
@@ -94,12 +104,6 @@ const Pages = () => {
                     </p>
                 </div>
                 <Plans />
-            </section>
-            <section>
-                <div className="content">
-                    <h2>Brightness Controller</h2>
-                </div>
-                <BrightnessController />
             </section>
         </div>
     )

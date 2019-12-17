@@ -9,7 +9,7 @@ const Plans = () => {
         <div className="plans-wrapper rounded">
 
             <div className="top-info">
-                <span>Upgrade Flavor</span>
+                <span>Upgrade Configuration</span>
                 <FiXCircle className="icon" />
             </div>
 
@@ -29,7 +29,7 @@ const Plans = () => {
                 }
             </ul>
             <div className="buttons-wrapper">
-                <span>Cancel</span>
+                <span className="pointer">Cancel</span>
                 <div className="button-x rounded">Confirm</div>
             </div>
         </div>

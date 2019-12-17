@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RadioButton from "../buttons/RadioButton"
 
-const PlanList = ({item}) => {
-    const [selected, setSelected] = React.useState(false)
+const PlanList = ({ item }) => {
+    const [selected, setSelected] = useState(false)
     const details = item.details.split(',')
 
     return (
-        <li 
+        <li
             onClick={(() => setSelected(!selected))}
             className={`plan animated ${selected ? "selected" : ""}`}
         >
-            <RadioButton selected={selected}/>
+            <RadioButton selected={selected} />
             <div className="size">{`${item.name}GB`}</div>
             <div className="details">
                 {`

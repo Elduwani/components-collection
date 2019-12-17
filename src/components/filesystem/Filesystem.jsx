@@ -3,15 +3,12 @@ import { FiFolder, FiChevronRight } from "react-icons/fi";
 import items from './items'
 import './Filesystem.css'
 
-document.title = "React Components | Elduwani"
-
 const Filesystem = () => {
     const [selectedOptions, dispatch] = useReducer((state, action) => {
         const { name, payload, type } = action
         switch (type) {
             case "add":
                 const newArr = [...state, payload]
-                console.log(newArr);
                 return state = newArr
 
             case "remove":

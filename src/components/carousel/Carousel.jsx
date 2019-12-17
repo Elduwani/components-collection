@@ -8,9 +8,15 @@ const Carousel = ({ count }) => {
     let num = count || 5
 
     const [id, setID] = useState(0)
+    const [paused, setPaused] = useState(false)
     const indicators = []
     const boxes = []
     const colors = ["#08d9d6", '#59a985', '#6a5acd', '#e6d3a7', '#2e79ba']
+
+    useInterval(() => {
+        setID(st => st < num - 1 ? st + 1 : 0)
+    }, 3000, paused, setPaused)
+
 
     for (let i = 0; i < num; i++) {
         boxes.push(
@@ -29,16 +35,15 @@ const Carousel = ({ count }) => {
             <div
                 key={i}
                 className={`indicator ${id === i ? 'selected' : ''}`}
-                onClick={() => setID(i)}
+                onClick={() => {
+                    setID(i)
+                    setPaused(true)
+                }}
             >
                 <div style={{ background: id === i && colors[i] }}></div>
             </div>
         )
     }
-
-    useInterval(() => {
-        setID(st => st < num - 1 ? st + 1 : 0)
-    }, 3000)
 
     return (
         <div className={'_carousel rounded'}>

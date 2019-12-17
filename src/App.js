@@ -1,23 +1,23 @@
 import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom"
-import { ProvideAuth } from "./auth/use-auth.js"
+import Default from "./Default"
+import Data from "./components/charts"
 import Calculator from "./components/calculator"
-import Pages from "./components/Pages.js"
+import Pages from "./components/Pages"
 import Progress from "./components/progress/Progress"
 
 function App() {
   return (
     <Router>
-      <ProvideAuth>
-        <div className="body-container">
-          <Switch>
-            {/* <Route exact path='/account' render={(props) => <Signin />} /> */}
-            <Route exact path='/' component={Pages} />
-            <Route exact path='/progress' component={Progress} />
-            <Route path='/calculator' component={Calculator} />
-          </Switch>
-        </div>
-      </ProvideAuth>
+      <div className="body-container">
+        <Switch>
+          <Route exact path='/' component={Pages} />
+          <Route exact path='/progress' component={Progress} />
+          <Route path='/calculator' component={Calculator} />
+          <Route path='/data' component={Data} />
+          <Route path='*' component={Default} />
+        </Switch>
+      </div>
     </Router>
   );
 }

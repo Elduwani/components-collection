@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react';
 
-function useInterval(callback, delay) {
+function useInterval(callback, delay, paused, setPaused) {
     const savedCallback = useRef()
 
+    //remember the latest callback
     useEffect(() => {
         savedCallback.current = callback
     }, [callback])
@@ -12,10 +13,17 @@ function useInterval(callback, delay) {
             savedCallback.current()
         }
         if (delay !== null) {
-            let id = setInterval(tick, delay)
-            return () => clearInterval(id)
+            let counter1 = setInterval(tick, delay)
+            if (paused) {
+                //reset counter && paused
+                clearInterval(counter1)
+                counter1 = setInterval(tick, delay)
+                setPaused(false)
+            }
+            return () => clearInterval(counter1)
         }
-    }, [delay])
+        //eslint-disable-next-line
+    }, [delay, paused])
 }
 
 export default useInterval;
