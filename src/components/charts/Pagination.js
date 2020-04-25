@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
-const Pagination = ({ itemsPerPage, totalItems, paginate, currentDataset }) => {
-    // console.log(itemsPerPage, totalItems)
+const Pagination = ({ itemsPerPage, totalItems, currentPage, setCurrentPage, currentDataset }) => {
     const pageNumbers = []
-    const [number, setNumber] = useState(1)
 
     for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
         pageNumbers.push(i)
     }
 
     useEffect(() => {
-        paginate(number)
-    }, [number])
-
-    useEffect(() => {
-        setNumber(1)
+        setCurrentPage(1)
     }, [currentDataset])
 
     const first = pageNumbers[0]
@@ -25,19 +19,21 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentDataset }) => {
         <div className="pagination-arrows">
             <ul>
                 <li
-                    className={`left ${number <= first ? 'disabled' : ''}`}
+                    className={`left ${currentPage <= first ? 'disabled' : ''}`}
                     onClick={() => {
-                        if (number > first) {
-                            setNumber(n => n - 1)
+                        if (currentPage > first) {
+                            setCurrentPage(n => n - 1)
                         }
                     }}
                 ><FiChevronLeft /></li>
-                <li>{`${number} of ${pageNumbers.length}`}</li>
+
+                <li>{`${currentPage} of ${pageNumbers.length}`}</li>
+
                 <li
-                    className={`right ${number >= last ? 'disabled' : ''}`}
+                    className={`right ${currentPage >= last ? 'disabled' : ''}`}
                     onClick={() => {
-                        if (number < last) {
-                            setNumber(n => n + 1)
+                        if (currentPage < last) {
+                            setCurrentPage(n => n + 1)
                         }
                     }}
                 ><FiChevronRight /></li>
@@ -47,20 +43,3 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentDataset }) => {
 }
 
 export default Pagination;
-
-{
-    /* 
-        <ul>
-            {
-                pageNumbers.map(num => (
-                    <li key={num} onClick={((e) => {
-                        e.preventDefault()
-                        paginate(num)
-                    })}>
-                        <a href={num}>{num}</a>
-                    </li>
-                ))
-            }
-        </ul> 
-    */
-}

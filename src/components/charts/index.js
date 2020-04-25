@@ -14,6 +14,7 @@ const style = {
 const Data = () => {
 
     document.title = "Data Visualisation | React Hooks"
+    document.body.classList.remove("dark-theme")
 
     return (
         <div className="light-theme" style={style}>

@@ -8,11 +8,13 @@ import Ratings from "./ratings/Ratings"
 import Carousel from "./carousel/Carousel"
 import Plans from "./plans/Plans"
 import BrightnessController from "./brightnessController/BrightnessController"
+import AutoInput from "./autoInput/AutoInput"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.css"
 
 document.title = "Components with Hooks | Elduwani"
+document.body.classList.add("dark-theme")
 
 const Pages = () => {
     return (
@@ -104,6 +106,12 @@ const Pages = () => {
                     </p>
                 </div>
                 <Plans />
+            </section>
+            <section>
+                <div className="content">
+                    <h2>Autofocus Inputs</h2>
+                </div>
+                <AutoInput />
             </section>
         </div>
     )

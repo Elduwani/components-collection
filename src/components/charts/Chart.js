@@ -53,8 +53,6 @@ const ChartApp = () => {
         }
     ]
 
-    const paginate = (pageNumber) => setCurrentPage(+pageNumber)
-
     return (
         <>
             <div className="select-wrapper">
@@ -75,10 +73,11 @@ const ChartApp = () => {
                 />
             </div>
             <Pagination
-                paginate={paginate}
                 itemsPerPage={itemsPerPage}
                 totalItems={currentDataset.length}
                 currentDataset={currentDataset}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
             />
         </>
     );

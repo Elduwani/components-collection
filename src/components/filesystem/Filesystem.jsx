@@ -21,7 +21,7 @@ const Filesystem = () => {
     }, [{ name: "OS" }])
 
     return (
-        <div className="sidebar-parent">
+        <div className="sidebar-parent box-shadow">
             {
                 <OptionsList
                     options={items}
