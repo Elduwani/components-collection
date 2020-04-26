@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import StorageDetails from "./StorageDetails"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
-import "./progress.css"
+import "./storage.scss"
 
-const Progress = () => {
+const Storage = () => {
     const [state, setState] = useState(40)
 
     return (
-        <>
+        <div className="storage-wrapper">
             <div className="progress-wrapper flex">
                 <div className="progress-parent">
                     <div className="progress" style={{ width: state + "%" }}></div>
@@ -28,8 +28,8 @@ const Progress = () => {
                 </div>
             </div>
             <StorageDetails state={state} />
-        </>
+        </div>
     );
 }
 
-export default Progress;
+export default Storage;

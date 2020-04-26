@@ -1,7 +1,7 @@
 import React from 'react'
 import Filesystem from "./filesystem/Filesystem"
 import Select from "./select/Select"
-import Progress from "./progress/Progress"
+import Storage from "./storage/Storage"
 import Buttons from "./buttons/Buttons"
 import Loader from "./loader/Loader"
 import Ratings from "./ratings/Ratings"
@@ -32,7 +32,7 @@ const Pages = () => {
                     <p>
                         A component for visualising space allocation between parent and childnodes.
                     </p>
-                    <Progress />
+                    <Storage />
                 </div>
             </section>
 
@@ -45,7 +45,7 @@ const Pages = () => {
                 <div className="content">
                     <h2>Autocomplete Select</h2>
                     <p>A dropdown menu with Autocomplete for displaying choices -
-                        an elegant alternative to the native <code>select</code> element.
+                        an elegant alternative to the native <code>{`<Select/>`}</code> elements.
                     </p>
                     <Select />
                 </div>

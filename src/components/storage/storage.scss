@@ -1,0 +1,65 @@
+@import "../../variables";
+
+.storage-wrapper{
+    width: $component-width;
+    // @include border(red);
+
+    .progress-wrapper {
+        color: white;
+
+        .progress-parent {
+            flex: 1;
+            height: 20px;
+            background: var(--violet);
+            overflow: hidden;
+            
+            .progress {
+                height: 100%;
+                transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+                background: var(--green);
+            }
+        }
+        .buttons-wrapper{
+            // @include border(green);
+
+            .icon{
+                margin-left: 10px;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+        } 
+    }
+
+    .storage-details{
+        width: 300px;
+        color: var(--lightyellow);
+        margin-bottom: 15px;
+        
+        .detail{
+            width: 100%;
+        }
+        .icon {
+            margin-right: 10px;
+            margin-top: 2px;
+            color: var(--green);
+        }
+        p{
+            font-size: 0.7rem;
+            color: var(--lightbrown);
+        }
+        .progress-parent{
+            height: 5px;
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 2px;
+            background: var(--violet);
+            
+            .progress{
+                height: 100%;
+                background: var(--green);
+                transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            }
+        }
+    }
+}
