@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom"
-import Default from "./Default"
+import Default from "./components/Default"
 import Data from "./components/charts"
 import Calculator from "./components/calculator"
 import Pages from "./components/Pages"

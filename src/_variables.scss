@@ -1,0 +1,25 @@
+$clr-bg: #19191b;
+$clr-darkblue: #151965;
+$clr-blue: #35477d;
+$clr-purple: #515585;
+$clr-lightblue: #46b5d1;
+$clr-green: #59a985;
+$clr-lightgreen: #5FE3A1;
+$clr-yellow: #e8bd51;
+$clr-red: #DB2456;
+
+$page-width: 900px;
+$component-width: 360px;
+
+@mixin border($color) {
+    border: 1px solid $color;
+}
+@mixin boxShadow() {
+  box-shadow: rgba(5, 5, 5, 0.1) 0px 10px 25px;
+}
+@mixin fontFamily() {
+    font-family: 'Open Sans', -apple-system, "Roboto", "Helvetica Neue", sans-serif;
+}
+@mixin transition($time) {
+    transition: all $time ease;
+}

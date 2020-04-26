@@ -1,8 +1,8 @@
 import React from 'react'
 import PlanList from "./PlanList"
 import { data } from "./plansData"
-import { FiXCircle } from "react-icons/fi"
-import './plans.css'
+// import { FiXCircle } from "react-icons/fi"
+import './plans.scss'
 
 const Plans = () => {
     return (
@@ -10,7 +10,7 @@ const Plans = () => {
 
             <div className="top-info">
                 <span>Upgrade Configuration</span>
-                <FiXCircle className="icon" />
+                {/* <FiXCircle className="icon" /> */}
             </div>
 
             <ul className="plans rounded">
@@ -30,7 +30,7 @@ const Plans = () => {
             </ul>
             <div className="buttons-wrapper">
                 <span className="pointer">Cancel</span>
-                <div className="button-x rounded">Confirm</div>
+                <div className="button-confirm rounded">Confirm</div>
             </div>
         </div>
     )

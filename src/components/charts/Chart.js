@@ -7,7 +7,7 @@ import numberFormat from '../../functions/numberFormat'
 
 
 const ChartApp = () => {
-    const [data, setData] = useState(getData())
+    const [data] = useState(getData())
     const [value, setValue] = useState(data.options[4])
     const [currentDataset, setCurrentDataset] = useState([])
 

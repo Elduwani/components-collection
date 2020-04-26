@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from "./Chart"
-import "./styles.css"
+import "./chart.scss"
 
 const style = {
     margin: `40px 0`,

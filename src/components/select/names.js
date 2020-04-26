@@ -1,4 +1,4 @@
-const names = [
+export default [
     {
         id: 1,
         firstName: 'Jocelyn',
@@ -45,5 +45,3 @@ const names = [
         lastName: 'Bos',
     }
 ]
-
-export default names;

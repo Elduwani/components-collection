@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./buttons.css"
+import "./buttons.scss"
 
 const RadioButton = ({ selected }) => {
     const [state, setState] = useState(selected)

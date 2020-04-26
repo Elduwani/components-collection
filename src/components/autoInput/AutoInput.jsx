@@ -92,7 +92,7 @@ export default function AutoInput() {
             <button onClick={handleSubmit}>
                 {
                     state === "loading" ?
-                        <Loader size={25} stroke={5} color='#6c5b7b' duration={0.5} />
+                        <Loader size={20} stroke={5} color='#6c5b7b' duration={0.5} />
                         : text
                 }
             </button>

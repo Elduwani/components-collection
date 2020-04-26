@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { FiXCircle } from "react-icons/fi"
-import items from "./names.js"
-import "./select.css"
+import names from "./names.js"
+import "./select.scss"
 
 const Select = () => {
-    const [users, setUsers] = useState(items)
+    const [users, setUsers] = useState(names)
     const [inputValue, setInputValue] = useState("")
     const [optionsData, setOptionsData] = useState([])
     const [selected, setSelected] = useState([])
+    const maxItems = 3
 
     const inputRef = useRef()
 
@@ -36,12 +37,14 @@ const Select = () => {
                         : null
                 }
                 {
-                    selected.length < 4 ?
+                    // MaxLength of items selectable 
+                    selected.length < maxItems ?
                         <input
                             type="text"
                             className="select-input"
                             onChange={search}
-                            placeholder={`Select ${4 - selected.length} ${selected.length === 3 ? "more" : "names"}`}
+                            // placeholder={`Type to select ${4 - selected.length} ${selected.length === 3 ? "more" : "names"}`}
+                            placeholder="Type to select"
                             value={inputValue}
                             ref={inputRef}
                         />
@@ -50,7 +53,7 @@ const Select = () => {
                             className="clear"
                             onClick={() => {
                                 setSelected([])
-                                setUsers(items)
+                                setUsers(names)
                             }}
                         ><FiXCircle /></div>
                 }

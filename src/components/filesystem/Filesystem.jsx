@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import { FiFolder, FiChevronRight } from "react-icons/fi";
 import items from './items'
-import './Filesystem.css'
+import './filesystem.scss'
 
 const Filesystem = () => {
     const [selectedOptions, dispatch] = useReducer((state, action) => {
@@ -21,7 +21,7 @@ const Filesystem = () => {
     }, [{ name: "OS" }])
 
     return (
-        <div className="sidebar-parent box-shadow">
+        <div className="filesystem-wrapper box-shadow">
             {
                 <OptionsList
                     options={items}

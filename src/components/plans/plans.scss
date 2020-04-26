@@ -1,0 +1,93 @@
+@import "../../variables";
+
+.plans-wrapper{
+    background: #212127;
+    color: #fff;
+    width: $component-width;
+    padding: 20px;
+    border: 1px solid #373741;
+    box-shadow: 0px 20px 30px #00000057;
+    // @include border(red);
+    
+    .top-info {
+        display: flex;
+        align-items: center;
+        padding-bottom: 15px;
+        font-size: 0.8rem;
+        
+        .icon {
+            display: flex;
+            margin-left: auto;
+            color: #aaa;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    ul.plans {
+        overflow: hidden;
+        border: 1px solid #3d3d47;
+        margin-bottom: 15px;
+        
+        li {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 27px 40px 1fr 60px;
+            font-size: 0.75rem;
+            color: var(--lightgray);
+            align-items: center;
+            border-bottom: 1px solid #3d3d47;
+            padding: 8px 10px;
+            cursor: pointer;
+            
+            &:last-child {
+                border-bottom: none;
+            }
+            &.selected {
+                color: var(--darkgray);
+                background: var(--bg);
+            }
+            &.inactive {
+                grid-template-columns: 50px 1fr 70px;
+                color: var(--darkgray);
+                background: var(--bg);
+            }
+            div { flex: 1}
+            .size { font-weight: bold}
+            .price  {
+                display: flex;
+                flex-direction: column;
+                color: var(--darkgray);
+                align-items: flex-end;
+                
+                span:last-child {
+                    display: block;
+                    font-size: 0.6rem;
+                    margin-top: 2px;
+                    color: var(--darkergray);
+                }
+            }
+        }
+    }
+    .buttons-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 0.8rem;
+        
+        span{
+            color: var(--darkgray);
+        }
+        .button-confirm{
+            width: 80px;
+            padding: 10px;
+            display: flex;
+            color: #fff;
+            margin-left: 20px;
+            align-items: center;
+            justify-content: center;
+            background: var(--violet);
+            cursor: pointer;
+        }
+    }
+}

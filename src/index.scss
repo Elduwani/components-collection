@@ -1,13 +1,13 @@
+@import "./variables";
 *{
   box-sizing: border-box !important;
 }
 body {
-  margin: 0;
-  font-family: 'Nanum Gothic', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  @include fontFamily();
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
 }
 :root{
   --bg: #19191b;
@@ -32,13 +32,11 @@ code {
     monospace;
 }
 .body-container{
-  width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* border: 1px solid red; */
+  // @include border(orange);
 }
 .box-shadow{
   box-shadow: rgba(5, 5, 5, 0.1) 0px 10px 25px;

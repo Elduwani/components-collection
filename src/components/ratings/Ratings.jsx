@@ -2,30 +2,32 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiStar } from "react-icons/fi"
 
-const Rating = ({ id, index }) => {
+const Rating = ({ id, index, size }) => {
     return (
         <FiStar
             style={{
-                width: 25,
-                height: 25,
-                fill: index <= id ? "#f67280" : "none",
-                color: index <= id ? "#f67280" : "#6c5b7b",
+                width: size,
+                height: size,
                 marginRight: 15,
                 transition: `color ${0.2}s ease`,
+
+                // Only fill from current id downwards
+                fill: index <= id ? "#f67280" : "none",
+                color: index <= id ? "#f67280" : "#6c5b7b",
             }}
         />
     )
 }
 
-const Ratings = ({ number }) => {
-    const [id, setID] = useState(0)
-    const times = number || 5
+const Ratings = ({ number, size, selected }) => {
+    const [id, setID] = useState(selected || 1)
+    const count = number || 5
     const elements = []
 
-    for (let i = 0; i < times; i++) {
+    for (let i = 0; i < count; i++) {
         elements.push({
             id: i + 1,
-            icon: <Rating id={id} index={i + 1} />
+            icon: <Rating id={id} index={i + 1} size={size} />
         })
     }
 

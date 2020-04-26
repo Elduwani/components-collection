@@ -1,0 +1,92 @@
+@import "../../variables";
+
+$height: 60px;
+
+.select-parent{
+    position: relative;
+    // @include border(red);
+
+    .selected-parent{
+        display: flex;
+        
+        .selected{
+            display: grid;
+            height: $height;
+            padding: 5px 22px;
+            place-items: center;
+            background: $clr-blue;
+            border-right: 1px solid $clr-purple;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            
+            &:hover{
+                background: $clr-purple;
+                color: white;
+            }
+        }
+    }
+    
+    .options-parent{
+        background:#fff;
+        position: absolute;
+        width: 100%;
+        top: 53px;
+        overflow: hidden;
+        cursor: pointer;
+        
+        .option{
+            padding: 10px;
+            border-top: 1px solid #eee;
+            color: $clr-darkblue;
+
+            &:first-child{
+                border: none;
+            }
+            &:hover{
+                // background: $clr-purple;
+                // color: white;
+            }
+        }
+    }
+
+    .input-wrapper{
+        display: flex;
+        align-items: center;
+        background: #fff;
+        overflow: hidden;
+        
+        input{
+            padding: 0 20px;
+            height: $height;
+            outline: none;
+            border: none;
+            box-sizing: border-box;
+            background: #eee;
+            flex: 1;
+            font-size: 1.2rem;
+
+            &::placeholder{
+                font-size: 1.2rem;
+            }
+        }
+        .clear{
+            flex: 1;
+            display: grid;
+            place-items: center;
+            color: $clr-red;
+            cursor: pointer;
+
+            svg{
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
+@media (hover: none) {
+    .select-parent .selected-parent .selected{
+        background: transparent;
+        color: dodgerblue;
+    }
+}
