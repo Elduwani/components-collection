@@ -2,48 +2,28 @@ import React, { useState, useRef, createRef, useEffect } from 'react'
 import Loader from "../loader/Loader"
 import "./autoInput.scss"
 
-const formData = {
-    "card": "",
-    "mm": "",
-    "dd": "",
-    "yy": "",
-    "cvv": "",
-}
+const formData = { "card": "", "mm": "", "dd": "", "yy": "", "cvv": "" }
 
 export default function AutoInput() {
     const [form, setForm] = useState(formData)
     const [state, setState] = useState(null)
     const [text, setText] = useState("Pay")
-    const xRefs = {}
+    // const [index, setIndex] = useState(0)
+    const maxLengths = {}
+    const refs = {}
 
-    const collections = ["Card Information", "MM", "DD", "YY", "CVV"]
-    useRef(collections.map((_, i) => {
-        // const name = collections[i].split(" ")[0].toLowerCase()
-        xRefs[i] = createRef()
+    const collection = Object.keys(formData)
+    useRef(collection.map((_name, i) => {
+        refs[i] = createRef()
+        if (_name === "card") return maxLengths[_name] = 4
+        if (_name === "cvv") return maxLengths[_name] = 3
+        return maxLengths[_name] = 2
     }))
-
-    let input1 = xRefs[0].current,
-        input2 = xRefs[1].current,
-        input3 = xRefs[2].current,
-        input4 = xRefs[3].current,
-        input5 = xRefs[4].current
 
     function handleChange(e) {
         const { name, value } = e.target
         const isNumber = Math.sign(value) >= 0
-
-
-        if (isNumber) {
-
-            if (input1.value.length === 3) return input2.focus()
-            if (input2.value.length === 3) return input3.focus()
-            if (input3.value.length === 3) return input4.focus()
-            if (input4.value.length === 3) return input5.focus()
-
-            setForm({ ...form, [name]: value })
-        }
-
-        return
+        if (isNumber) setForm({ ...form, [name]: value })
     }
 
     function handleSubmit() {
@@ -78,17 +58,17 @@ export default function AutoInput() {
         <div className="autofocus-wrapper">
             <div className="inputs">
                 {
-                    collections.map((elem, i) => {
-                        const name = elem.split(" ")[0].toLowerCase()
+                    collection.map((name, i) => {
                         return (
                             <input
                                 key={i}
                                 name={name}
                                 type="text"
-                                placeholder={elem}
+                                placeholder={name === "card" ? name + " number" : name}
                                 onChange={handleChange}
                                 value={form[name]}
-                                ref={xRefs[i]}
+                                ref={refs[i]}
+                                maxLength={maxLengths[name]}
                             />
                         )
                     })
