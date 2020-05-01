@@ -2,83 +2,102 @@
 
 $height: 60px;
 
+@mixin tag() {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    .circle{
+        width: 15px;
+        height: 15px;
+        margin-right: 12px;
+        border-radius: 100%;
+    }
+
+    > div {
+        color: $clr-darkblue;
+    }
+}
+
 .select-parent{
     position: relative;
-    // @include border(red);
-
-    .selected-parent{
-        display: flex;
-        
-        .selected{
-            display: grid;
-            height: $height;
-            padding: 5px 22px;
-            place-items: center;
-            background: $clr-blue;
-            border-right: 1px solid $clr-purple;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            
-            &:hover{
-                background: $clr-purple;
-                color: white;
-            }
-        }
-    }
+    width: $component-width;
     
-    .options-parent{
-        background:#fff;
-        position: absolute;
-        width: 100%;
-        top: 53px;
-        overflow: hidden;
-        cursor: pointer;
-        
-        .option{
-            padding: 10px;
-            border-top: 1px solid #eee;
-            color: $clr-darkblue;
-
-            &:first-child{
-                border: none;
-            }
-            &:hover{
-                // background: $clr-purple;
-                // color: white;
-            }
-        }
-    }
-
     .input-wrapper{
+        // height here is important
         display: flex;
+        height: $height;
+        @include borderRadius();
         align-items: center;
-        background: #fff;
-        overflow: hidden;
+        background: #eee;
+        // overflow: hidden;
+        padding: 0 10px;
         
         input{
-            padding: 0 20px;
+            flex: 0.4;
+            padding: 0 10px;
             height: $height;
             outline: none;
             border: none;
             box-sizing: border-box;
             background: #eee;
-            flex: 1;
             font-size: 1.2rem;
+            @include border(red);
 
             &::placeholder{
                 font-size: 1.2rem;
+                color: $clr-gray-2;
             }
         }
         .clear{
+            // margin-left: auto;
+            // margin-right: 10px;
             flex: 1;
             display: grid;
             place-items: center;
-            color: $clr-red;
+            color: $clr-gray-3;
             cursor: pointer;
+            @include border(red);
 
             svg{
-                width: 25px;
-                height: 25px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+    }
+    
+    .selected-parent{
+        display: flex;
+        height: calc(#{$height} - 10px);
+        
+        .selected{
+            height: 100%;
+            @include tag();
+            @include border(red);
+            @include borderRadius();
+            margin-right: 10px;
+        }
+    }
+    
+    .options-parent{
+        width: 100%;
+        cursor: pointer;
+        background:#fff;
+        position: absolute;
+        top: calc(#{$height} + 5px);
+        @include borderRadius();
+        overflow: hidden;
+        z-index: 999;
+        
+        .option{
+            @include tag();
+            padding: 15px 10px;
+            color: $clr-darkblue;
+
+            &:hover{
+                background-color: rgb(231, 238, 245);
             }
         }
     }

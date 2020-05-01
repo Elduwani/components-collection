@@ -87,13 +87,18 @@ $height: 50px;
         margin-top: 20px;
         outline: none;
         border: none;
-        background: $clr-green;
+        background-color: $clr-blue;
         color: white;
         cursor: pointer;
         @include borderRadius();
+        @include transition(0.7s);
 
-        &:focus{
-            @include border(white);
+        &.processing{
+            background-color: $clr-darkgray-3;
+        }
+
+        &.success{
+            background-color: $clr-green;
         }
 
         &::-moz-focus-inner, &::-moz-focus-outer{

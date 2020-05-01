@@ -13,6 +13,9 @@ export default function Payment() {
     const maxLengths = {}
     const refs = {}
 
+    const isLoading = state === "loading"
+    const isSuccess = state === "success"
+
     const collection = Object.keys(formData)
     useRef(collection.map((_name, i) => {
         refs[i] = createRef()
@@ -40,27 +43,26 @@ export default function Payment() {
 
     useEffect(() => {
         let timer1
-        if (state === "loading") {
+        if (isLoading) {
             timer1 = setTimeout(() => {
-                setState(null)
+                setState("success")
                 setText("Payment Successful")
                 setForm(formData)
             }, 5000);
         }
         return () => clearTimeout(timer1)
-    }, [state]);
+    }, [isLoading]);
 
     useEffect(() => {
         let timer1
         if (text === "Payment Successful") {
             timer1 = setTimeout(() => {
+                setState("")
                 setText("Pay")
             }, 5000);
         }
         return () => clearTimeout(timer1)
     }, [text]);
-
-    const isLoading = state === "loading"
 
     return (
         <div className="inputs-wrapper">
@@ -138,7 +140,13 @@ export default function Payment() {
                     </div>
                 </div>
             </div>
-            <button onClick={handleSubmit}>
+            <button
+                onClick={handleSubmit}
+                style={{
+                    backgroundColor: isLoading ? "#373741" :
+                        isSuccess ? "#59a985" : "#35477d"
+                }}
+            >
                 {
                     isLoading ?
                         <Loader size={25} stroke={3} pausable={false} color='#fff' duration={0.5} />
