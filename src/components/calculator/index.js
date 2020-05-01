@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./calculator.css"
+import "./calculator.scss"
 
 const Calculator = () => {
     document.title += " Calculator | Elduwani"
@@ -108,7 +108,7 @@ const Calculator = () => {
 
     return (
         <>
-            <div className="main-wrapper animated">
+            <div className="calculator-wrapper animated">
                 <div className={`screen-group animated ${switchDisplay ? 'justify-content-center' : ''}`}>
                     <div className={`input ${switchDisplay ? "hidden" : ""} animated`}>{displayData || "0"}</div>
                     <div className={`result animated `}>{result}</div>

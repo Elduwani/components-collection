@@ -10,7 +10,7 @@ const PlanList = ({ item }) => {
             onClick={(() => setSelected(!selected))}
             className={`plan animated ${selected ? "selected" : ""}`}
         >
-            <RadioButton selected={selected} />
+            <RadioButton selected={selected} setSelected={setSelected} />
             <div className="size">{`${item.name}GB`}</div>
             <div className="details">
                 {`

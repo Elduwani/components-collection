@@ -1,0 +1,103 @@
+@import "../../variables";
+
+$gap: 5px;
+$height: 50px;
+
+.inputs-wrapper{
+    width: $component-width;
+    background: $clr-darkgray-2;
+    @include border($clr-darkgray-3);
+    @include borderRadius();
+    @include boxShadowDark();
+    padding: 20px;
+    
+    .inputs-container{
+
+        .input{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: calc(#{$gap} * 2);
+
+            .container{
+                display: flex;
+                padding: 0 10px;
+                padding-top: 10px;
+                position: relative;
+                align-items: center;
+                background: $clr-darkgray-3;
+                @include borderRadius();
+                height: $height;
+                
+                &::before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 25%;
+                    height: 4px;
+                    background: $clr-gray-3;
+                    border-radius: 10px;
+                    top: 7px;
+                    left: 10px;
+                    opacity: 0.4;
+                }
+                svg{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+            label{
+                display: block;
+                margin-bottom: $gap;
+                color: $clr-gray;
+            }
+            input{
+                background: transparent;
+                font-size: 18px;
+                height: calc(#{$height} - 15px);
+                outline: none;
+                border: none;
+                width: 100%;
+                color: white;
+                // @include border(red);
+
+                &::placeholder{ color: $clr-gray }
+            }
+        }
+
+        .input.group{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 5px;
+            
+            .expiration{
+                .container{
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+    }
+
+    button{
+        width: 100%;
+        height: $height;
+        padding: 10px 0;
+        display: grid;
+        place-items: center;
+        margin-top: 20px;
+        outline: none;
+        border: none;
+        background: $clr-green;
+        color: white;
+        cursor: pointer;
+        @include borderRadius();
+
+        &:focus{
+            @include border(white);
+        }
+
+        &::-moz-focus-inner, &::-moz-focus-outer{
+            border: 0 !important;
+        }
+    }
+}

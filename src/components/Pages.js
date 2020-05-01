@@ -8,7 +8,7 @@ import Ratings from "./ratings/Ratings"
 import Carousel from "./carousel/Carousel"
 import Plans from "./plans/Plans"
 import BrightnessController from "./brightnessController/BrightnessController"
-import AutoInput from "./autoInput/AutoInput"
+import Payment from "./payment/Payment"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.scss"
@@ -98,8 +98,9 @@ const Pages = () => {
                     <Carousel count={null} />
                 </div>
                 <div className="content">
-                    <h2>Autofocus Inputs</h2>
-                    <AutoInput />
+                    <h2>Credit / Debit Card</h2>
+                    <p></p>
+                    <Payment />
                 </div>
             </section>
         </div>

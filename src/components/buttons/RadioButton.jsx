@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "./buttons.scss"
 
-const RadioButton = ({ selected }) => {
-    const [state, setState] = useState(selected)
-
-    useEffect(() => {
-        setState(selected)
-    }, [selected])
-
+const RadioButton = ({ selected, setSelected }) => {
     return (
         <div
-            onClick={() => setState(!state)}
+            onClick={() => setSelected(!selected)}
             className={`radio-btn-wrapper ${selected ? "selected" : ""}`}
         >
             <div className="radio-btn-inner"></div>

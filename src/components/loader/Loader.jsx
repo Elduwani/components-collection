@@ -11,13 +11,13 @@ const LoaderElement = styled.div`
     background: transparent;
 `
 
-const Loader = ({ size, stroke, color, duration, paused }) => {
+const Loader = ({ size, stroke, color, duration, paused, pausable }) => {
 
     const [pause, setPause] = useState(paused)
 
     return (
         <div
-            onClick={() => setPause(!pause)}
+            onClick={() => pausable && setPause(!pause)}
             style={{ cursor: 'pointer' }}
         >
             <motion.div
