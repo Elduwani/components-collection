@@ -1,8 +1,9 @@
 @import "../../variables";
 
 $height: 60px;
+$bg: #eee;
 
-@mixin tag() {
+@mixin tagStyles() {
     display: flex;
     align-items: center;
     padding: 5px 15px;
@@ -12,7 +13,7 @@ $height: 60px;
     .circle{
         width: 15px;
         height: 15px;
-        margin-right: 12px;
+        margin-right: 10px;
         border-radius: 100%;
     }
 
@@ -23,61 +24,64 @@ $height: 60px;
 
 .select-parent{
     position: relative;
-    width: $component-width;
+    max-width: $component-width;
+    // @include border(red);
     
     .input-wrapper{
-        // height here is important
+        width: 100%; // to avoid overgrowth
         display: flex;
-        height: $height;
-        @include borderRadius();
+        height: $height !important; // important
+        background: $bg;
+        padding: 0px 10px;
         align-items: center;
-        background: #eee;
-        // overflow: hidden;
-        padding: 0 10px;
-        
-        input{
-            flex: 0.4;
-            padding: 0 10px;
-            height: $height;
-            outline: none;
-            border: none;
-            box-sizing: border-box;
-            background: #eee;
-            font-size: 1.2rem;
-            @include border(red);
+        @include borderRadius();
+       
+        .selected-parent, input{
+            display: flex;
+            height: calc(#{$height} - 10px);
+        }
 
-            &::placeholder{
-                font-size: 1.2rem;
-                color: $clr-gray-2;
+        .selected-parent{            
+            .selected{
+                height: 100%;
+                @include tagStyles();
+                @include borderRadius();
+                @include border(gray);
+                margin-right: 10px;
+                background: #fff;
             }
         }
-        .clear{
-            // margin-left: auto;
-            // margin-right: 10px;
-            flex: 1;
+
+        .input{
+            flex: 1 1 auto;
+
+            input{
+                width: 100%;
+                padding: 0 10px;
+                outline: none;
+                border: none;
+                background: $bg;
+                font-size: 1.2rem;
+                box-sizing: border-box;
+    
+                &::placeholder{
+                    font-size: 1.1rem;
+                    color: $clr-gray-2;
+                }
+            }
+        }
+
+        .search{
             display: grid;
             place-items: center;
             color: $clr-gray-3;
             cursor: pointer;
-            @include border(red);
+            margin-left: auto;
 
             svg{
                 width: 35px;
                 height: 35px;
             }
-        }
-    }
-    
-    .selected-parent{
-        display: flex;
-        height: calc(#{$height} - 10px);
-        
-        .selected{
-            height: 100%;
-            @include tag();
-            @include border(red);
-            @include borderRadius();
-            margin-right: 10px;
         }
     }
     
@@ -92,10 +96,10 @@ $height: 60px;
         z-index: 999;
         
         .option{
-            @include tag();
+            @include tagStyles();
             padding: 15px 10px;
             color: $clr-darkblue;
-
+            
             &:hover{
                 background-color: rgb(231, 238, 245);
             }

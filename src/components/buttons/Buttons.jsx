@@ -47,19 +47,16 @@ const Buttons = () => {
     )
 }
 
-export default Buttons
-
-
 // let parentWidth = 80, parentHeight = 35
 
-{/* <Button
+/* <Button
     name="windows-btn-wrapper"
     pWidth={parentWidth}
     pHeight={parentHeight}
     cWidth={parentHeight}
     cHeight={parentHeight}
-/> */}
-{/* <Button
+/> 
+ <Button
     name="ios-btn-wrapper"
     pWidth={parentWidth}
     pHeight={parentHeight}
@@ -67,4 +64,8 @@ export default Buttons
     cHeight={30}
     rounded={true}
     offset={3}
-/> */}
+/> 
+
+*/
+
+export default Buttons

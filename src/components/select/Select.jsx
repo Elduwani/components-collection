@@ -6,11 +6,11 @@ import "./select.scss"
 
 const Select = () => {
     const inputRef = useRef()
+    const optionsDivRef = useRef()
     const [selected, setSelected] = useState([])
     const [options, setOptions] = useState(colors)
     const [showOptions, setShowOptions] = useState(false)
     const maxItems = selected.length >= 2
-
 
     const search = event => {
         const val = event.target.value
@@ -27,17 +27,33 @@ const Select = () => {
     const focus = () => inputRef.current && inputRef.current.focus()
 
     function handleOutsideClick(event) {
-        // console.log(event.target)
-        // console.log(event.currentTarget)
+        /* 
+            This event is triggered by an onBlur on the parent div containing
+            an input element. Event.target will always be the input element
+            regardless of onBlur being on the parent div.
+
+            A click event listener on the body is an alternative
+        */
+        console.log(event.currentTarget)
         // console.log(event.relatedTarget)
-        if (!event.currentTarget.contains(event.relatedTarget)) setShowOptions(false)
+        /* 
+        from https://stackoverflow.com/a/44378829
+        Reasearch more on event.currentTarget & event.relatedTarget
+        */
+
+        if (
+            !event.currentTarget.contains(event.relatedTarget) ||
+            !event.currentTarget.contains(optionsDivRef.current)) {
+            setShowOptions(false)
+        }
     }
 
     useEffect(() => {
         //Skip an already selected color when updating Options
-        const remainder = colors.filter(elem => !isSelected(elem.id))
-        setOptions(remainder)
+        const filtered = colors.filter(elem => !isSelected(elem.id))
+        setOptions(filtered)
     }, [selected]);
+
 
     return (
         <div className="select-parent" onBlur={handleOutsideClick}>
@@ -62,18 +78,20 @@ const Select = () => {
                 {
                     // MaxLength of items selectable 
                     !maxItems ?
-                        <input
-                            type="text"
-                            className="select-input"
-                            onChange={search}
-                            placeholder="Search Palettes"
-                            ref={inputRef}
-                            onClick={() => setShowOptions(true)}
-                        />
+                        <div className="input">
+                            <input
+                                type="text"
+                                className="select-input"
+                                onChange={search}
+                                placeholder="Search Palettes"
+                                ref={inputRef}
+                                onClick={() => setShowOptions(true)}
+                            />
+                        </div>
                         :
                         null
                 }
-                <div className="clear"
+                <div className="search"
                     onClick={() => {
                         setSelected([])
                         setOptions(colors)
@@ -92,13 +110,15 @@ const Select = () => {
                             animate={{ opacity: 1, y: 0, scaleY: 1 }}
                             exit={{ opacity: 0, y: -10, scaleY: 0.8 }}
                             transition={{ type: "spring", mass: 0.5 }}
+                            ref={optionsDivRef}
                         >
                             {options.map(color => {
                                 return (
                                     <div
                                         key={color.id}
                                         className="option"
-                                        onClick={() => {
+                                        onClick={(e) => {
+                                            e.stopPropagation()
                                             if (!maxItems) {
                                                 setSelected([...selected, color])
                                                 inputRef.current.value = ""
