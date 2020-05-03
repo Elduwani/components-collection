@@ -115,8 +115,7 @@ const Select = () => {
                             {options.map(color => {
                                 return (
                                     <div
-                                        key={color.id}
-                                        className="option"
+                                        style={{ borderColor: color.color }} key={color.id} className="option"
                                         onClick={(e) => {
                                             e.stopPropagation()
                                             if (!maxItems) {
@@ -125,7 +124,6 @@ const Select = () => {
                                             }
                                             focus()
                                         }}
-                                        style={{ borderColor: color.color }}
                                     >
                                         <div className="circle" style={{ backgroundColor: color.color }}></div>
                                         <div>{color.name}</div>

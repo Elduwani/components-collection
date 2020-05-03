@@ -1,9 +1,38 @@
 @import "../variables";
 
+.header{
+    @include maxWidth();
+    color: #fff;
+    margin-top: 100px;
+    margin-bottom: 80px;
+    
+    .main-title{
+        font-size: 4rem;
+        @include montserrat();
+        color: $clr-lightgreen;
+        line-height: 2.8ch;
+        letter-spacing: -0.1em;
+        margin-bottom: 30px;
+        // @include border(red);
+    }
+    .main-description{
+        width: 800px;
+        font-size: 1.5rem;
+        @include openSans();
+        font-weight: normal;
+        // letter-spacing: -0.025em;
+        color: $clr-gray;
+
+        i {
+            color: $clr-red;
+            margin-right: 10px;
+        }
+    }
+}
 .pages{
-    padding-bottom: 50px;
-    padding-top: 60px;
-    width: $page-width;
+    @include maxWidth();
+    margin-bottom: 50px;
+    margin-top: 60px;
     // @include border(red);
     
     // Group components in two
@@ -16,14 +45,8 @@
         .content {
             // @include border(green);
             
-            h2{
-                color: $clr-purple;
-                display: flex;
-                align-items: center;
-                text-transform: uppercase;
-                font-size: 1rem;
-                font-weight:800;
-                letter-spacing: 0.1rem;
+            h4{
+                color: #fff;
                 margin-bottom: 5px;
             }
             p{

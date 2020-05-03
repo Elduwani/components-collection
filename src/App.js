@@ -4,7 +4,7 @@ import Default from "./components/Default"
 import Data from "./components/charts"
 import Calculator from "./components/calculator"
 import Pages from "./components/Pages"
-import Storage from "./components/storage/Storage"
+import Storage from "./components/storage"
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
       <div className="body-container">
         <Switch>
           <Route exact path='/' component={Pages} />
-          <Route exact path='/storage' component={Storage} />
-          <Route path='/calculator' component={Calculator} />
-          <Route path='/data' component={Data} />
+          <Route exact path='/c/storage' component={Storage} />
+          <Route path='/c/calculator' component={Calculator} />
+          <Route path='/c/data' component={Data} />
           <Route path='*' component={Default} />
         </Switch>
       </div>

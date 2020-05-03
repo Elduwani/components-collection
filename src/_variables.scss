@@ -13,25 +13,21 @@ $clr-lightgreen: #5FE3A1;
 $clr-yellow: #e8bd51;
 $clr-red: #DB2456;
 
-$page-width: 900px;
 $component-width: 360px;
 $radius: 6px;
 
-@mixin border($color) {
-    border: 1px solid $color;
-}
-@mixin boxShadow() {
-  box-shadow: rgba(5, 5, 5, 0.1) 0px 10px 25px;
-}
-@mixin boxShadowDark() {
-    box-shadow: 0px 20px 30px #00000057;
-}
+@mixin maxWidth() { width: 900px }
+@mixin border($color) { border: 1px solid $color }
+@mixin boxShadow() { box-shadow: rgba(5, 5, 5, 0.1) 0px 10px 25px }
+@mixin boxShadowDark() { box-shadow: 0px 20px 30px #00000057 }
 @mixin fontFamily() {
     font-family: 'Open Sans', -apple-system, "Roboto", "Helvetica Neue", sans-serif;
 }
-@mixin transition($time) {
-    transition: all $time ease;
+@mixin montserrat() {
+    font-family: 'Montserrat', -apple-system, "Roboto", "Helvetica Neue", sans-serif;
 }
-@mixin borderRadius() {
-    border-radius: $radius;
+@mixin openSans() {
+    font-family: 'Roboto', -apple-system, "Roboto", "Helvetica Neue", sans-serif;
 }
+@mixin transition($time) { transition: all $time ease }
+@mixin borderRadius() { border-radius: $radius }
