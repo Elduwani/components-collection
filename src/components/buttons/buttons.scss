@@ -92,31 +92,32 @@
             cursor: pointer;
         }
         
-        .radio-btn-wrapper{
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid #373741;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            
-            &.selected{
-                background: dodgerblue;
-                border-color: transparent;
-            }
-            &.selected .radio-btn-inner{
-                background: #fff;
-            }
-            .radio-btn-inner{
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                transition: all 0.2s ease;
-                flex: none !important;
-            }
-        }
+    }
+}
+
+.radio-btn-wrapper{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #373741;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &.selected{
+        background: dodgerblue;
+        border-color: transparent;
+    }
+    &.selected .radio-btn-inner{
+        background: #fff;
+    }
+    .radio-btn-inner{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+        flex: none !important;
     }
 }

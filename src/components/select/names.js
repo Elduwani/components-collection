@@ -1,47 +1,27 @@
 export default [
     {
         id: 1,
-        firstName: 'Jocelyn',
-        lastName: 'Dumas',
+        name: 'Green',
+        color: '#59a985',
     },
     {
         id: 2,
-        firstName: 'Bessam',
-        lastName: 'Luis',
+        name: 'Red',
+        color: '#DB2456',
     },
     {
         id: 3,
-        firstName: 'Andrew',
-        lastName: 'Kramer',
+        name: 'Blue',
+        color: '#151965',
     },
     {
         id: 4,
-        firstName: 'Emma',
-        lastName: 'Stone',
+        name: 'Turquoious',
+        color: '#46b5d1',
     },
     {
         id: 5,
-        firstName: 'Flint',
-        lastName: 'Lockwood',
-    },
-    {
-        id: 6,
-        firstName: 'Arin',
-        lastName: 'Effiong',
-    },
-    {
-        id: 7,
-        firstName: 'Chrisie',
-        lastName: 'Marcel',
-    },
-    {
-        id: 8,
-        firstName: 'Logan',
-        lastName: 'Paul',
-    },
-    {
-        id: 9,
-        firstName: 'Wes',
-        lastName: 'Bos',
+        name: 'Gray',
+        color: '#212127',
     }
 ]

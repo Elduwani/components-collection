@@ -1,11 +1,11 @@
 @import "../../variables";
 
 .plans-wrapper{
-    background: #212127;
+    padding: 20px;
     color: #fff;
     width: $component-width;
-    padding: 20px;
-    border: 1px solid #373741;
+    background: $clr-darkgray-2;
+    border: 1px solid $clr-darkgray-3;
     box-shadow: 0px 20px 30px #00000057;
     // @include border(red);
     
@@ -26,7 +26,7 @@
     }
     ul.plans {
         overflow: hidden;
-        border: 1px solid #3d3d47;
+        border: 1px solid $clr-darkgray-3;
         margin-bottom: 15px;
         
         li {
@@ -36,7 +36,7 @@
             font-size: 0.75rem;
             color: var(--lightgray);
             align-items: center;
-            border-bottom: 1px solid #3d3d47;
+            border-bottom: 1px solid $clr-darkgray-3;
             padding: 8px 10px;
             cursor: pointer;
             

@@ -63,3 +63,9 @@
         }
     }
 }
+
+.storage-page-wrapper{
+    @include border(red);
+    @include maxWidth();
+    color: #fff;
+}

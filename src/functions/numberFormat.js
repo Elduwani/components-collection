@@ -17,3 +17,9 @@ export default function numberFormat(labelValue) {
     }
     return Math.abs(Number(labelValue));
 }
+
+const usd = new Intl.NumberFormat("en-US", {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0
+})

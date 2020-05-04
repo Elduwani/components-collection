@@ -1,84 +1,107 @@
 @import "../../variables";
 
 $height: 60px;
+$bg: #eee;
+
+@mixin tagStyles() {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    .circle{
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+        border-radius: 100%;
+    }
+
+    > div {
+        color: $clr-darkblue;
+    }
+}
 
 .select-parent{
     position: relative;
+    max-width: $component-width;
     // @include border(red);
-
-    .selected-parent{
+    
+    .input-wrapper{
+        width: 100%; // to avoid overgrowth
         display: flex;
-        
-        .selected{
+        height: $height !important; // important
+        background: $bg;
+        padding: 0px 10px;
+        align-items: center;
+        @include borderRadius();
+       
+        .selected-parent, input{
+            display: flex;
+            height: calc(#{$height} - 10px);
+        }
+
+        .selected-parent{            
+            .selected{
+                height: 100%;
+                @include tagStyles();
+                @include borderRadius();
+                @include border(gray);
+                margin-right: 10px;
+                background: #fff;
+            }
+        }
+
+        .input{
+            flex: 1 1 auto;
+
+            input{
+                width: 100%;
+                padding: 0 10px;
+                outline: none;
+                border: none;
+                background: $bg;
+                font-size: 1.2rem;
+                box-sizing: border-box;
+    
+                &::placeholder{
+                    font-size: 1.1rem;
+                    color: $clr-gray-2;
+                }
+            }
+        }
+
+        .search{
             display: grid;
-            height: $height;
-            padding: 5px 22px;
             place-items: center;
-            background: $clr-blue;
-            border-right: 1px solid $clr-purple;
-            transition: all 0.2s ease;
+            color: $clr-gray-3;
             cursor: pointer;
-            
-            &:hover{
-                background: $clr-purple;
-                color: white;
+            margin-left: auto;
+
+            svg{
+                width: 35px;
+                height: 35px;
             }
         }
     }
     
     .options-parent{
+        width: 100%;
+        cursor: pointer;
         background:#fff;
         position: absolute;
-        width: 100%;
-        top: 53px;
+        top: calc(#{$height} + 5px);
+        @include borderRadius();
         overflow: hidden;
-        cursor: pointer;
+        z-index: 999;
         
         .option{
-            padding: 10px;
-            border-top: 1px solid #eee;
+            @include tagStyles();
+            padding: 15px 10px;
             color: $clr-darkblue;
-
-            &:first-child{
-                border: none;
-            }
+            
             &:hover{
-                // background: $clr-purple;
-                // color: white;
-            }
-        }
-    }
-
-    .input-wrapper{
-        display: flex;
-        align-items: center;
-        background: #fff;
-        overflow: hidden;
-        
-        input{
-            padding: 0 20px;
-            height: $height;
-            outline: none;
-            border: none;
-            box-sizing: border-box;
-            background: #eee;
-            flex: 1;
-            font-size: 1.2rem;
-
-            &::placeholder{
-                font-size: 1.2rem;
-            }
-        }
-        .clear{
-            flex: 1;
-            display: grid;
-            place-items: center;
-            color: $clr-red;
-            cursor: pointer;
-
-            svg{
-                width: 25px;
-                height: 25px;
+                background-color: rgb(231, 238, 245);
             }
         }
     }

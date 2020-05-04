@@ -1,36 +1,75 @@
-import React, { useState, useRef } from 'react';
-import { FiXCircle } from "react-icons/fi"
-import names from "./names.js"
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from "framer-motion"
+import { IoIosSearch } from "react-icons/io"
+import colors from "./names.js"
 import "./select.scss"
 
 const Select = () => {
-    const [users, setUsers] = useState(names)
-    const [inputValue, setInputValue] = useState("")
-    const [optionsData, setOptionsData] = useState([])
-    const [selected, setSelected] = useState([])
-    const maxItems = 3
-
     const inputRef = useRef()
+    const optionsDivRef = useRef()
+    const [selected, setSelected] = useState([])
+    const [options, setOptions] = useState(colors)
+    const [showOptions, setShowOptions] = useState(false)
+    const maxItems = selected.length >= 2
 
     const search = event => {
         const val = event.target.value
-        setInputValue(val)
+        setShowOptions(true)
 
         const regex = new RegExp(val, 'gi')
-        const data = users.filter(user => user.firstName.match(regex) || user.lastName.match(regex))
-        if (val.length) setOptionsData(data)
-        else setOptionsData([])
+        const data = colors.filter(color => color.name.match(regex) && !isSelected(color.id))
+        if (data.length) setOptions(data)
+        else setOptions([])
     }
 
+    //If color is selected, do not include
+    const isSelected = id => [...selected.map(el => el.id)].includes(id)
+    const focus = () => inputRef.current && inputRef.current.focus()
+
+    function handleOutsideClick(event) {
+        /* 
+            This event is triggered by an onBlur on the parent div containing
+            an input element. Event.target will always be the input element
+            regardless of onBlur being on the parent div.
+
+            A click event listener on the body is an alternative
+        */
+        console.log(event.currentTarget)
+        // console.log(event.relatedTarget)
+        /* 
+        from https://stackoverflow.com/a/44378829
+        Reasearch more on event.currentTarget & event.relatedTarget
+        */
+
+        if (
+            !event.currentTarget.contains(event.relatedTarget) ||
+            !event.currentTarget.contains(optionsDivRef.current)) {
+            setShowOptions(false)
+        }
+    }
+
+    useEffect(() => {
+        //Skip an already selected color when updating Options
+        const filtered = colors.filter(elem => !isSelected(elem.id))
+        setOptions(filtered)
+    }, [selected]);
+
+
     return (
-        <div className="select-parent">
-            <div className="input-wrapper flex box-shadow">
+        <div className="select-parent" onBlur={handleOutsideClick}>
+            <div className="input-wrapper box-shadow">
                 {
+                    //Display selected items
                     selected.length ?
                         <div className="selected-parent">
                             {
-                                selected.map(sel =>
-                                    <div className="selected" key={sel.id}>{`${sel.firstName}`}</div>
+                                selected.map(color =>
+                                    <div className="selected" key={color.id} style={{ borderColor: color.color }}>
+                                        <div className="circle"
+                                            style={{ backgroundColor: color.color }}
+                                        ></div>
+                                        <div>{color.name}</div>
+                                    </div>
                                 )
                             }
                         </div>
@@ -38,56 +77,64 @@ const Select = () => {
                 }
                 {
                     // MaxLength of items selectable 
-                    selected.length < maxItems ?
-                        <input
-                            type="text"
-                            className="select-input"
-                            onChange={search}
-                            // placeholder={`Type to select ${4 - selected.length} ${selected.length === 3 ? "more" : "names"}`}
-                            placeholder="Type to select"
-                            value={inputValue}
-                            ref={inputRef}
-                        />
+                    !maxItems ?
+                        <div className="input">
+                            <input
+                                type="text"
+                                className="select-input"
+                                onChange={search}
+                                placeholder="Search Palettes"
+                                ref={inputRef}
+                                onClick={() => setShowOptions(true)}
+                            />
+                        </div>
                         :
-                        <div
-                            className="clear"
-                            onClick={() => {
-                                setSelected([])
-                                setUsers(names)
-                            }}
-                        ><FiXCircle /></div>
+                        null
                 }
+                <div className="search"
+                    onClick={() => {
+                        setSelected([])
+                        setOptions(colors)
+                        focus()
+                    }}
+                ><IoIosSearch /></div>
             </div>
 
             {
-                optionsData.length ?
-                    <div className="options-parent">
-                        {
-                            optionsData.map(user => {
+                //Display the dropdown of options
+                <AnimatePresence>
+                    {showOptions ?
+                        <motion.div
+                            className="options-parent"
+                            initial={{ opacity: 0, y: -10, scaleY: 0.8 }}
+                            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                            exit={{ opacity: 0, y: -10, scaleY: 0.8 }}
+                            transition={{ type: "spring", mass: 0.5 }}
+                            ref={optionsDivRef}
+                        >
+                            {options.map(color => {
                                 return (
                                     <div
-                                        key={user.id}
-                                        className="option"
-                                        onClick={() => {
-                                            setSelected([...selected, user])
-                                            const x = users.filter(elem => user.id !== elem.id)
-                                            setUsers(x)
-                                            setOptionsData([])
-                                            setInputValue([])
-                                            inputRef.current.focus()
+                                        style={{ borderColor: color.color }} key={color.id} className="option"
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            if (!maxItems) {
+                                                setSelected([...selected, color])
+                                                inputRef.current.value = ""
+                                            }
+                                            focus()
                                         }}
                                     >
-                                        {`${user.firstName} ${user.lastName}`}
+                                        <div className="circle" style={{ backgroundColor: color.color }}></div>
+                                        <div>{color.name}</div>
                                     </div>
                                 )
-                            })
-                        }
-                    </div>
-                    : null
-
+                            })}
+                        </motion.div>
+                        : null
+                    }
+                </AnimatePresence>
             }
-
-
         </div>
     );
 }
