@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform } from "framer-motion"
 import { FiSun } from "react-icons/fi"
-import "./brightnessController.css"
+import "./brightnessController.scss"
 
 const BrightnessController = () => {
 
-
+    const ref = React.useRef(null)
     const x = useMotionValue(0)
     const end = 200
 
     const rotate = useTransform(
-        x, [0, end], [0, 90]
+        x, [0, end], [0, 180]
     )
     const background = useTransform(
         x, [0, end], ["#35477d", "#e6d3a7"]
@@ -21,28 +21,30 @@ const BrightnessController = () => {
 
     return (
         <motion.div className="b-c-wrapper rounded" style={{ background }}>
-            <div className="items">
-                <motion.div
-                    style={{
-                        display: "flex",
-                        rotate,
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: iconColor
-                    }}>
-                    <FiSun className="b-icon" />
-                </motion.div>
-                <div className="b-slider">
+            <div className="container">
+                <div>
                     <motion.div
+                        style={{
+                            // Sun icon container
+                            rotate, //animated...
+                            display: "grid",
+                            placeItems: "center",
+                            color: iconColor
+                        }}>
+                        <FiSun className="b-icon" />
+                    </motion.div>
+                </div>
+                <div className="b-slider" ref={ref}>
+                    <motion.div
+                        // Dragable circle
                         drag="x"
-                        dragConstraints={{ left: 0, right: 200 }}
-                        dragElastic={0.1}
+                        dragElastic={0}
+                        dragConstraints={ref}
                         style={{ x, background: iconColor }}
                         className="b-slider-button"
                     ></motion.div>
                 </div>
             </div>
-            <div className="b-overlay"></div>
         </motion.div>
     );
 }

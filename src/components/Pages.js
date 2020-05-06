@@ -66,8 +66,6 @@ const Pages = () => {
                             Ratings components for customer and product reviews. Tap to rate your experience.
                         </p>
                         <Ratings size={40} selected={3} />
-                        <Ratings size={30} selected={2} />
-                        <Ratings size={25} />
                     </div>
                     <div className="content">
                         <h4>Spinners</h4>

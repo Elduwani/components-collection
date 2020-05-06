@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FiStar } from "react-icons/fi"
+import "./ratings.scss"
 
 const Rating = ({ id, index, size }) => {
     return (
@@ -21,31 +22,43 @@ const Rating = ({ id, index, size }) => {
 
 const Ratings = ({ number, size, selected }) => {
     const [id, setID] = useState(selected || 1)
+    const [stars, setStars] = useState([])
     const count = number || 5
-    const elements = []
 
-    for (let i = 0; i < count; i++) {
-        elements.push({
-            id: i + 1,
-            icon: <Rating id={id} index={i + 1} size={size} />
-        })
-    }
 
-    return (
-        <div className="flex">
-            {
-                elements.map(rating => {
-                    return (
-                        <motion.div
-                            key={rating.id}
-                            style={{ cursor: 'pointer' }}
-                            onClick={() => setID(rating.id)}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                        >{rating.icon}</motion.div>
-                    )
+    useEffect(() => {
+        // populate stars
+        (() => {
+            const elems = []
+            for (let i = 0; i < count; i++) {
+                elems.push({
+                    id: i + 1,
+                    icon: <Rating id={id} index={i + 1} size={size} />
                 })
             }
+            setStars(elems)
+        })()
+    }, [id]);
+
+    return (
+        <div className="stars-wrapper">
+            <div className="container">
+                <h2>You left the conversation</h2>
+                <p>Please rate the quality of this call</p>
+                <div className="stars">
+                    {
+                        stars.map(rating =>
+                            <motion.div
+                                key={rating.id}
+                                style={{ cursor: 'pointer' }}
+                                onClick={() => setID(rating.id)}
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                            >{rating.icon}</motion.div>
+                        )
+                    }
+                </div>
+            </div>
         </div>
     )
 }

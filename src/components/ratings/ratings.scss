@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.stars-wrapper{
+    width: $component-width;
+    
+    .container{
+        background: #fff;
+        .stars{
+            display: flex;
+        }
+    }
+}

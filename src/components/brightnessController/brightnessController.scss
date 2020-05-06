@@ -1,0 +1,36 @@
+@import "../../variables";
+
+.b-c-wrapper{
+    height: 150px;
+    color: white;
+    padding: 0 40px;
+    background: var(--violet);
+    width: $component-width;
+    
+    .container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .b-slider {
+        flex: 1;
+        height: 6px;
+        margin-left: 15px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        background: var(--orange);
+    }
+    .b-slider-button {
+        width: 18px;
+        height: 18px;
+        background: #fff;
+        border-radius: 999px;
+    }
+    .b-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
