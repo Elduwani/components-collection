@@ -1,12 +1,17 @@
 @import "../../variables";
 
 .stars-wrapper{
+    padding: 30px;
     width: $component-width;
-    
+    background: $clr-darkgray-2;
+    @include borderRadius();
+
     .container{
-        background: #fff;
+        p{ max-width: 100% }
         .stars{
+            margin: 20px 0 10px;
             display: flex;
+            justify-content: space-between;
         }
     }
 }

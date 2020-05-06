@@ -9,7 +9,6 @@ const Rating = ({ id, index, size }) => {
             style={{
                 width: size,
                 height: size,
-                marginRight: 15,
                 transition: `color ${0.2}s ease`,
 
                 // Only fill from current id downwards
@@ -43,8 +42,8 @@ const Ratings = ({ number, size, selected }) => {
     return (
         <div className="stars-wrapper">
             <div className="container">
-                <h2>You left the conversation</h2>
-                <p>Please rate the quality of this call</p>
+                <h2>You left the meeting</h2>
+                <p>Please rate the quality of your last call</p>
                 <div className="stars">
                     {
                         stars.map(rating =>
@@ -57,6 +56,10 @@ const Ratings = ({ number, size, selected }) => {
                             >{rating.icon}</motion.div>
                         )
                     }
+                </div>
+                <div className="flex">
+                    <p>Not good</p>
+                    <p style={{ textAlign: "right" }}>Very good</p>
                 </div>
             </div>
         </div>
