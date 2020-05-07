@@ -2,10 +2,18 @@ import React from 'react'
 import Storage from "./Storage"
 import "./storage.scss"
 
-export default function index() {
+export default () => {
+    const [count, setCount] = React.useState(1)
+
     return (
         <div className="storage-page-wrapper">
-            Hello
+            <div className="left-content">
+                <h2 className="headline">Select your storage options</h2>
+                <div className="headline"></div>
+            </div>
+            <div className="right-content">
+                <Storage />
+            </div>
         </div>
     )
 }

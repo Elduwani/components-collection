@@ -9,6 +9,7 @@ import Carousel from "./carousel/Carousel"
 import Plans from "./plans/Plans"
 import BrightnessController from "./brightnessController/BrightnessController"
 import Payment from "./payment/Payment"
+import Layout from "./layout/Layout"
 // import { FiBox } from "react-icons/fi"
 
 import "./pages.scss"
@@ -31,7 +32,7 @@ const Pages = () => {
                     <div className="content">
                         <h4>Folder Tree</h4>
                         <p>
-                            A recursive component. Uses data whose entries are defined in a hierarchical manner. Useful for file structure exploration and so on.
+                            A recursive component that uses data whose entries are defined in a hierarchical structure.
                       </p>
                         <Filesystem />
                     </div>
@@ -65,7 +66,7 @@ const Pages = () => {
                         <p>
                             Ratings components for customer and product reviews. Tap to rate your experience.
                         </p>
-                        <Ratings size={40} selected={3} />
+                        <Ratings size={40} selected={2} />
                     </div>
                     <div className="content">
                         <h4>Spinners</h4>
@@ -107,6 +108,14 @@ const Pages = () => {
                         <h4>Credit / Debit Card</h4>
                         <p></p>
                         <Payment />
+                    </div>
+                </section>
+
+                <section>
+                    <div className="content grid-span-2">
+                        <h4>Layouts</h4>
+                        <p>Different CSS Grid layouts</p>
+                        <Layout />
                     </div>
                 </section>
             </div>

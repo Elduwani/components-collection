@@ -1,8 +1,7 @@
 const data = {
     name: "OS (C:)",
-    size: 476,
     info: "This is how your storage is used and how you can free up space",
-    usageDetails: [
+    details: [
         {
             name: "Documents",
             size: 40,

@@ -18,7 +18,7 @@ const Filesystem = () => {
             default:
                 return state
         }
-    }, [{ name: "OS" }])
+    }, [{ name: "Music" }])
 
     return (
         <div className="filesystem-wrapper box-shadow">

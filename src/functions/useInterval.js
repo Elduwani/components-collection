@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-function useInterval(callback, delay) {
+function useInterval(callback, delay, id) {
     const savedCallback = useRef()
 
     //remember the latest callback
@@ -17,7 +17,7 @@ function useInterval(callback, delay) {
             return () => clearInterval(counter1)
         }
         //eslint-disable-next-line
-    }, [delay])
+    }, [delay, id])
 }
 
 export default useInterval;

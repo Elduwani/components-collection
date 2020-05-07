@@ -15,7 +15,7 @@ const Carousel = ({ count }) => {
 
     useInterval(() => {
         setID(st => st < num - 1 ? st + 1 : 0)
-    }, isRunning ? 3000 : null)
+    }, isRunning ? 2000 : null, id)
 
     return (
         <div className={'_carousel rounded'}>
@@ -45,7 +45,7 @@ const Carousel = ({ count }) => {
                         className={`indicator ${id === i ? 'selected' : ''}`}
                         onClick={() => {
                             setID(i)
-                            setIsRunning(true)
+                            if (!isRunning) setIsRunning(true)
                         }}
                     >
                         <div style={{ background: id === i && colors[i] }}></div>

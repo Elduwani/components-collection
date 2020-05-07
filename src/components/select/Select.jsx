@@ -34,13 +34,11 @@ const Select = () => {
 
             A click event listener on the body is an alternative
         */
-        console.log(event.currentTarget)
-        // console.log(event.relatedTarget)
-        /* 
-        from https://stackoverflow.com/a/44378829
-        Reasearch more on event.currentTarget & event.relatedTarget
-        */
 
+        /* 
+            from https://stackoverflow.com/a/44378829
+            Reasearch more on event.currentTarget & event.relatedTarget
+        */
         if (
             !event.currentTarget.contains(event.relatedTarget) ||
             !event.currentTarget.contains(optionsDivRef.current)) {

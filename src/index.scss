@@ -3,7 +3,7 @@
   box-sizing: border-box !important;
 }
 body {
-  @include fontFamily();
+  @include openSans();
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -53,11 +53,9 @@ code {
   flex-direction: column;
 }
 .flex-right{
-  display: flex;
   margin-left: auto;
 }
 .flex-left{
-  display: flex;
   margin-right: auto;
 }
 .rounded{

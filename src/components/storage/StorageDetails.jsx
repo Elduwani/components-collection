@@ -14,29 +14,39 @@ const checkIcon = (name) => {
 }
 
 
-const StorageDetails = ({ state }) => {
+const StorageDetails = ({ diskSize, setUsed }) => {
 
-    const percent = (num) => {
-        const x = (state * num * 3) / 100
-        if (x > 98) return "95"
-        else return String(Math.round(x))
+    const percent = (num, total) => {
+        // To calculate percentages => ((got / total) * 100)
+        const percentage = (num / total) * 100
+        return String(Math.round(percentage))
     }
 
+    React.useEffect(() => {
+        const total = data.details.reduce((acc, curr) => acc + curr.size, 0)
+        // eslint-disable-next-line
+        setUsed(Math.ceil((total / diskSize) * 100))
+    }, [diskSize])
+
     return (
-        <div style={{ marginTop: 20, cursor: "pointer" }}>
+        <div style={{ marginTop: 20 }}>
             {
-                data.usageDetails.map((element, i) => {
+                data.details.map((element, i) => {
                     const { name, size, info } = element
                     return (
-                        <div key={i} className="storage-details flex">
+                        <div key={i} className="storage-details">
                             <div className="icon">{checkIcon(name)}</div>
                             <div className="detail">
                                 <div className="info flex">
                                     <div className="flex-left">{name}</div>
-                                    <div className="flex-right">{percent(size)} GB</div>
+                                    <div className="flex-right">{size} GB</div>
                                 </div>
                                 <div className="progress-parent">
-                                    <div className="progress" style={{ width: percent(size) + "%" }}></div>
+                                    <div
+                                        className="progress"
+                                        style={{ width: percent(size, diskSize / data.details.length) + "%" }}
+                                    >
+                                    </div>
                                 </div>
                                 <p>{info}</p>
                             </div>
