@@ -1,22 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
+import blueprint from "./layoutBlueprint";
 import "./layout.scss"
 
 export default function Layout() {
+    const [index, setIndex] = useState(0)
+
+    function generateGrid(object) {
+        const { id, gridRow, gridColumn } = object
+        const children = []
+
+        for (let i = 0; i < 6; i++) {
+            const selected = i === 0
+            children.push(
+                <div key={i}
+                    className={`grid-child ${selected ? "selected" : ""}`}
+                    style={{
+                        gridColumn: selected ? gridColumn : "",
+                        gridRow: selected ? gridRow : "",
+                    }}></div>
+            )
+        }
+        return <div
+            key={id}
+            onClick={() => setIndex(id)}
+            className={`grid-parent ${index === id ? "active" : ""}`}
+        >{children}</div>
+    }
+
     return (
         <div className="layouts-wrapper">
-            <div className="controls">
-                Controls
+            <div className="thumbnails-wrapper">
+                <h3>Select a template</h3>
+                <div className="thumbnails">
+                    {blueprint.map(node => generateGrid(node))}
+                </div>
             </div>
-            <div className="boxes">
-                <div className="grid-col-2">Grid Layout</div>
-                <div className="grid-col-1">Grid Layout</div>
-                <div className="grid-col-1">Grid Layout</div>
-                <div className="grid-col-1">Grid Layout</div>
-                <div className="grid-col-1">Grid Layout</div>
-                <div className="grid-col-1">Grid Layout</div>
-                <div className="grid-col-1">Grid Layout</div>
-                <div className="grid-col-1">Grid Layout</div>
-                <div className="grid-col-1">Grid Layout</div>
+            <div className="main-grid-display">
+                {generateGrid(blueprint[index])}
             </div>
         </div>
     )

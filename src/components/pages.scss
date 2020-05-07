@@ -1,5 +1,7 @@
 @import "../variables";
 
+$gridGap: 30px;
+
 .header{
     @include maxWidth();
     color: #fff;
@@ -38,16 +40,16 @@
     section {
         margin: 30px 0;
         display: grid;
+        // @include border(red);
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: $gridGap;
 
         
         .content {
             // @include border(green);
             margin-bottom: 20px;
             
-            &.grid-span-2{
-                @include border(green);
+            &.grid-col-span-2{
                 grid-column: 1 / span 2;
             }
 

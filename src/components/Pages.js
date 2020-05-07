@@ -82,6 +82,14 @@ const Pages = () => {
                 </section>
 
                 <section>
+                    <div className="content grid-col-span-2">
+                        <h4>Layouts</h4>
+                        <p>Different CSS Grid layouts</p>
+                        <Layout />
+                    </div>
+                </section>
+
+                <section>
                     <div className="content">
                         <h4>Pricing Plans</h4>
                         <p>
@@ -108,14 +116,6 @@ const Pages = () => {
                         <h4>Credit / Debit Card</h4>
                         <p></p>
                         <Payment />
-                    </div>
-                </section>
-
-                <section>
-                    <div className="content grid-span-2">
-                        <h4>Layouts</h4>
-                        <p>Different CSS Grid layouts</p>
-                        <Layout />
                     </div>
                 </section>
             </div>
