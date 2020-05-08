@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { motion, AnimatePresence } from "framer-motion"
 import { FiFolder, FiChevronRight } from "react-icons/fi";
 import items from './items'
 import './filesystem.scss'
@@ -27,7 +28,7 @@ const Filesystem = () => {
                     options={items}
                     selectedOptions={selectedOptions}
                     dispatch={dispatch}
-                    level={10}
+                    level={1}
                 />
             }
         </div>
@@ -35,49 +36,52 @@ const Filesystem = () => {
 }
 
 const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
+    return options ? options.map((option, index) => {
+        const { name, children } = option
+        const isSelected = selectedOptions.some(obj => obj.name === name)
 
-    if (options) return (
-        options.map((option, index) => {
-            const { name, children } = option
-            const result = () => selectedOptions.some(obj => obj.name === name)
-
-            return (
-                <ul key={name + index}>
-                    <li
-                        className={`${result() ? 'expanded' : ''}`}
-                        data-level={level}
-                        style={{ paddingLeft: (level + 15) + 'px' }}
-                        onClick={(e) => {
-                            e.stopPropagation()
-                            if (children) {
-                                if (result()) dispatch({ type: 'remove', name })
-                                else dispatch({ type: 'add', payload: { name, children } })
-                            }
-                        }}
-                    >
-                        <div className="icon-wrapper">
-                            {
-                                children &&
-                                    children.length ?
-                                    <FiFolder className="icon" /> :
-                                    <FiChevronRight className="icon-gray" />
-                            }
-                        </div>
-                        <span>{name}</span> <span className="count">{children && children.length + " items"}</span></li>
-                    {
-                        children && result() ?
+        return <section
+            key={name + index}
+            data-level={level}
+            className={`${children ? "parent" : "single"} ${isSelected ? 'expanded' : ''}`}
+            onClick={(e) => {
+                e.stopPropagation()
+                if (children) {
+                    if (isSelected) dispatch({ type: 'remove', name })
+                    else dispatch({ type: 'add', payload: { name, children } })
+                }
+            }}
+        >
+            <div className="info" style={{ paddingLeft: level * 20 }}>
+                {
+                    children && children.length ?
+                        <FiFolder className="icon" /> :
+                        <div className="circle"></div>
+                }
+                <span>{name}</span> <span className="count">{children ? children.length + " items" : ""}</span>
+            </div>
+            {
+                children && isSelected ?
+                    <AnimatePresence>
+                        <motion.div
+                            className="motion-div"
+                            initial={{ y: -10, height: 0, opacity: 0, }}
+                            animate={{ y: 0, height: "initial", opacity: 1, }}
+                            exit={{ y: -10, height: 0, opacity: 0 }}
+                            transition={{ type: "spring", mass: 0.5 }}
+                        >
                             <OptionsList
                                 options={children}
                                 selectedOptions={selectedOptions}
                                 dispatch={dispatch}
-                                level={level + 10}
+                                level={level + 1}
                             />
-                            : null
-                    }
-                </ul>
-            )
-        })
-    )
+                        </motion.div>
+                    </AnimatePresence>
+                    : null
+            }
+        </section>
+    }) : null
 }
 
 export default Filesystem;

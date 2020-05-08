@@ -1,74 +1,87 @@
 @import "../../variables";
 
-* {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-}
 .filesystem-wrapper{
     width: $component-width;
-    background: #fff;
+    background: $clr-darkgray-2;
     border-radius: 5px;
     overflow: hidden;
     
-    li{
-        padding: 20px 0;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        color: #333;
-    }
-    ul{
-        background: #fff;
-        border-bottom: 1px solid #eee;
-        transition: all 0.3s ease;
-        
+    section{
+        @include transition();
+        border-bottom: 1px solid $clr-darkgray-3;
         &:last-child{ border: none}
+        // @include border(green);
         
-        li.expanded {
-            background: #59a985;
+        &.expanded {
             color: white;
+            background-color: $clr-darkgray-25;
+            
+            > div.info{ 
+                background-color: $clr-blue;
+            }
+            .icon{ color: white;}
         }
-        li[data-level="10"].expanded ~ ul {
-            background: #f8efdb;
-            border-bottom: 1px solid #ece0c5;
+        
+        &[data-level="2"].expanded {
+            background-color: $clr-darkgray-3;
+
+            div.info{
+                border-top: 1px solid $clr-darkgray-2;
+                // .circle{ background-color: $clr-green}
+            }
+            > div.info{ // header
+                background-color: $clr-darkgray-4;
+                border-top: 1px solid $clr-darkgray-2;
+                span:not(.name){
+                    color: $clr-green;
+                }
+            }
         }
-        li[data-level="20"].expanded {
-            background: #5968a9;
+
+        // &[data-level="30"].expanded {} [if needed...] 
+        
+        .info{
+            display: flex;
+            height: 60px;
+            align-items: center;
+            cursor: pointer;
+            color: #ccc;
+            // padding: 20px 0;
+            // @include border(blue);
+
+            svg {
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 12px;
+                stroke: $clr-green;
+                &.icon-gray{
+                    color: #ccc;
+                }
+            }
+            .circle{
+                width: 10px;
+                height: 10px;
+                background-color: $clr-blue;
+                margin-right: 12px;
+                border-radius: 50%;
+            }
+            span.count{
+                margin-left: 20px;
+                font-size: 0.8rem;
+                color: $clr-gray;
+            }
         }
-        li[data-level="20"].expanded ~ ul {
-            background: #fdf6e7;
+
+        .motion-div{
+            // height: 60px;
+            // overflow: hidden;
+            // @include border(red);
         }
-        li[data-level="20"] span.count {
-            color: #999;
-        }
     }
-    span.count{
-        display: flex;
-        justify-self: flex-end;
-        margin-left: 20px;
-        font-size: 0.8rem;
-        color: #ccc;
-    }
-    li .icon-wrapper{
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 5px;
-        /* border: 1px solid red; */
-    }
-    .icon{
-        color: #59a985;
-    }
-    .icon-gray{
-        color: #ccc;
-    }
-    li.expanded .icon{
-        color: white;
-    }
+
 }
 
 @media (hover: none) {

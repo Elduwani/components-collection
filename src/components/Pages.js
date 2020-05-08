@@ -28,7 +28,7 @@ const Pages = () => {
                 </div>
             </div>
             <div className="pages" style={{ color: 'white' }}>
-                <section>
+                <section className="page-section">
                     <div className="content">
                         <h4>Folder Tree</h4>
                         <p>
@@ -45,7 +45,7 @@ const Pages = () => {
                     </div>
                 </section>
 
-                <section>
+                <section className="page-section">
                     <div className="content">
                         <h4>Controller</h4>
                         <p>Slide to adjust</p>
@@ -60,7 +60,7 @@ const Pages = () => {
                     </div>
                 </section>
 
-                <section>
+                <section className="page-section">
                     <div className="content">
                         <h4>Ratings</h4>
                         <p>
@@ -69,19 +69,13 @@ const Pages = () => {
                         <Ratings size={40} selected={2} />
                     </div>
                     <div className="content">
-                        <h4>Spinners</h4>
-                        <p>
-                            Spinner components for async events and loading states. Tap to pause/play.
-                        </p>
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <Loader size={40} stroke={5} color='#6c5b7b' duration={0.5} />
-                            <Loader size={70} stroke={10} color='#c06c84' paused={true} />
-                            <Loader size={100} stroke={15} color='#f67280' paused={true} />
-                        </div>
+                        <h4>Credit / Debit Card</h4>
+                        <p></p>
+                        <Payment />
                     </div>
                 </section>
 
-                <section>
+                <section className="page-section">
                     <div className="content grid-col-span-2">
                         <h4>Layouts</h4>
                         <p>Different CSS Grid layouts</p>
@@ -89,7 +83,7 @@ const Pages = () => {
                     </div>
                 </section>
 
-                <section>
+                <section className="page-section">
                     <div className="content">
                         <h4>Pricing Plans</h4>
                         <p>
@@ -106,16 +100,22 @@ const Pages = () => {
                     </div>
                 </section>
 
-                <section>
+                <section className="page-section">
                     <div className="content">
                         <h4>Carousel</h4>
                         <p>Carousel component for galleries and multi-step information.</p>
                         <Carousel count={null} />
                     </div>
                     <div className="content">
-                        <h4>Credit / Debit Card</h4>
-                        <p></p>
-                        <Payment />
+                        <h4>Spinners</h4>
+                        <p>
+                            Spinner components for async events and loading states. Tap to pause/play.
+                        </p>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <Loader size={40} stroke={5} color='#6c5b7b' duration={0.5} />
+                            <Loader size={70} stroke={10} color='#c06c84' paused={true} />
+                            <Loader size={100} stroke={15} color='#f67280' paused={true} />
+                        </div>
                     </div>
                 </section>
             </div>
