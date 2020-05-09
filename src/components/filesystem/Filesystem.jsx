@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
-import { FiFolder, FiChevronRight } from "react-icons/fi";
+import { FiFolder } from "react-icons/fi";
 import items from './items'
 import './filesystem.scss'
 
@@ -65,9 +65,9 @@ const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
                     <AnimatePresence>
                         <motion.div
                             className="motion-div"
-                            initial={{ y: -10, height: 0, opacity: 0, }}
-                            animate={{ y: 0, height: "initial", opacity: 1, }}
-                            exit={{ y: -10, height: 0, opacity: 0 }}
+                            initial={{ y: -10, opacity: 0, }}
+                            animate={{ y: 0, opacity: 1, }}
+                            exit={{ y: -10, opacity: 0 }}
                             transition={{ type: "spring", mass: 0.5 }}
                         >
                             <OptionsList

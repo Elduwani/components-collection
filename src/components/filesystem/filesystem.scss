@@ -5,12 +5,12 @@
     background: $clr-darkgray-2;
     border-radius: 5px;
     overflow: hidden;
+    transition: height 0.3s ease;
     
     section{
         @include transition();
         border-bottom: 1px solid $clr-darkgray-3;
         &:last-child{ border: none}
-        // @include border(green);
         
         &.expanded {
             color: white;

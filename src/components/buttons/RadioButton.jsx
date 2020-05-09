@@ -1,11 +1,10 @@
 import React from 'react';
 import "./buttons.scss"
 
-const RadioButton = ({ selected, setSelected }) => {
+const RadioButton = ({ isSelected }) => {
     return (
         <div
-            onClick={() => setSelected(!selected)}
-            className={`radio-btn-wrapper ${selected ? "selected" : ""}`}
+            className={`radio-btn-wrapper ${isSelected ? "selected" : ""}`}
         >
             <div className="radio-btn-inner"></div>
         </div>

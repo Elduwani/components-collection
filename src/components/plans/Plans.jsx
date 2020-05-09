@@ -1,10 +1,11 @@
 import React from 'react'
-import PlanList from "./PlanList"
-import { data } from "./plansData"
+import SinglePlan from "./SinglePlan"
+import data from "./plansData"
 // import { FiXCircle } from "react-icons/fi"
 import './plans.scss'
 
 const Plans = () => {
+    const [selected, setSelected] = React.useState(2)
     return (
         <div className="plans-wrapper rounded">
 
@@ -23,8 +24,14 @@ const Plans = () => {
                     </div>
                 </li>
                 {
-                    data.map((item, i) =>
-                        <PlanList key={i} item={item} />
+                    data.map((plan, i) =>
+                        <SinglePlan
+                            key={i}
+                            index={i}
+                            selected={selected}
+                            setSelected={setSelected}
+                            plan={plan}
+                        />
                     )
                 }
             </ul>

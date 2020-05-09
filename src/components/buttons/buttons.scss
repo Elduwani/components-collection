@@ -98,13 +98,10 @@
 .radio-btn-wrapper{
     width: 20px;
     height: 20px;
+    display: grid;
     border-radius: 50%;
-    border: 1px solid #373741;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    place-items: center;
+    @include transition();
     
     &.selected{
         background: dodgerblue;
@@ -114,10 +111,9 @@
         background: #fff;
     }
     .radio-btn-inner{
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
-        transition: all 0.2s ease;
-        flex: none !important;
+        @include transition();
     }
 }
