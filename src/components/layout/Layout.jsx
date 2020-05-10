@@ -29,13 +29,13 @@ export default function Layout() {
 
     return (
         <div className="layouts-wrapper">
-            <div className="thumbnails-wrapper">
+            <div className="left-section">
                 <h3>Select a template</h3>
                 <div className="thumbnails">
                     {blueprint.map(node => generateGrid(node))}
                 </div>
             </div>
-            <div className="main-grid-display">
+            <div className="right-section">
                 {generateGrid(blueprint[index])}
             </div>
         </div>

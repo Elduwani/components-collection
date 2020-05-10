@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .mixed-chart{
     margin-bottom: 40px;
     padding: 20px 20px 0 0;
@@ -76,6 +78,123 @@
                         stroke: #e9e9e9;
                     }
                 }
+            }
+        }
+    }
+}
+
+$height: 300px;
+
+.demo-chart-wrapper{
+    padding: 20px;
+    @include border($clr-darkgray-3);
+    @include borderRadius();
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+
+    .right-section, .left-section{
+        @include border($clr-darkgray-3);
+        @include borderRadius();
+        padding: 20px;
+        // overflow: hidden;
+    }
+
+    .controls-wrapper{
+        .control-container{
+            
+            .info{
+                display: flex;
+                // @include border();
+                height: 25px;
+                
+                p:last-child{
+                    margin-left: auto;
+                    text-align: right;
+                }
+            }
+            .slider{
+                height: 15px;
+                background-color: $clr-darkgray-4;
+                border-radius: 100px;
+                // overflow: hidden;
+
+                .slider-inner{
+                    background-color: $clr-blue;
+                    height: 100%;
+                }
+                .slider-handle{
+                    width: 5px;
+                    height: 220%;
+                    border-radius: 100px;
+                    background-color: $clr-red;
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+
+    .demo-chart-container{
+        display: grid;
+        grid-template-columns: 60px 1fr 100px;
+        
+        .y-axis{
+            display: flex;
+            height: $height;
+            flex-direction: column;
+            grid-row: 1 / span 2;
+            border-bottom: 2px solid $clr-darkgray-4;
+            
+            > div {
+                flex: 1;
+                display: grid;
+                align-content: start;
+                justify-content: end;
+                color: $clr-gray;
+                font-size: 0.8rem;
+                padding-top: 5px;
+                padding-right: 10px;
+                // @include border($clr-darkgray-3);
+            }
+        }
+        .graph{
+            height: $height;
+            grid-column: 2 / span 2;
+            border-bottom: 2px solid $clr-darkgray-4;
+            
+            > .bar-container{
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                // @include border($clr-red);
+
+                > div{
+                    background-color: $clr-blue;
+
+                    &::before{
+                        color: white;
+                        content: attr(data-amount);
+                        font-size: 0.7rem;
+                        position: relative;
+                        top: -25px;
+                    }
+                }
+            }
+        }
+        .x-axis{
+            height: 30px;
+            // @include border($clr-gray);
+            grid-column: 2 / span 2;
+            display: flex;
+
+            > div{
+                flex: 1;
+                color: $clr-gray;
+                font-size: 0.7rem;
+                display: grid;
+                place-items: center;
+                // @include border($clr-red);
             }
         }
     }

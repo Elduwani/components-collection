@@ -10,9 +10,10 @@ import Plans from "./plans/Plans"
 import BrightnessController from "./brightnessController/BrightnessController"
 import Payment from "./payment/Payment"
 import Layout from "./layout/Layout"
+import DemoChart from "./charts/DemoChart"
 // import { FiBox } from "react-icons/fi"
-
 import "./pages.scss"
+
 
 document.title = "Components with Hooks | Elduwani"
 document.body.classList.add("dark-theme")
@@ -24,7 +25,7 @@ const Pages = () => {
                 {/* <div className="main-title"><h1>Carefree Futurist of Things</h1></div> */}
                 <div className="main-title"><h1>Moderator for Complex Creativeness</h1></div>
                 <div className="main-description"><i>Hola!, </i> welcome to my javascript playground.
-                    I try to build nice things with React, and as a designer I also pride myself in writing CSS 😎.
+                    I try to build nice things with React, and as a designer I also pride myself in writing CSS <span role="img" aria-label="Cool Emoji">😎</span>.
                 </div>
             </div>
             <div className="pages" style={{ color: 'white' }}>
@@ -99,7 +100,6 @@ const Pages = () => {
                         <Buttons />
                     </div>
                 </section>
-
                 <section className="page-section">
                     <div className="content">
                         <h4>Carousel</h4>
@@ -116,6 +116,13 @@ const Pages = () => {
                             <Loader size={70} stroke={10} color='#c06c84' paused={true} />
                             <Loader size={100} stroke={15} color='#f67280' paused={true} />
                         </div>
+                    </div>
+                </section>
+                <section className="page-section">
+                    <div className="content grid-col-span-2">
+                        <h4>Demo Chart</h4>
+                        <p>Different CSS Grid layouts</p>
+                        <DemoChart />
                     </div>
                 </section>
             </div>
