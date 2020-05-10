@@ -158,7 +158,7 @@ $height: 300px;
         }
 
         button {
-            @include useButton($bgColor: $clr-darkgray-3, $has-icon: true, $iconColor: $clr-green)
+            @include useButton($has-icon: true)
         }
 
     }

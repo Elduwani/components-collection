@@ -13,8 +13,8 @@ export default [
     },
     {
         id: 3,
-        name: 'Blue',
-        color: '#151965',
+        name: 'Yellow',
+        color: '#e8bd51',
         count: 8
     },
     {

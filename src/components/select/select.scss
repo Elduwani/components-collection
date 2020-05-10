@@ -83,6 +83,31 @@ $bg: #eee;
                 height: 35px;
             }
         }
+
+    }
+    
+    .circles-wrapper{
+        gap: 10px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        // @include border();
+        padding: 20px 0;
+        
+        .circles-container{
+            padding: 10px;
+            @include centerItemsFlex();
+            background-color: $clr-darkgray-3;
+            @include borderRadius();
+            @include boxShadowDark();
+            flex-wrap: wrap;
+
+            > div{
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                margin: 1px;
+            }
+        }
     }
     
     .options-parent{

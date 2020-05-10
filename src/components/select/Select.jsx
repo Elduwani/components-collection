@@ -22,7 +22,6 @@ const Select = () => {
         else setOptions([])
     }
 
-    //If color is selected, do not include
     const isSelected = id => [...selected.map(el => el.id)].includes(id)
     const focus = () => inputRef.current && inputRef.current.focus()
 
@@ -97,7 +96,19 @@ const Select = () => {
                     }}
                 ><IoIosSearch /></div>
             </div>
-
+            <div className="circles-wrapper">
+                {
+                    options.map(color =>
+                        <div key={color.id} className="circles-container">
+                            {
+                                Array(color.count).fill("c").map((_, i) =>
+                                    <div key={i} style={{ backgroundColor: color.color }}></div>
+                                )
+                            }
+                        </div>
+                    )
+                }
+            </div>
             {
                 //Display the dropdown of options
                 <AnimatePresence>
