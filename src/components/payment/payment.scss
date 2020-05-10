@@ -12,6 +12,7 @@ $height: 50px;
     padding: 20px;
     
     .inputs-container{
+        margin-bottom: 20px;
 
         .input{
             display: flex;
@@ -79,30 +80,6 @@ $height: 50px;
     }
 
     button{
-        width: 100%;
-        height: $height;
-        padding: 10px 0;
-        display: grid;
-        place-items: center;
-        margin-top: 20px;
-        outline: none;
-        border: none;
-        background-color: $clr-blue;
-        color: white;
-        cursor: pointer;
-        @include borderRadius();
-        @include transition(0.7s);
-
-        &.processing{
-            background-color: $clr-darkgray-3;
-        }
-
-        &.success{
-            background-color: $clr-green;
-        }
-
-        &::-moz-focus-inner, &::-moz-focus-outer{
-            border: 0 !important;
-        }
+        @include useButton()
     }
 }

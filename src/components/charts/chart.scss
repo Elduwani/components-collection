@@ -89,30 +89,26 @@ $height: 300px;
     padding: 20px;
     @include border($clr-darkgray-3);
     @include borderRadius();
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 30px;
 
     .right-section, .left-section{
         @include border($clr-darkgray-3);
         @include borderRadius();
         padding: 20px;
-        // overflow: hidden;
     }
 
     .controls-wrapper{
+        display: grid;
+
         .control-container{  
-            height: 80px;
-            // @include border();
             display: grid;
+            // @include border();
             align-content: center;
-            // margin-bottom: 35px;
 
             &:last-child{margin-bottom: 0;}
 
             .info{
                 display: flex;
-                margin-bottom: 20px;
+                margin-bottom: 5px;
                 color: $clr-gray;
                 font-size: 0.9rem;
                 
@@ -125,10 +121,11 @@ $height: 300px;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                background-color: $clr-darkgray-4;
                 border-radius: 100px;
                 margin-bottom: 20px;
                 position: relative;
+                cursor: pointer;
+                padding: 7px 0;
                 // overflow: hidden;
 
                 .bar{
@@ -137,12 +134,13 @@ $height: 300px;
                     height: 5px;
                     border-radius: 5px;
                     overflow: hidden;
+                    background-color: $clr-darkgray-4;
 
                     .progress{
                         width: 100%;
                         height: 100%;
                         transform-origin: left center;
-                        background-color: white;
+                        // background-color: white;
                     }
                 }
                 .handle{
@@ -153,11 +151,14 @@ $height: 300px;
                     border-radius: 50%;
                     background: white;
                     // background-color: $clr-red;
-                    // left: -10px;
                     @include boxShadowDark();
                     cursor: pointer;
                 }
             }
+        }
+
+        button {
+            @include useButton($bgColor: $clr-darkgray-3, $has-icon: true, $iconColor: $clr-green)
         }
 
     }
@@ -165,6 +166,8 @@ $height: 300px;
     .demo-chart-container{
         display: grid;
         grid-template-columns: 60px 1fr 100px;
+        margin-left: 30px;
+        flex: 1;
         
         .y-axis{
             display: flex;
@@ -189,6 +192,7 @@ $height: 300px;
             height: $height;
             grid-column: 2 / span 2;
             border-bottom: 2px solid $clr-darkgray-4;
+            // @include border($clr-green);
             
             > .bar-container{
                 display: flex;

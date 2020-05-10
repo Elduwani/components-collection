@@ -1,25 +1,49 @@
 import React, { useState } from 'react'
 import ControlSlider from "./ControlSlider"
-import { createChartData, formatNumber } from "./createResource"
+import { motion } from "framer-motion"
+import { useCreateChartData, formatNumber } from "./createResource"
+import { FiRefreshCw } from 'react-icons/fi'
 
 export default function DemoChart() {
-    const [weeks] = useState(6)
+    let sliderWidth = 300, sliderPadding = 20
+
     const [maxAmount] = useState(20000)
+    const [weeks, setWeeks] = useState(6)
     const [barWidth, setBarWidth] = useState(20) //in pixels
-    const { yAxes, expenditure } = createChartData(maxAmount, weeks)
+    const [radius, setRadius] = useState(0) //in pixels
+    const [state, setState] = useState(useCreateChartData(maxAmount))
+
+    const useRefetch = () => setState(useCreateChartData(maxAmount, true))
 
     return (
-        <div className="demo-chart-wrapper">
-            <div className="left-section controls-wrapper">
-                <ControlSlider name="Bar width" value={barWidth} cb={setBarWidth} />
-                <ControlSlider name="Set corner radius" value={50} cb={null} />
-                <ControlSlider name="Space horizontally" value={30} cb={null} />
-                <ControlSlider name="Grid opacity" value={0.5} cb={null} />
+        <div className="demo-chart-wrapper flex">
+            <div className="left-section controls-wrapper"
+                style={{ width: sliderWidth, padding: sliderPadding }}
+            >
+                <ControlSlider wd={sliderWidth} pd={sliderPadding}
+                    name="Bar thickness" startAt={50} cb={setBarWidth} min={20} max={40} />
+
+                <ControlSlider wd={sliderWidth} pd={sliderPadding}
+                    name="Space horizontally" startAt={80} cb={setWeeks} min={5} max={8} />
+
+                <ControlSlider wd={sliderWidth} pd={sliderPadding}
+                    name="Rounding" startAt={10} cb={setRadius} min={0} max={30} />
+
+                <ControlSlider wd={sliderWidth} pd={sliderPadding}
+                    name="Grid opacity" startAt={20} cb={null} />
+
+                <div className="controls-container">
+                    <button onClick={useRefetch}>Randomize data <FiRefreshCw /></button>
+                </div>
             </div>
             <div className="demo-chart-container right-section">
                 <div className="y-axis">
                     {
-                        yAxes.map((num, i) => <div key={num + i}>{num > 0 ? "$" + formatNumber(num, true) : "$500"}</div>)
+                        state.yAxes.map((num, i) => {
+                            return <div key={num + i}>
+                                {num > 0 ? "$" + formatNumber(num, true) : "$500"}
+                            </div>
+                        })
                     }
                 </div>
                 <div className="graph" style={{
@@ -29,13 +53,20 @@ export default function DemoChart() {
                 }}>
                     {
                         Array(weeks).fill("w").map((_, i) => {
+                            //Calculate percentage of height relative to parent
+                            const height = (state.expenditure[i] / maxAmount) * 100
+
                             return <div key={i} className="bar-container">
-                                <div
-                                    data-amount={`$${formatNumber(expenditure[i])}`}
+                                <motion.div
+                                    data-amount={`$${formatNumber(state.expenditure[i])}`}
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: height + "%" }}
+                                    transition={{ type: "spring", mass: 0.5 }}
                                     style={{
-                                        height: (expenditure[i] / maxAmount) * 100 + "%",
-                                        width: barWidth
-                                    }}></div>
+                                        width: barWidth,
+                                        borderTopLeftRadius: radius,
+                                        borderTopRightRadius: radius,
+                                    }}></motion.div>
                             </div>
                         })
                     }

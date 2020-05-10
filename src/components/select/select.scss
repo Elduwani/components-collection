@@ -91,6 +91,7 @@ $bg: #eee;
         background:#fff;
         position: absolute;
         top: calc(#{$height} + 5px);
+        transform-origin: center top;
         @include borderRadius();
         overflow: hidden;
         z-index: 999;

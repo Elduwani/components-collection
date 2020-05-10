@@ -25,7 +25,7 @@ $component-width: 360px;
 @mixin fontFamily() {font-family: 'Open Sans', -apple-system, "Roboto", "Helvetica Neue", sans-serif}
 @mixin montserrat() {font-family: 'Montserrat', -apple-system, "Roboto", "Helvetica Neue", sans-serif}
 @mixin openSans() {font-family: 'Roboto', -apple-system, "Roboto", "Helvetica Neue", sans-serif}
-@mixin transition($time: 0.3s) { transition: all $time ease }
+@mixin transition($time: 0.3s, $type:all) { transition: $type $time ease }
 @mixin borderRadius($radius: 6px) { border-radius: $radius }
 @mixin centerItemsGrid () {
     display: grid;
@@ -35,4 +35,44 @@ $component-width: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@mixin useButton(
+    $width: 100%, $height: 50px, $bgColor: $clr-blue,
+    $color: white, $has-icon: false, $iconColor: white
+){
+    width: $width;
+    height: $height;
+    padding: 10px 0;
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    color: $color;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: $bgColor;
+    @include borderRadius();
+
+    @if($has-icon){
+        @include centerItemsFlex();
+        svg{
+            margin-left: 20px;
+            stroke: $iconColor;
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    &.processing{
+        background-color: $clr-darkgray-3;
+    }
+
+    &.success{
+        background-color: $clr-green;
+    }
+
+    &::-moz-focus-inner, &::-moz-focus-outer{
+        border: 0 !important;
+    }
 }

@@ -29,10 +29,7 @@ const Storage = () => {
                 onClick={() => setOpenOptions(!openOptions)}
                 role="button"
             >
-                <div className="flex">
-                    <span>Choose drive size</span>
-                    <FiArrowUp />
-                </div>
+                <button> Choose drive size <FiArrowUp /></button>
                 {
                     openOptions ?
                         <motion.div

@@ -1,26 +1,34 @@
-export function createChartData(maxNumber = 30000, axX = 6) {
-    // let yAxes = ['100', '500', '2500', '5000', '10000', '20000', maxNumber]
-    let num = maxNumber, yAxes = [], count = 5
+import { useState } from 'react'
+
+export function useCreateChartData(maxAmount = 30000, randomize = false) {
+    let yAxes = [], count = 5, weeks = 20
+    const expenditure = generateExpenditure()
 
     for (let i = count; i >= 0; i--) {
-        yAxes.push(Math.floor((num / count) * i))
+        yAxes.push(Math.floor((maxAmount / count) * i))
     }
-
-    const expenditure = generateExpenditure()
 
     function generateExpenditure() {
         const name = "expenditure"
-        const saved = JSON.parse(localStorage.getItem(name))
-        if (saved) {
-            return saved
+        const savedCopy = JSON.parse(localStorage.getItem(name))
+        const generated = Array(weeks).fill("x").map(() => Math.floor(Math.random() * maxAmount))
+
+        const save = () => localStorage.setItem(name, JSON.stringify(generated))
+
+        if (savedCopy && savedCopy.length === weeks) {
+            if (randomize) {
+                save()
+                return generated
+            } else {
+                return savedCopy
+            }
         } else {
-            const generated = Array(axX).fill("x").map(() => Math.floor(Math.random() * maxNumber))
-            localStorage.setItem(name, JSON.stringify(generated))
+            save()
             return generated
         }
     }
 
-    return { yAxes, expenditure, generateExpenditure }
+    return { yAxes, expenditure }
 }
 
 

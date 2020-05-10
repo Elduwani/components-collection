@@ -10,7 +10,7 @@ export default [
     },
     {
         id: 2,
-        gridColumn: `2 / span 2`,
+        gridColumn: `1 / span 2`,
         gridRow: `3`,
     },
     {
