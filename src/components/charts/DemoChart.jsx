@@ -1,40 +1,20 @@
-import React, { useState, useRef } from 'react'
-import { motion, useDragControls } from "framer-motion"
+import React, { useState } from 'react'
+import ControlSlider from "./ControlSlider"
 import { createChartData, formatNumber } from "./createResource"
 
-function ControlSlider({ name, value = 50 }) {
-    const ref = useRef(null)
-    const dragControls = useDragControls()
-
-    function startDrag(event) {
-        dragControls.start(event, { snapToCursor: true })
-    }
-
-    return <div className="control-container">
-        <div className="info"><p>{name}</p><p>{value}</p></div>
-        <div className="slider" ref={ref} onMouseDown={startDrag}>
-            <div className="slider-inner" style={{ width: value + "%" }}></div>
-            <motion.div
-                drag={"x"}
-                dragConstraints={ref}
-                dragElastic={false}
-                dragConstraints={dragControls}
-                className="slider-handle"
-            ></motion.div>
-        </div>
-    </div>
-}
-
 export default function DemoChart() {
-    const [weeks, setWeeks] = useState(6)
-    const [maxAmount, setMaxAmount] = useState(20000)
-    const [barWidth, setBarWidth] = useState(30) //in pixels
+    const [weeks] = useState(6)
+    const [maxAmount] = useState(20000)
+    const [barWidth, setBarWidth] = useState(20) //in pixels
     const { yAxes, expenditure } = createChartData(maxAmount, weeks)
 
     return (
         <div className="demo-chart-wrapper">
             <div className="left-section controls-wrapper">
-                <ControlSlider name="Bar width" value={50} />
+                <ControlSlider name="Bar width" value={barWidth} cb={setBarWidth} />
+                <ControlSlider name="Set corner radius" value={50} cb={null} />
+                <ControlSlider name="Space horizontally" value={30} cb={null} />
+                <ControlSlider name="Grid opacity" value={0.5} cb={null} />
             </div>
             <div className="demo-chart-container right-section">
                 <div className="y-axis">

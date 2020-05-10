@@ -1,23 +1,28 @@
-export function createChartData(axY = 30000, axX = 6) {
-    // let yAxes = ['100', '500', '2500', '5000', '10000', '20000', axY]
-    let num = axY, yAxes = [], count = 5
+export function createChartData(maxNumber = 30000, axX = 6) {
+    // let yAxes = ['100', '500', '2500', '5000', '10000', '20000', maxNumber]
+    let num = maxNumber, yAxes = [], count = 5
 
     for (let i = count; i >= 0; i--) {
         yAxes.push(Math.floor((num / count) * i))
     }
 
-    const expenditure = Array(axX).fill("x").map(() => {
-        const randomIndex = Math.floor(Math.random() * yAxes.length)
+    const expenditure = generateExpenditure()
 
-        //Last index of yAxes has value 0, because it goes from highest to lowest amount
-        const isZero = randomIndex === count
-        const result = Math.floor(Math.random() * yAxes[isZero ? 2 : randomIndex])
+    function generateExpenditure() {
+        const name = "expenditure"
+        const saved = JSON.parse(localStorage.getItem(name))
+        if (saved) {
+            return saved
+        } else {
+            const generated = Array(axX).fill("x").map(() => Math.floor(Math.random() * maxNumber))
+            localStorage.setItem(name, JSON.stringify(generated))
+            return generated
+        }
+    }
 
-        return result
-    })
-
-    return { yAxes, expenditure }
+    return { yAxes, expenditure, generateExpenditure }
 }
+
 
 export function formatNumber(number, compact) {
     if (compact) {

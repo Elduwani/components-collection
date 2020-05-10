@@ -101,33 +101,60 @@ $height: 300px;
     }
 
     .controls-wrapper{
-        .control-container{
-            
+        .control-container{  
+            height: 80px;
+            // @include border();
+            display: grid;
+            align-content: center;
+            // margin-bottom: 35px;
+
+            &:last-child{margin-bottom: 0;}
+
             .info{
                 display: flex;
-                // @include border();
-                height: 25px;
+                margin-bottom: 20px;
+                color: $clr-gray;
+                font-size: 0.9rem;
                 
-                p:last-child{
+                > div:last-child{
                     margin-left: auto;
                     text-align: right;
                 }
             }
             .slider{
-                height: 15px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
                 background-color: $clr-darkgray-4;
                 border-radius: 100px;
+                margin-bottom: 20px;
+                position: relative;
                 // overflow: hidden;
 
-                .slider-inner{
-                    background-color: $clr-blue;
-                    height: 100%;
+                .bar{
+                    overflow: hidden;
+                    width: 100%;
+                    height: 5px;
+                    border-radius: 5px;
+                    overflow: hidden;
+
+                    .progress{
+                        width: 100%;
+                        height: 100%;
+                        transform-origin: left center;
+                        background-color: white;
+                    }
                 }
-                .slider-handle{
-                    width: 5px;
-                    height: 220%;
-                    border-radius: 100px;
-                    background-color: $clr-red;
+                .handle{
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 20px;
+                    position: absolute;
+                    border-radius: 50%;
+                    background: white;
+                    // background-color: $clr-red;
+                    // left: -10px;
+                    @include boxShadowDark();
                     cursor: pointer;
                 }
             }
