@@ -12,6 +12,7 @@ export default function DemoChart() {
     const [barWidth, setBarWidth] = useState(20) //in pixels
     const [radius, setRadius] = useState(0) //in pixels
     const [state, setState] = useState(useCreateChartData(maxAmount))
+    const { yAxes, expenditure } = state
 
     const useRefetch = () => setState(useCreateChartData(maxAmount, true))
 
@@ -39,9 +40,10 @@ export default function DemoChart() {
             <div className="demo-chart-container right-section">
                 <div className="y-axis">
                     {
-                        state.yAxes.map((num, i) => {
+                        yAxes.map((num, i) => {
                             return <div key={num + i}>
-                                {num > 0 ? "$" + formatNumber(num, true) : "$500"}
+                                {"$" + formatNumber(num, true)}
+                                {/* {num > 0 ? "$" + formatNumber(num, true) : "$500"} */}
                             </div>
                         })
                     }
@@ -54,7 +56,7 @@ export default function DemoChart() {
                     {
                         Array(weeks).fill("w").map((_, i) => {
                             //Calculate percentage of height relative to parent
-                            const height = (state.expenditure[i] / maxAmount) * 100
+                            const height = (expenditure[i] / maxAmount) * 100
 
                             return <div key={i} className="bar-container">
                                 <motion.div
@@ -69,6 +71,12 @@ export default function DemoChart() {
                                     }}></motion.div>
                             </div>
                         })
+                    }
+                    {
+                        <div className="gridlines-container">{
+                            yAxes.map((_, i) => <div key={i} className="gridline"></div>)
+                        }
+                        </div>
                     }
                 </div>
                 <div className="x-axis">

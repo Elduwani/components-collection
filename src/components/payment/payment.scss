@@ -72,8 +72,30 @@ $height: 50px;
             
             .expiration{
                 .container{
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
+                    display: flex;
+                    min-width: 0;
+                    
+                    input{
+                        min-width: 1px;
+                        // @include border(green);
+                    }
+                    span{
+                        height: 90%;
+                        min-width: 1px;
+                        margin-right: 12px;
+                        
+                        &::before{
+                            content: "";
+                            display: block;
+                            position: relative;
+                            right: 0;
+                            top: 30%;
+                            width: 1px;
+                            height: 50%;
+                            transform: rotate(15deg);
+                            background-color: $clr-gray;
+                        }
+                    }
                 }
             }
         }

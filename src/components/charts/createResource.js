@@ -1,10 +1,8 @@
-import { useState } from 'react'
-
 export function useCreateChartData(maxAmount = 30000, randomize = false) {
     let yAxes = [], count = 5, weeks = 20
     const expenditure = generateExpenditure()
 
-    for (let i = count; i >= 0; i--) {
+    for (let i = count; i > 0; i--) {
         yAxes.push(Math.floor((maxAmount / count) * i))
     }
 

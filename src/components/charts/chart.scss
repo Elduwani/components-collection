@@ -168,23 +168,28 @@ $height: 300px;
         grid-template-columns: 60px 1fr 100px;
         margin-left: 30px;
         flex: 1;
-        
-        .y-axis{
+
+        @mixin _yaxis(){
             display: flex;
             height: $height;
             flex-direction: column;
+        }
+        
+        .y-axis{
+            @include _yaxis();
             grid-row: 1 / span 2;
             border-bottom: 2px solid $clr-darkgray-4;
             
             > div {
                 flex: 1;
                 display: grid;
-                align-content: start;
+                // align-content: center;
                 justify-content: end;
                 color: $clr-gray;
                 font-size: 0.8rem;
-                padding-top: 5px;
                 padding-right: 10px;
+                // @include border();
+                // padding-top: 5px;
                 // @include border($clr-darkgray-3);
             }
         }
@@ -192,12 +197,13 @@ $height: 300px;
             height: $height;
             grid-column: 2 / span 2;
             border-bottom: 2px solid $clr-darkgray-4;
-            // @include border($clr-green);
+            position: relative;
             
-            > .bar-container{
+            .bar-container{
                 display: flex;
                 align-items: flex-end;
                 justify-content: center;
+                z-index: 2;
                 // @include border($clr-red);
 
                 > div{
@@ -208,10 +214,27 @@ $height: 300px;
                         content: attr(data-amount);
                         font-size: 0.7rem;
                         position: relative;
-                        top: -25px;
+                        top: -20px;
                     }
                 }
             }
+
+            .gridlines-container{
+                @include _yaxis();
+                // @include border();
+                position: absolute;
+                width: 100%;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                
+                .gridline{
+                    // @include border();
+                    flex: 1;
+                    border-top: 1px solid $clr-darkgray-3;
+                }
+            }
+
         }
         .x-axis{
             height: 30px;

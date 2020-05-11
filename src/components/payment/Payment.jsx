@@ -91,7 +91,7 @@ export default function Payment() {
                         }
                     </div>
                 </div>
-                <div className="input group two">
+                <div className="input group">
                     <div className="expiration">
                         <label htmlFor="mm">Expiration</label>
                         <div className="container">
@@ -104,6 +104,7 @@ export default function Payment() {
                                 maxLength={maxLengths["mm"]}
                                 ref={refs[1]}
                             />
+                            <span></span>
                             <input
                                 name="dd"
                                 type="text"
@@ -113,6 +114,7 @@ export default function Payment() {
                                 maxLength={maxLengths["dd"]}
                                 ref={refs[2]}
                             />
+                            <span></span>
                             <input
                                 name="yy"
                                 type="text"
