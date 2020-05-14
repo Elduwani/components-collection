@@ -22,6 +22,9 @@ $component-width: 360px;
 @mixin boxShadow() { box-shadow: rgba(5, 5, 5, 0.1) 0px 10px 25px }
 @mixin boxShadowDark() { box-shadow: 0px 20px 30px #00000057 }
 @mixin boxShadowDark2() { box-shadow: 0px 10px 20px #22222257 }
+@mixin boxShadow($x: 0px, $y: 10px, $blur: 20px, $color: #00000057) { 
+    box-shadow: $x $y $blur $color; 
+}
 @mixin fontFamily() {font-family: 'Open Sans', -apple-system, "Roboto", "Helvetica Neue", sans-serif}
 @mixin montserrat() {font-family: 'Montserrat', -apple-system, "Roboto", "Helvetica Neue", sans-serif}
 @mixin openSans() {font-family: 'Roboto', -apple-system, "Roboto", "Helvetica Neue", sans-serif}

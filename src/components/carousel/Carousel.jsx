@@ -6,12 +6,12 @@ import "./carousel.scss"
 
 const Carousel = ({ count }) => {
     const boxWidth = 260
-    let num = count || 5
+    let num = count || 10
 
     const [id, setID] = useState(0)
     const [isRunning, setIsRunning] = useState(true)
     const colors = ["#08d9d6", '#59a985', '#6a5acd', '#e6d3a7', '#2e79ba']
-    const words = ["the", 'quick', 'brown', 'fox', 'jumped']
+    const words = ["the", 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog']
 
     useInterval(() => {
         setID(st => st < num - 1 ? st + 1 : 0)
@@ -23,33 +23,40 @@ const Carousel = ({ count }) => {
                 <motion.div
                     className="boxes-wrapper"
                     animate={{ x: id * -boxWidth }}
-                    transition={{ type: 'spring', stiffness: 80, damping: 12 }}
+                    transition={{ type: 'spring', mass: 0.5 }}
                 >
                     {
-                        colors.map((_, i) => <div
-                            key={i}
-                            onClick={(() => setIsRunning(!isRunning))}
-                            className="box rounded"
-                            style={{ border: `1px solid ${colors[i]}`, color: colors[i] }}
-                        >
-                            <span>{words[i]}</span>
-                        </div>
+                        Array(num).fill('c').map((_, i) => {
+                            const currentColor = colors[i] || colors[num % i]
+                            return <div key={i}
+                                onClick={(() => {
+                                    setID(i)
+                                    setIsRunning(false)
+                                })}
+                                className="box rounded"
+                                style={{ border: `1px solid ${currentColor}`, color: currentColor }}
+                            >
+                                <span>{words[i] || "-_-"}</span>
+                            </div>
+                        }
                         )
                     }
                 </motion.div>
             </div>
             <div className="indicators-wrapper">
                 {
-                    colors.map((_, i) => <div
-                        key={i}
-                        className={`indicator ${id === i ? 'selected' : ''}`}
-                        onClick={() => {
-                            setID(i)
-                            if (!isRunning) setIsRunning(true)
-                        }}
-                    >
-                        <div style={{ background: id === i && colors[i] }}></div>
-                    </div>
+                    Array(num).fill('i').map((_, i) => {
+                        const currentColor = colors[i] || colors[num % i]
+                        return <div key={i}
+                            className={`indicator ${id === i ? 'selected' : ''}`}
+                            onClick={() => {
+                                setID(i)
+                                if (!isRunning) setIsRunning(true)
+                            }}
+                        >
+                            <div style={{ background: id === i && currentColor }}></div>
+                        </div>
+                    }
                     )
                 }
             </div>

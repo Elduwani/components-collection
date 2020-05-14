@@ -10,6 +10,7 @@ export default function DemoChart() {
     const [maxAmount] = useState(20000)
     const [weeks, setWeeks] = useState(6)
     const [barWidth, setBarWidth] = useState(20) //in pixels
+    const [gridOpacity, setGridOpacity] = useState(100) //in pixels
     const [radius, setRadius] = useState(0) //in pixels
     const [state, setState] = useState(useCreateChartData(maxAmount))
     const { yAxes, expenditure } = state
@@ -25,17 +26,20 @@ export default function DemoChart() {
                     name="Bar thickness" startAt={50} cb={setBarWidth} min={20} max={40} />
 
                 <ControlSlider wd={sliderWidth} pd={sliderPadding}
-                    name="Space horizontally" startAt={80} cb={setWeeks} min={5} max={8} />
+                    name="Space horizontally" startAt={80} cb={setWeeks} min={5} max={9} />
 
                 <ControlSlider wd={sliderWidth} pd={sliderPadding}
                     name="Rounding" startAt={10} cb={setRadius} min={0} max={30} />
 
                 <ControlSlider wd={sliderWidth} pd={sliderPadding}
-                    name="Grid opacity" startAt={20} cb={null} />
+                    name="Grid opacity" startAt={20} cb={setGridOpacity} min={0} max={100} />
 
-                <div className="controls-container">
+                <motion.div
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: 'tween' }}
+                    className="controls-container">
                     <button onClick={useRefetch}>Randomize data <FiRefreshCw /></button>
-                </div>
+                </motion.div>
             </div>
             <div className="demo-chart-container right-section">
                 <div className="y-axis">
@@ -50,8 +54,8 @@ export default function DemoChart() {
                 </div>
                 <div className="graph" style={{
                     display: 'grid',
+                    gridAutoRows: `100%`,
                     gridTemplateColumns: `repeat(${weeks}, 1fr)`,
-                    gridAutoRows: `100%`
                 }}>
                     {
                         Array(weeks).fill("w").map((_, i) => {
@@ -60,6 +64,7 @@ export default function DemoChart() {
 
                             return <div key={i} className="bar-container">
                                 <motion.div
+                                    className={`bar ${height > 50 ? "red" : ""}`}
                                     data-amount={`$${formatNumber(state.expenditure[i])}`}
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: height + "%" }}
@@ -74,7 +79,12 @@ export default function DemoChart() {
                     }
                     {
                         <div className="gridlines-container">{
-                            yAxes.map((_, i) => <div key={i} className="gridline"></div>)
+                            yAxes.map((_, i) => {
+                                return <div key={i}
+                                    className="gridline"
+                                    style={{ opacity: gridOpacity / 100 }}
+                                ></div>
+                            })
                         }
                         </div>
                     }

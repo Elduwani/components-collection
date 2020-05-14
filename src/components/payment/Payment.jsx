@@ -4,7 +4,7 @@ import { FaCcVisa } from "react-icons/fa"
 import Loader from "../loader/Loader"
 import "./payment.scss"
 
-const formData = { "card": "", "mm": "", "dd": "", "yy": "", "cvv": "" }
+const formData = { "card": "", "mm": "", "yy": "", "cvv": "" }
 
 export default function Payment() {
     const [form, setForm] = useState(formData)
@@ -103,16 +103,6 @@ export default function Payment() {
                                 value={form["mm"]}
                                 maxLength={maxLengths["mm"]}
                                 ref={refs[1]}
-                            />
-                            <span></span>
-                            <input
-                                name="dd"
-                                type="text"
-                                placeholder="dd"
-                                onChange={handleChange}
-                                value={form["dd"]}
-                                maxLength={maxLengths["dd"]}
-                                ref={refs[2]}
                             />
                             <span></span>
                             <input

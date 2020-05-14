@@ -68,7 +68,7 @@ const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
                             initial={{ y: -10, opacity: 0, }}
                             animate={{ y: 0, opacity: 1, }}
                             exit={{ y: -10, opacity: 0 }}
-                            transition={{ type: "spring", mass: 0.5 }}
+                            transition={{ type: "tween" }}
                         >
                             <OptionsList
                                 options={children}

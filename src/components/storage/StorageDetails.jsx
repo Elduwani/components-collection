@@ -14,7 +14,7 @@ const checkIcon = (name) => {
 }
 
 
-const StorageDetails = ({ diskSize, setUsed }) => {
+const StorageDetails = ({ diskSize, setTotal }) => {
 
     const percent = (num, total) => {
         // To calculate percentages => ((got / total) * 100)
@@ -25,7 +25,7 @@ const StorageDetails = ({ diskSize, setUsed }) => {
     React.useEffect(() => {
         const total = data.details.reduce((acc, curr) => acc + curr.size, 0)
         // eslint-disable-next-line
-        setUsed(Math.ceil((total / diskSize) * 100))
+        setTotal(total)
     }, [diskSize])
 
     return (

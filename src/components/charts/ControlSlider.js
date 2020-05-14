@@ -6,9 +6,11 @@ export default function ControlSlider({
 }) {
     const handleSize = 20
     // Container width is 300px, minus 20px padding left & right = 260
+    // handlesize accounts for the width of the draggable handle
     const maxInput = wd - (pd * 2) - (handleSize)
 
-    // Calculate X percent of number { (number / 100) * X } 
+    // Calculate X percent of number { (number / 100) * X }
+    // Initial start position should be converted back from percentage to position value
     const initialStartPos = (maxInput / 100) * startAt
 
     const ref = React.useRef(null)
@@ -19,12 +21,15 @@ export default function ControlSlider({
 
     const callback = () => cb && cb(Math.round(value.current))
 
-    // on componentMount update props state with computed xPosition value
+    // !important
+    // on componentMount update props state with computed xPosition value 
     // otherwise props state is out of sync with xPosition value
     useEffect(() => { callback() }, [value]);
 
     return <div className="control-container">
-        <div className="info"><div>{name}</div><div>{Math.round(value.current)}</div></div>
+        <div className="info"><div>{name}</div>
+            <div>{Math.round(value.current)}</div>
+        </div>
 
         <div className="slider" ref={ref}
             onMouseDown={e => {
