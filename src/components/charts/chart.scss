@@ -59,20 +59,6 @@ $chart-height: 300px;
     display: flex;
     flex-direction: column-reverse;
 
-    @include md {
-        @include borderRadius;
-        @include border($clr-darkgray-3);
-        padding: 20px;
-
-        .right-section, .left-section{
-            padding: 20px;
-        }
-    }
-
-    @include lg {
-
-    }
-    
     .right-section, .left-section{
         @include border($clr-darkgray-3);
         @include borderRadius;
@@ -106,7 +92,7 @@ $chart-height: 300px;
                 justify-content: flex-start;
                 align-items: center;
                 border-radius: 100px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 position: relative;
                 cursor: pointer;
                 padding: 7px 0;
@@ -123,8 +109,8 @@ $chart-height: 300px;
                         width: 100%;
                         height: 100%;
                         transform-origin: left center;
-                        background-color: white;
-                        background: linear-gradient(to right, $clr-darkgray-4, $clr-gray);
+                        // background-color: white;
+                        // background: linear-gradient(to right, $clr-darkgray-4, $clr-gray);
                     }
                 }
                 .handle{
@@ -148,6 +134,12 @@ $chart-height: 300px;
             )
         }
 
+        @include sm {
+            .control-container .slider{
+                margin-bottom: 20px;
+            }
+        }
+
     }
 
     .right-section.demo-chart-container{
@@ -164,6 +156,13 @@ $chart-height: 300px;
         .graph .bar::before, .x-axis > div { font-size: 0.5rem }
         
         @include sm {
+            .graph .bar::before, .x-axis > div { font-size: 0.6rem; }
+        }
+        
+        @include md {
+            display: grid;
+            grid-template-columns: 60px 1fr 100px;
+            
             .y-axis{
                 @include _yaxis;
                 grid-row: 1 / span 2;
@@ -178,11 +177,6 @@ $chart-height: 300px;
                 }
             }
             .graph .bar::before, .x-axis > div { font-size: 0.7rem; }
-        }
-        
-        @include md {
-            display: grid;
-            grid-template-columns: 60px 1fr 100px;
         }
         
         .graph{
@@ -240,9 +234,27 @@ $chart-height: 300px;
                 place-items: center;
             }
         }
-        
+
         .y-axis, .graph{
             border-bottom: 2px solid $clr-darkgray-3;
         }
+    }
+
+    @include sm {
+        width: 460px;
+    }
+
+    @include md {
+        @include borderRadius;
+        @include border($clr-darkgray-3);
+        flex-direction: row;
+        padding: 20px;
+        width: 100%;
+
+        .right-section, .left-section{
+            padding: 5px 20px;
+        }
+        .left-section.controls-wrapper{ flex: 1; margin: 0; margin-right: 20px;}
+        .right-section{ flex: 2.5}
     }
 }

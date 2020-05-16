@@ -1,40 +1,39 @@
 @import "../../variables";
 
 $height: 60px;
-$bg: #eee;
 
-@mixin tagStyles() {
+@mixin tagStyles {
     display: flex;
     align-items: center;
     padding: 5px 15px;
     transition: all 0.2s ease;
     cursor: pointer;
+    background: $clr-darkgray-2;
 
     .circle{
         width: 15px;
         height: 15px;
         margin-right: 10px;
         border-radius: 100%;
+        // @include border($clr-darkgray-4);
     }
 
     > div {
-        color: $clr-darkblue;
+        color: white;
     }
 }
 
 .select-parent{
     position: relative;
-    max-width: $component-width;
-    // @include border(red);
     
     .input-wrapper{
         width: 100%; // to avoid overgrowth
         display: flex;
         height: $height !important; // important
-        background: $bg;
+        background: $clr-darkgray-2;
         padding: 0px 10px;
         align-items: center;
-        @include borderRadius();
+        @include borderRadius;
        
         .selected-parent, input{
             display: flex;
@@ -44,11 +43,11 @@ $bg: #eee;
         .selected-parent{            
             .selected{
                 height: 100%;
-                @include tagStyles();
-                @include borderRadius();
+                @include tagStyles;
+                @include borderRadius;
                 @include border(gray);
                 margin-right: 10px;
-                background: #fff;
+                background: $clr-darkgray-2;
             }
         }
 
@@ -60,9 +59,10 @@ $bg: #eee;
                 padding: 0 10px;
                 outline: none;
                 border: none;
-                background: $bg;
+                background: transparent;
                 font-size: 1.2rem;
                 box-sizing: border-box;
+                color: white;
     
                 &::placeholder{
                     font-size: 1.1rem;
@@ -90,7 +90,6 @@ $bg: #eee;
         gap: 10px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        // @include border();
         padding: 20px 0;
         
         .circles-container{
@@ -113,21 +112,27 @@ $bg: #eee;
     .options-parent{
         width: 100%;
         cursor: pointer;
-        background:#fff;
         position: absolute;
         top: calc(#{$height} + 5px);
         transform-origin: center top;
-        @include borderRadius();
+        @include borderRadius;
+        @include border($clr-darkgray-4);
+        @include boxShadowDark;
         overflow: hidden;
         z-index: 999;
         
         .option{
-            @include tagStyles();
+            @include tagStyles;
+            border-bottom: 1px solid $clr-darkgray-4;
             padding: 15px 10px;
-            color: $clr-darkblue;
+            color: white;
+
+            &:last-of-type{
+                border: none;
+            }
             
             &:hover{
-                background-color: rgb(231, 238, 245);
+                background-color: $clr-darkgray-3;
             }
         }
     }

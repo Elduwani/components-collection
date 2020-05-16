@@ -97,7 +97,7 @@ const Select = () => {
                     }}
                 ><IoIosSearch /></div>
             </div>
-            <div className="circles-wrapper">
+            {/* <div className="circles-wrapper">
                 {
                     options.map(color =>
                         <div key={color.id} className="circles-container">
@@ -109,7 +109,7 @@ const Select = () => {
                         </div>
                     )
                 }
-            </div>
+            </div> */}
             {
                 //Display the dropdown of options
                 <AnimatePresence>
