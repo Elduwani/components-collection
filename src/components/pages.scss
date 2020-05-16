@@ -1,58 +1,108 @@
 @import "../variables";
 
-$gridGap: 30px;
-
-.header{
-    @include maxWidth();
-    color: #fff;
-    margin-top: 100px;
-    margin-bottom: 80px;
-    
-    .main-title{
-        font-size: 4rem;
-        @include montserrat();
-        color: $clr-lightgreen;
-        line-height: 2.8ch;
-        letter-spacing: -0.1em;
-        margin-bottom: 30px;
-        // @include border(red);
-    }
-    .main-description{
-        width: 800px;
-        font-size: 1.5rem;
-        @include openSans();
-        font-weight: normal;
-        // letter-spacing: -0.025em;
-        color: $clr-gray;
-
-        i {
-            color: $clr-red;
-            margin-right: 10px;
-        }
-    }
-}
 .pages{
     @include maxWidth();
     margin-bottom: 50px;
     margin-top: 60px;
+    // @include border;
+    padding: 5px;
+    width: 90%;
     
+    @include md {
+        display: block;
+    }
+    
+    .header{
+        margin-bottom: 40px;
+        // @include border(green);
+    
+        .main-title{
+            font-size: 1.6rem;
+            line-height: 2.8ch;
+            @include montserrat();
+            color: $clr-lightgreen;
+            letter-spacing: -0.1em;
+            margin-bottom: 10px;
+        }
+        .main-description{
+            font-size: 1rem;
+            @include openSans();
+            font-weight: normal;
+            color: $clr-gray;
+    
+            i {
+                color: $clr-red;
+                margin-right: 10px;
+            }
+        }
+    
+        @include sm {            
+            .main-title{
+                font-size: 2.2rem;
+            }
+            .main-description{
+                width: 90%;
+            }
+        }
+        @include md {
+            margin-top: 100px;
+            margin-bottom: 80px;
+            
+            .main-title{
+                font-size: 3.5rem;
+            }
+            .main-description{
+                font-size: 1.5rem;
+            }
+        }
+        @include lg {            
+            .main-title{
+                font-size: 4rem;
+            }
+        }
+        
+    }
+
     // Group components in two
     section.page-section {
-        margin: 30px 0;
-        display: grid;
-        // @include border(red);
-        grid-template-columns: repeat(2, 1fr);
-        gap: $gridGap;
+        $max-content-width: 360px;
+        // @include border(green);
 
+        @include xs {
+            // add left border and padding
+            // remove on medium devices
+            .content{
+                padding-left: 35px;
+                border-left: 1px solid $clr-darkgray-2;
+            }
+        }
+        
+        @include md {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            
+            .content{
+                // reduce or remove left border line and padding
+                padding-left: 0;
+                border-left: none;
+                
+                &.grid-col-span-2{
+                    // Reset mx-width for responsiveness
+                    max-width: 100%;
+                    grid-column: 1 / span 2;
+                }
+            }
+            
+        }
         
         .content {
-            // @include border(green);
-            margin-bottom: 20px;
+            // @include border;
+            margin-bottom: 35px;
             
-            &.grid-col-span-2{
-                grid-column: 1 / span 2;
-            }
-
+            // max-width will limit responsive container width on bigger sizes. Must be reset
+            max-width: $max-content-width; 
+            
             h4{
                 color: #fff;
                 margin-bottom: 5px;
@@ -62,7 +112,6 @@ $gridGap: 30px;
                 font-size: 0.8rem;
                 line-height: 1.2rem;
                 margin-bottom: 15px;
-                width: $component-width;
             }
         }
     }

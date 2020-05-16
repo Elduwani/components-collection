@@ -49,6 +49,7 @@ const Select = () => {
         //Skip an already selected color when updating Options
         const filtered = colors.filter(elem => !isSelected(elem.id))
         setOptions(filtered)
+        // eslint-disable-next-line 
     }, [selected]);
 
 

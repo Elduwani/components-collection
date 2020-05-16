@@ -15,9 +15,9 @@ $clr-lightgreen: #5FE3A1;
 $clr-yellow: #e8bd51;
 $clr-red: #DB2456;
 
-$component-width: 360px;
+$component-width: 100%;
 
-@mixin maxWidth() { width: 900px }
+@mixin maxWidth() { max-width: 900px }
 @mixin border($color: red) { border: 1px solid $color }
 @mixin boxShadow() { box-shadow: rgba(5, 5, 5, 0.1) 0px 10px 25px }
 @mixin boxShadowDark() { box-shadow: 0px 20px 30px #00000057 }
@@ -77,5 +77,43 @@ $component-width: 360px;
 
     &::-moz-focus-inner, &::-moz-focus-outer{
         border: 0 !important;
+    }
+}
+
+// Media Queries...
+$screen-xs-min: 490px; // Small phones 
+$screen-sm-min: 576px; // Small tablets and large smartphones (landscape view)
+$screen-md-min: 768px; // Small tablets (portrait view)
+$screen-lg-min: 992px; // Tablets and small desktops
+$screen-xl-min: 1200px; // Large tablets and desktops
+
+@mixin xs { // Extra small devices
+    @media only screen and (min-width: #{$screen-xs-min}) {
+        @content;
+    }
+}
+@mixin sm { // Small devices
+    @media only screen and (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+@mixin md { // Medium devices
+    @media only screen and (min-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+@mixin lg { // Large devices
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+@mixin xl { // Extra large devices
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+@mixin rwd($screen) { // Custom devices
+    @media (min-width: $screen+'px') {
+        @content;
     }
 }

@@ -3,7 +3,7 @@ import Storage from "./Storage"
 import "./storage.scss"
 
 export default () => {
-    const [count, setCount] = React.useState(1)
+    // const [count, setCount] = React.useState(1)
 
     return (
         <div className="storage-page-wrapper">

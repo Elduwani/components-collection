@@ -10,13 +10,13 @@ const Pagination = ({ itemsPerPage, totalItems, currentPage, setCurrentPage, cur
 
     useEffect(() => {
         setCurrentPage(1)
-    }, [currentDataset])
+    }, [currentDataset, setCurrentPage])
 
     const first = pageNumbers[0]
     const last = pageNumbers[pageNumbers.length - 1]
 
     return (
-        <div className="pagination-arrows">
+        <div className="pagination-wrapper">
             <ul>
                 <li
                     className={`left ${currentPage <= first ? 'disabled' : ''}`}

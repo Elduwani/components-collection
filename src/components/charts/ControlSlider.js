@@ -24,7 +24,10 @@ export default function ControlSlider({
     // !important
     // on componentMount update props state with computed xPosition value 
     // otherwise props state is out of sync with xPosition value
-    useEffect(() => { callback() }, [value]);
+    useEffect(() => {
+        callback()
+        // eslint-disable-next-line 
+    }, [value]);
 
     return <div className="control-container">
         <div className="info"><div>{name}</div>

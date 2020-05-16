@@ -5,10 +5,12 @@ import { useCreateChartData, formatNumber } from "./createResource"
 import { FiRefreshCw } from 'react-icons/fi'
 
 export default function DemoChart() {
-    let sliderWidth = 300, sliderPadding = 20
+    const sliderRef = React.useRef(null)
+    const sliderPadding = 20
 
     const [maxAmount] = useState(20000)
     const [weeks, setWeeks] = useState(6)
+    const [wrapperWidth, setWrapperWidth] = useState(320)
     const [barWidth, setBarWidth] = useState(20) //in pixels
     const [gridOpacity, setGridOpacity] = useState(100) //in pixels
     const [radius, setRadius] = useState(0) //in pixels
@@ -17,21 +19,27 @@ export default function DemoChart() {
 
     const useRefetch = () => setState(useCreateChartData(maxAmount, true))
 
-    return (
-        <div className="demo-chart-wrapper flex">
-            <div className="left-section controls-wrapper"
-                style={{ width: sliderWidth, padding: sliderPadding }}
-            >
-                <ControlSlider wd={sliderWidth} pd={sliderPadding}
-                    name="Bar thickness" startAt={50} cb={setBarWidth} min={20} max={40} />
+    React.useEffect(() => {
+        setWrapperWidth(sliderRef.current.clientWidth)
+    }, [])
 
-                <ControlSlider wd={sliderWidth} pd={sliderPadding}
+    return (
+        <div className="demo-chart-wrapper">
+            <div
+                ref={sliderRef}
+                className="left-section controls-wrapper"
+                style={{ padding: sliderPadding }}
+            >
+                <ControlSlider wd={wrapperWidth} pd={sliderPadding}
+                    name="Bar thickness" startAt={50} cb={setBarWidth} min={10} max={25} />
+
+                <ControlSlider wd={wrapperWidth} pd={sliderPadding}
                     name="Space horizontally" startAt={80} cb={setWeeks} min={5} max={9} />
 
-                <ControlSlider wd={sliderWidth} pd={sliderPadding}
+                <ControlSlider wd={wrapperWidth} pd={sliderPadding}
                     name="Rounding" startAt={10} cb={setRadius} min={0} max={30} />
 
-                <ControlSlider wd={sliderWidth} pd={sliderPadding}
+                <ControlSlider wd={wrapperWidth} pd={sliderPadding}
                     name="Grid opacity" startAt={20} cb={setGridOpacity} min={0} max={100} />
 
                 <motion.div

@@ -37,7 +37,7 @@ const Ratings = ({ number, size, selected }) => {
             }
             setStars(elems)
         })()
-    }, [id]);
+    }, [id, count, size]);
 
     return (
         <div className="stars-wrapper">

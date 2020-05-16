@@ -24,8 +24,8 @@ const StorageDetails = ({ diskSize, setTotal }) => {
 
     React.useEffect(() => {
         const total = data.details.reduce((acc, curr) => acc + curr.size, 0)
-        // eslint-disable-next-line
         setTotal(total)
+        // eslint-disable-next-line 
     }, [diskSize])
 
     return (

@@ -12,96 +12,80 @@
     /* border: 1px solid red; */
     margin-bottom: 20px;
 }
-.pagination{
+.pagination-wrapper{
+    width: 40%;
+    
     ul{
+        flex: 1;
         display: flex;
-        border: 1px solid var(--darkgray);
-        border-radius: 4px;
-        overflow: hidden;
-        background: #fff;
-        cursor: pointer;
-
-        li {
+        justify-content: space-evenly;
+        
+        li{
+            width: 60px;
+            height: 50px;
             display: flex;
+            cursor: pointer;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 30px;
-            list-style-type: none;
-            list-style: none;
-            border-right: 1px solid var(--darkgray);
-
-            &:last-child{
-                border: none;
-            }
-            a{
-                color: var(--violet);
-                text-decoration: none;
-            }
-        }
-    }
-    .pagination-arrows{
-        width: 40%;
-        
-        ul{
-            flex: 1;
-            display: flex;
-            justify-content: space-evenly;
+            border-radius: 5px;
+            transition: all 0.5s ease;
+            font-size: 0.8rem;
+            color: var(--darkgray);
             
-            li{
-                width: 60px;
-                height: 50px;
-                display: flex;
-                cursor: pointer;
-                align-items: center;
-                justify-content: center;
-                border-radius: 5px;
-                /* border: 1px solid var(--darkgray); */
+            svg{
+                width: 100%;
+                height: 100%;
+                // color: $clr-blue;
+                stroke: $clr-gray-3;
                 transition: all 0.5s ease;
-                font-size: 0.8rem;
-                color: var(--darkgray);
+            }
+            
+            &.disabled{
+                border-color: #e9e9e9;
+                pointer-events: none;
                 
                 svg{
-                    width: 100%;
-                    height: 100%;
-                    color: var(--darkgray);
-                    stroke: var(--darkgray);
-                    transition: all 0.5s ease;
-                }
-                
-                &.disabled{
-                    border-color: #e9e9e9;
-                    pointer-events: none;
-                    
-                    svg{
-                        color: #e9e9e9;
-                        stroke: #e9e9e9;
-                    }
+                    color: #e9e9e9;
+                    stroke: #e9e9e9;
                 }
             }
         }
     }
 }
 
-$height: 300px;
+$chart-height: 300px;
 
 .demo-chart-wrapper{
-    padding: 20px;
-    @include border($clr-darkgray-3);
-    @include borderRadius();
+    display: flex;
+    flex-direction: column-reverse;
 
-    .right-section, .left-section{
+    @include md {
+        @include borderRadius;
         @include border($clr-darkgray-3);
-        @include borderRadius();
         padding: 20px;
+
+        .right-section, .left-section{
+            padding: 20px;
+        }
     }
 
-    .controls-wrapper{
+    @include lg {
+
+    }
+    
+    .right-section, .left-section{
+        @include border($clr-darkgray-3);
+        @include borderRadius;
+        // padding: 10px;
+        // flex: 1;
+    }
+
+    .left-section.controls-wrapper{
         display: grid;
+        margin-top: 20px;
 
         .control-container{  
             display: grid;
-            // @include border();
             align-content: center;
 
             &:last-child{margin-bottom: 0;}
@@ -157,42 +141,52 @@ $height: 300px;
         }
 
         button {
-            @include useButton($bgColor: $clr-darkgray-2, $has-icon: true, $iconColor: $clr-green)
+            @include useButton(
+                $has-icon: true, 
+                $bgColor: $clr-darkgray-2, 
+                $iconColor: $clr-green
+            )
         }
 
     }
 
-    .demo-chart-container{
-        display: grid;
-        grid-template-columns: 60px 1fr 100px;
-        margin-left: 30px;
-        flex: 1;
-
-        @mixin _yaxis(){
+    .right-section.demo-chart-container{
+        padding-top: 20px;
+        overflow: hidden;
+        
+        @mixin _yaxis{
             display: flex;
-            height: $height;
+            height: $chart-height;
             flex-direction: column;
         }
 
-        .y-axis, .graph{
-            border-bottom: 2px solid $clr-darkgray-3;
+        .y-axis{ display: none }
+        .graph .bar::before, .x-axis > div { font-size: 0.5rem }
+        
+        @include sm {
+            .y-axis{
+                @include _yaxis;
+                grid-row: 1 / span 2;
+                
+                > div {
+                    flex: 1;
+                    display: grid;
+                    justify-content: end;
+                    color: $clr-gray;
+                    font-size: 0.8rem;
+                    padding-right: 10px;
+                }
+            }
+            .graph .bar::before, .x-axis > div { font-size: 0.7rem; }
         }
         
-        .y-axis{
-            @include _yaxis();
-            grid-row: 1 / span 2;
-            
-            > div {
-                flex: 1;
-                display: grid;
-                justify-content: end;
-                color: $clr-gray;
-                font-size: 0.8rem;
-                padding-right: 10px;
-            }
+        @include md {
+            display: grid;
+            grid-template-columns: 60px 1fr 100px;
         }
+        
         .graph{
-            height: $height;
+            height: $chart-height;
             grid-column: 2 / span 2;
             position: relative;
             
@@ -212,7 +206,6 @@ $height: 300px;
                     &::before{
                         color: white;
                         content: attr(data-amount);
-                        font-size: 0.7rem;
                         position: relative;
                         top: -20px;
                     }
@@ -220,7 +213,7 @@ $height: 300px;
             }
 
             .gridlines-container{
-                @include _yaxis();
+                @include _yaxis;
                 position: absolute;
                 width: 100%;
                 z-index: 1;
@@ -234,6 +227,7 @@ $height: 300px;
             }
 
         }
+
         .x-axis{
             height: 30px;
             grid-column: 2 / span 2;
@@ -242,10 +236,13 @@ $height: 300px;
             > div{
                 flex: 1;
                 color: $clr-gray;
-                font-size: 0.7rem;
                 display: grid;
                 place-items: center;
             }
+        }
+        
+        .y-axis, .graph{
+            border-bottom: 2px solid $clr-darkgray-3;
         }
     }
 }

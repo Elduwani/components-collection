@@ -40,11 +40,11 @@
             margin-right: 10px;
             margin-top: 2px;
             color: var(--green);
-            // @include border(red);
         }
         .detail{
             min-width: 0; //Stop element from overflowing
-            
+            flex: 1;
+
             p {
                 font-size: 0.7rem;
                 color: var(--lightbrown);
@@ -64,6 +64,7 @@
         }
     }
 
+    // For other instanes of .progress in external divs
     .progress{
         @include transition(1.5s);
     }
