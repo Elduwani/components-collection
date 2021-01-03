@@ -1,11 +1,11 @@
-import React from 'react'
+import { useState } from 'react'
 import SinglePlan from "./SinglePlan"
 import data from "./plansData"
 // import { FiXCircle } from "react-icons/fi"
 import './plans.scss'
 
 const Plans = () => {
-    const [selected, setSelected] = React.useState(2)
+    const [selected, setSelected] = useState(2)
     return (
         <div className="plans-wrapper rounded">
 

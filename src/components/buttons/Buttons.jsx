@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion, useCycle } from "framer-motion"
 import { IoMdSunny, IoIosMoon } from "react-icons/io"
 import Button from './Button'

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import ControlSlider from "./ControlSlider"
 import { motion } from "framer-motion"
 import { useCreateChartData, formatNumber } from "./createResource"
 import { FiRefreshCw } from 'react-icons/fi'
 
 export default function DemoChart() {
-    const sliderRef = React.useRef(null)
+    const sliderRef = useRef(null)
     const sliderPadding = 20
 
     const [maxAmount] = useState(20000)
@@ -19,7 +19,7 @@ export default function DemoChart() {
 
     const useRefetch = () => setState(useCreateChartData(maxAmount, true))
 
-    React.useEffect(() => {
+    useEffect(() => {
         setWrapperWidth(sliderRef.current.clientWidth)
     }, [])
 

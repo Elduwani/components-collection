@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import useInterval from "../../functions/useInterval"
 import { motion } from "framer-motion"
 import "./carousel.scss"

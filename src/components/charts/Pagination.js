@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
 const Pagination = ({ itemsPerPage, totalItems, currentPage, setCurrentPage, currentDataset }) => {

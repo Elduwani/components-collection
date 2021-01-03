@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { FiDatabase, FiFolder, FiMenu, FiVideo, FiTrash2, FiAirplay, FiServer, FiMusic } from "react-icons/fi"
 import data from "./storageData"
 
@@ -22,7 +22,7 @@ const StorageDetails = ({ diskSize, setTotal }) => {
         return String(Math.round(percentage))
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         const total = data.details.reduce((acc, curr) => acc + curr.size, 0)
         setTotal(total)
         // eslint-disable-next-line 

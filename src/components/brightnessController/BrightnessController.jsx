@@ -1,11 +1,11 @@
-import React from 'react';
+import { useRef } from 'react';
 import { motion, useMotionValue, useTransform } from "framer-motion"
 import { FiSun } from "react-icons/fi"
 import "./brightnessController.scss"
 
 const BrightnessController = () => {
 
-    const ref = React.useRef(null)
+    const ref = useRef(null)
     const x = useMotionValue(0)
     const end = 200
 

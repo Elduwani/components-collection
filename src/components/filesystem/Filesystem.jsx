@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import { useReducer } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { FiFolder } from "react-icons/fi";
 import items from './items'
@@ -36,6 +36,7 @@ const Filesystem = () => {
 }
 
 const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
+    //recursive function's conditional termination
     return options ? options.map((option, index) => {
         const { name, children } = option
         const isSelected = selectedOptions.some(obj => obj.name === name)
@@ -61,6 +62,7 @@ const OptionsList = ({ options, selectedOptions, dispatch, level }) => {
                 <span>{name}</span> <span className="count">{children ? children.length + " items" : ""}</span>
             </div>
             {
+                //recursive call to render children
                 children && isSelected ?
                     <AnimatePresence>
                         <motion.div

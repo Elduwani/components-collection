@@ -1,4 +1,3 @@
-import React from 'react'
 import Filesystem from "./filesystem/Filesystem"
 import Select from "./select/Select"
 import Storage from "./storage/Storage"

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { motion, useMotionValue, useTransform, useDragControls } from "framer-motion";
 
 export default function ControlSlider({
@@ -13,7 +13,7 @@ export default function ControlSlider({
     // Initial start position should be converted back from percentage to position value
     const initialStartPos = (maxInput / 100) * startAt
 
-    const ref = React.useRef(null)
+    const ref = useRef(null)
     const xPosition = useMotionValue(initialStartPos);
     const dragControls = useDragControls()
     const value = useTransform(xPosition, [0, maxInput], [min, max]);

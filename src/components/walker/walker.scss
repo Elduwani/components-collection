@@ -1,0 +1,26 @@
+@import "../../variables";
+
+.board-wrapper{
+    display: flex;
+    justify-content: center;
+    
+    .row{
+        // border: 2px solid red;
+        
+        .cell{
+            width: 60px;
+            height: 60px;
+            // border: 1px solid green;
+            color: #333;
+            position: relative;
+            padding: 4px;
+            font-size: 12px;
+
+            .row-letter{
+                position: absolute;
+                right: 8px;
+                bottom: 4px;
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState, useRef, createRef, useEffect } from 'react'
+import { useState, useRef, createRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaCcVisa } from "react-icons/fa"
 import Loader from "../loader/Loader"
@@ -111,7 +111,7 @@ export default function Payment() {
                                 placeholder="yy"
                                 onChange={handleChange}
                                 value={form["yy"]}
-                                ref={refs[3]}
+                                ref={refs[2]}
                                 maxLength={maxLengths["yy"]}
                             />
                         </div>

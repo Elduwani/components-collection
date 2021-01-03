@@ -1,4 +1,4 @@
-export default [
+const arr = [
     {
         id: 0,
         gridRow: `2 / span 2`,
@@ -42,3 +42,5 @@ export default [
         gridRow: `1 / span 2`,
     },
 ]
+
+export default arr

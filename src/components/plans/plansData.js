@@ -1,4 +1,4 @@
-export default [
+const arr = [
     {
         name: '2',
         details: '2, 8',
@@ -25,3 +25,5 @@ export default [
         price: '120'
     }
 ]
+
+export default arr

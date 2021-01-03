@@ -1,8 +1,7 @@
-import React from 'react'
 import Storage from "./Storage"
 import "./storage.scss"
 
-export default () => {
+export default function Index() {
     // const [count, setCount] = React.useState(1)
 
     return (

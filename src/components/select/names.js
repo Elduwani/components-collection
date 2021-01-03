@@ -1,4 +1,4 @@
-export default [
+const name = [
     {
         id: 1,
         name: 'Green',
@@ -30,3 +30,5 @@ export default [
         count: 2
     }
 ]
+
+export default name
