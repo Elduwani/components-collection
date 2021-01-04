@@ -1,6 +1,10 @@
 @import "./variables";
 *{
   box-sizing: border-box !important;
+  text-decoration: none;
+}
+a{
+  outline: none;
 }
 body {
   @include openSans();
@@ -38,6 +42,16 @@ code {
   align-items: center;
   min-width: 360px;
   // @include border(blue);
+
+  nav{
+    display: flex;
+    padding: 12px 0;
+
+    a{
+      padding: 4px 8px;
+      color: $clr-blue;
+    }
+  }
 }
 .box-shadow{
   box-shadow: rgba(5, 5, 5, 0.1) 0px 10px 25px;
