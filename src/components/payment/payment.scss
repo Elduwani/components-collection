@@ -102,6 +102,6 @@ $height: 50px;
     }
 
     button{
-        @include useButton()
+        @include useButton;
     }
 }
