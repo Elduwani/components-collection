@@ -3,6 +3,7 @@ import ControlSlider from "./ControlSlider"
 import { motion } from "framer-motion"
 import { useCreateChartData, formatNumber } from "./createResource"
 import { FiRefreshCw } from 'react-icons/fi'
+import "./chart.scss"
 
 export default function DemoChart() {
     const sliderRef = useRef(null)

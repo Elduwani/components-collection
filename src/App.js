@@ -8,11 +8,11 @@ function App() {
   return (
     <Router>
       <div className="body-container">
-        <nav className="nav">
+        {/* <nav className="nav">
           <Link to="/">Home</Link>
           <Link to="/calculator">Calculator</Link>
           <Link to="/walker">Walker Algo</Link>
-        </nav>
+        </nav> */}
         <Switch>
           <Route exact path='/' component={Pages} />
           <Route exact path='/calculator' component={Calculator} />

@@ -1,7 +1,7 @@
 @import "../../variables";
 
 .filesystem-wrapper{
-    width: $component-width;
+    // width: $component-width;
     background: $clr-darkgray-2;
     border-radius: 5px;
     overflow: hidden;
@@ -74,16 +74,6 @@
                 color: $clr-gray;
             }
         }
-
-        .motion-div{
-            // height: 60px;
-            // overflow: hidden;
-            // @include border(red);
-        }
     }
 
-}
-
-@media (hover: none) {
-    /* .sidebar-parent ul li:hover { background: inherit; } */
 }

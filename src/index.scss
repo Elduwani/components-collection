@@ -1,4 +1,9 @@
 @import "./variables";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   box-sizing: border-box !important;
   text-decoration: none;
@@ -36,11 +41,11 @@ code {
     monospace;
 }
 .body-container{
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 360px;
+  // margin: 0 auto;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  min-width: 320px;
   // @include border(blue);
 
   nav{
