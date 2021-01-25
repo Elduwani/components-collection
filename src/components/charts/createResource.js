@@ -9,7 +9,7 @@ export function useCreateChartData(maxAmount = 30000, randomize = false) {
     function generateExpenditure() {
         const name = "expenditure"
         const savedCopy = JSON.parse(localStorage.getItem(name))
-        const generated = Array(weeks).fill("x").map(() => Math.floor(Math.random() * maxAmount))
+        const generated = Array(weeks).fill("x").map(() => Math.max(50, Math.random() * maxAmount * 0.9))
 
         const save = () => localStorage.setItem(name, JSON.stringify(generated))
 

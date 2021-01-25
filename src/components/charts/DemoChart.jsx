@@ -100,7 +100,7 @@ export default function DemoChart() {
                 </div>
                 <div className="x-axis">
                     {
-                        Array(weeks).fill("w").map((_, i) => <div key={i}>Week {i + 1}</div>)
+                        Array(weeks).fill("w").map((_, i) => <div key={i}>Wk {i + 1}</div>)
                     }
                 </div>
             </div>

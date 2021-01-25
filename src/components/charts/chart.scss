@@ -198,10 +198,10 @@ $chart-height: 300px;
                     }
 
                     &::before{
-                        color: white;
+                        color: #aaa;
                         content: attr(data-amount);
                         position: relative;
-                        top: -20px;
+                        top: -25px;
                     }
                 }
             }
