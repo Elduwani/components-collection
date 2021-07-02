@@ -1,6 +1,7 @@
 const colors = require("tailwindcss/colors")
 
 module.exports = {
+  mode: "jit",
   purge: ['./src/**/*.js', './src/**/*.jsx', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -10,7 +11,7 @@ module.exports = {
       red: colors.red,
       green: colors.green,
       indigo: colors.indigo,
-      blue: colors.lightBlue,
+      blue: colors.sky,
       gray: colors.warmGray,
     },
     fontFamily: {
@@ -25,5 +26,5 @@ module.exports = {
       opacity: ['disabled'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
