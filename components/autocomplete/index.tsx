@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { IoIosSearch } from "react-icons/io";
-import Dropdown from "../Dropdown.jsx";
-import colors from "./names.js";
+import Dropdown from "../Dropdown";
+import colors from "./names";
 
 export default function AutoComplete() {
     const inputRef = useRef(null)
@@ -56,23 +56,23 @@ export default function AutoComplete() {
                                     onClick: () => {
                                         if (!maxItems) {
                                             setSelected(s => [...s, o])
-                                            inputRef.current.value = ""
+                                            if (inputRef.current) inputRef.current.value = ""
                                         }
                                     }
                                 }))
                             }
                         >
                             <input
-                                type="text"
                                 ref={inputRef}
+                                type="text"
                                 onChange={search}
-                                className="flex-1 bg-transparent"
                                 placeholder="Search Palettes"
+                                className="flex-1"
                             />
                         </Dropdown>
                         : null
                 }
-                <div className="pr-4 text-2xl text-blue-600 cursor-pointer"
+                <div className="pr-4 pl-2 text-2xl text-blue-600 cursor-pointer"
                     onClick={() => {
                         setSelected([])
                         setOptions(colors)

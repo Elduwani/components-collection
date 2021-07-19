@@ -1,9 +1,0 @@
-[type='text'], [type='email'],
-[type='url'], [type='password'],
-[type='number'], [type='date'],
-[type='datetime-local'], [type='month'],
-[type='search'], [type='tel'],
-[type='time'], [type='week'],
-[multiple], textarea, select {
-    @apply h-12 block w-full focus:ring focus:border-blue-300 focus:ring-blue-200 focus:ring-opacity-50 placeholder-gray-400 text-gray-600 border-gray-300;
-}

@@ -83,8 +83,7 @@ export default function Payment() {
 
     const styles = {
         wrapper: `text-gray-400 space-y-1`,
-        container: `border flex pr-2 relative items-center border-gray-600 rounded-lg`,
-        input: `bg-transparent placeholder-gray-400 text-white`,
+        container: `border flex relative items-center border-gray-600 rounded-lg`,
         divider: `h-7 w-1 bg-gray-600 transform rotate-12 mx-4`
     }
 
@@ -101,18 +100,17 @@ export default function Payment() {
                             maxLength={maxLengths["card"]}
                             onChange={handleChange}
                             value={form["card"]}
-                            className={styles.input}
                         />
                         {
-                            <motion.div
-                                initial={false}
-                                animate={{
-                                    x: form["card"].length >= 4 ? 0 : -10,
-                                    opacity: form["card"].length >= 4 ? 1 : 0,
-                                }}
-                            >
-                                <FaCcVisa className="text-3xl text-white" />
-                            </motion.div>
+                            form["card"].length >= 4 ?
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ x: 0, opacity: 1, }}
+                                    className="px-3"
+                                >
+                                    <FaCcVisa className="text-3xl text-white" />
+                                </motion.div>
+                                : null
                         }
                     </div>
                 </div>
@@ -127,7 +125,6 @@ export default function Payment() {
                                 onChange={handleChange}
                                 value={form["mm"]}
                                 maxLength={maxLengths["mm"]}
-                                className={styles.input}
                             />
                             <span className={styles.divider}></span>
                             <input
@@ -137,7 +134,6 @@ export default function Payment() {
                                 onChange={handleChange}
                                 value={form["yy"]}
                                 maxLength={maxLengths["yy"]}
-                                className={styles.input}
                             />
                         </div>
                     </div>
@@ -151,7 +147,6 @@ export default function Payment() {
                                 onChange={handleChange}
                                 value={form["cvv"]}
                                 maxLength={maxLengths["cvv"]}
-                                className={styles.input}
                             />
                         </div>
                     </div>

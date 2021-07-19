@@ -64,27 +64,6 @@
                 background-color: $clr-darkblue;
                 color: $clr-lightblue;
             }
-
-            .row-letter{
-                position: absolute;
-                right: calc(#{$offset} * 2);
-                bottom: $offset;
-            }
-
-            .horsy{
-                width: 100%;
-                height: 100%;
-                display: grid;
-                place-items: center;
-                position: absolute;
-                left: 0;
-                top: 0;
-
-                svg{
-                    width: 80%;
-                    height: 80%;
-                }
-            }
         }
     }
 }

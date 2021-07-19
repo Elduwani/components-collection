@@ -1,27 +1,28 @@
 import Head from 'next/head'
-import Filesystem from "../components/filesystem/Filesystem"
-import Autocomplete from "../components/autocomplete"
-import Storage from "../components/storage/Storage"
-import Buttons from "../components/buttons/Buttons"
-import Spinner from "../components/Spinner"
-import Ratings from "../components/Ratings"
-import Carousel from "../components/carousel/Carousel"
-import Plans from "../components/plans/Plans"
-import BrightnessController from "../components/BrightnessController"
-import Payment from "../components/Payment"
-import Layout from "../components/layout/Layout"
-import DemoChart from "../components/charts/DemoChart"
-import KnightWalker from "../components/walker"
+import Filesystem from "@components/filesystem/Filesystem"
+import Autocomplete from "@components/autocomplete"
+import Storage from "@components/storage/Storage"
+import Buttons from "@components/buttons/Buttons"
+import Spinner from "@components/Spinner"
+import Ratings from "@components/Ratings"
+import Carousel from "@components/carousel/Carousel"
+import Plans from "@components/plans/Plans"
+import BrightnessController from "@components/BrightnessController"
+import Payment from "@components/Payment"
+import Layout from "@components/layout/Layout"
+import DemoChart from "@components/charts/DemoChart"
+import KnightWalker from "@components/walker"
+import React from 'react'
 
 export default function Home() {
   return (
-    <div className="bg-gray-900">
+    <div className="min-h-screen p-6">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="pages mx-auto max-w-4xl space-y-10 px-6 py-20 text-white border-blue-600">
+      <main className="pages h-full mx-auto max-w-4xl space-y-10 px-6 py-20 text-white">
         <div className="space-y-6 max-w-lg mx-auto mb-20 ">
           <h1 className="text-center font-extrabold font-sans text-5xl md:text-7xl text-gray-200 break-words">
             [Void]
@@ -93,20 +94,20 @@ export default function Home() {
         </Container>
 
         <Container>
-          <Content title="Knight walker" description="Visualising possible chess knight moves using a 2D array and some game logic. Tap a cell to start">
+          <Content title="Knight walker" description="Visualising possible chess knight moves with a 2D array and some game logic.">
             <KnightWalker />
           </Content>
         </Container>
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <p className="text-xs text-gray-400 text-center py-4">design by {" "}<a>@elduwani</a></p>
+      <footer className="flex items-center justify-center w-full h-24 border-t border-gray-700">
+        <p className="text-xs text-gray-400 text-center py-4">designed by {" "}<a>@elduwani</a></p>
       </footer>
     </div>
   )
 }
 
-function Container({ children, oneCol }) {
+function Container({ children, oneCol }: { children: React.ReactNode, oneCol?: boolean }) {
   return <div className={`space-y-8 md:space-y-0 md:grid ${oneCol ? "md:grid-cols-1" : "md:grid-cols-2"} md:gap-8`}>
     {children}
   </div>

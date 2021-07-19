@@ -1,0 +1,27 @@
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply bg-gray-900;
+  
+  [type='text'], [type='email'],
+  [type='url'], [type='password'],
+  [type='number'], [type='date'],
+  [type='datetime-local'], [type='month'],
+  [type='search'], [type='tel'],
+  [type='time'], [type='week'],
+  [multiple], textarea, select {
+    @apply h-12 block w-full border-0 rounded-lg placeholder-gray-400 text-gray-200 bg-transparent;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

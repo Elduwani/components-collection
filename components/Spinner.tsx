@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { CgSpinnerAlt } from "react-icons/cg";
 import { ImSpinner3 } from "react-icons/im";
 
-export default function Spinner({ variant, color, size }) {
-    const styles = `animate-spin ${size ?? "text-3xl"} ${color ?? "text-white"}`
+export default function Spinner({ variant = 1, color = "text-white", size = "text-3xl" }) {
+    const styles = `animate-spin ${size} ${color}`
     return (
         <motion.div
             initial={{ opacity: 0, x: -20 }}
