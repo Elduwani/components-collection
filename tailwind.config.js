@@ -10,6 +10,9 @@ module.exports = {
       gridTemplateColumns: {
         "8": "repeat(8, minmax(0, 1fr))"
       },
+      flex: {
+        "3": "3 3 0%"
+      },
     },
   },
   variants: {

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import useInterval from "../../functions/useInterval"
+import useInterval from "../functions/useInterval"
 import { motion } from "framer-motion"
 // import "./carousel.scss"
 
@@ -64,7 +64,7 @@ export default function Carousel() {
                         const isActive = id === i
 
                         return <div key={i}
-                            className={`indicator flex items-center justify-center h-5 ${isActive && "selected"}`}
+                            className={`flex transition-all ease-out items-center justify-center h-5 ${!isActive ? "flex-1" : "flex-3"}`}
                             onClick={() => {
                                 setID(i)
                                 if (!isRunning) setIsRunning(true)

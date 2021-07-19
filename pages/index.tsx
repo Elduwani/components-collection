@@ -5,31 +5,32 @@ import Storage from "@components/storage/Storage"
 import Buttons from "@components/buttons/Buttons"
 import Spinner from "@components/Spinner"
 import Ratings from "@components/Ratings"
-import Carousel from "@components/carousel/Carousel"
+import Carousel from "@components/Carousel"
 import Plans from "@components/plans/Plans"
 import BrightnessController from "@components/BrightnessController"
 import Payment from "@components/Payment"
 import Layout from "@components/layout/Layout"
 import DemoChart from "@components/charts/DemoChart"
-import KnightWalker from "@components/walker"
+import KnightWalker from "@components/KnightWalker"
 import React from 'react'
+import Footer from '@components/Footer'
 
 export default function Home() {
   return (
     <div className="min-h-screen p-6">
       <Head>
-        <title>Create Next App</title>
+        <title>Elduwani | Components Library</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="pages h-full mx-auto max-w-4xl space-y-10 px-6 py-20 text-white">
-        <div className="space-y-6 max-w-lg mx-auto mb-20 ">
-          <h1 className="text-center font-extrabold font-sans text-5xl md:text-7xl text-gray-200 break-words">
-            [Void]
+        <div className="space-y-6 mx-auto mb-20 ">
+          <h1 className="text-center font-sans font-bold text-5xl md:text-6xl text-gray-200 md:whitespace-nowrap">
+            {`<Designer who codes/>`}
           </h1>
           <p className="text-center text-gray-400">
             <i className="text-blue-400 inline-block mr-2">Hola! </i>
-            Welcome to my demo space.
+            I'm Freedom. Welcome to my demo space.
           </p>
         </div>
         <Container>
@@ -100,9 +101,7 @@ export default function Home() {
         </Container>
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t border-gray-700">
-        <p className="text-xs text-gray-400 text-center py-4">designed by {" "}<a>@elduwani</a></p>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, transform } from "framer-motion";
-import useInterval from "../../functions/useInterval";
+import useInterval from "../functions/useInterval";
 import { GiChessKnight as KnightIcon } from "react-icons/gi";
 // import "./walker.scss"
 
