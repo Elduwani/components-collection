@@ -1,0 +1,119 @@
+$clr-bg: #19191b;
+$clr-gray: rgb(155, 155, 155);
+$clr-gray-2: rgb(119, 119, 119);
+$clr-gray-3: rgb(90, 90, 90);
+$clr-darkgray-2: #212127;
+$clr-darkgray-25: #292930;
+$clr-darkgray-3: #373741;
+$clr-darkgray-4: #3e3e49;
+$clr-darkblue: #151965;
+$clr-blue: #35477d;
+$clr-purple: #515585;
+$clr-lightblue: #46b5d1;
+$clr-green: #59a985;
+$clr-lightgreen: #5FE3A1;
+$clr-yellow: #e8bd51;
+$clr-red: #DB2456;
+
+$component-width: 100%;
+
+@mixin maxWidth() { max-width: 900px }
+@mixin border($color: red) { border: 1px solid $color }
+@mixin boxShadow() { box-shadow: rgba(5, 5, 5, 0.1) 0px 10px 25px }
+@mixin boxShadowDark() { box-shadow: 0px 20px 30px #00000057 }
+@mixin boxShadowDark2() { box-shadow: 0px 10px 20px #22222257 }
+@mixin boxShadow($x: 0px, $y: 10px, $blur: 20px, $color: #00000057) { 
+    box-shadow: $x $y $blur $color; 
+}
+@mixin fontFamily() {font-family: 'Open Sans', -apple-system, "Roboto", "Helvetica Neue", sans-serif}
+@mixin montserrat() {font-family: 'Montserrat', -apple-system, "Roboto", "Helvetica Neue", sans-serif}
+@mixin openSans() {font-family: 'Roboto', -apple-system, "Roboto", "Helvetica Neue", sans-serif}
+@mixin transition($time: 0.3s, $type:all) { transition: $type $time ease }
+@mixin borderRadius($radius: 6px) { border-radius: $radius }
+@mixin centerItemsGrid () {
+    display: grid;
+    place-items: center;
+}
+@mixin centerItemsFlex () {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin useButton(
+    $width: 100%, $height: 50px, $bgColor: $clr-blue,
+    $color: white, $has-icon: false, $iconColor: white
+){
+    width: $width;
+    height: $height;
+    padding: 10px 0;
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    color: $color;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: $bgColor;
+    @include borderRadius();
+
+    @if($has-icon){
+        @include centerItemsFlex();
+        svg{
+            margin-left: 20px;
+            stroke: $iconColor;
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    &.processing{
+        background-color: $clr-darkgray-3;
+    }
+
+    &.success{
+        background-color: $clr-green;
+    }
+
+    &::-moz-focus-inner, &::-moz-focus-outer{
+        border: 0 !important;
+    }
+}
+
+// Media Queries...
+$screen-xs-min: 490px; // Small phones 
+$screen-sm-min: 576px; // Small tablets and large smartphones (landscape view)
+$screen-md-min: 768px; // Small tablets (portrait view)
+$screen-lg-min: 992px; // Tablets and small desktops
+$screen-xl-min: 1200px; // Large tablets and desktops
+
+@mixin xs { // Extra small devices
+    @media only screen and (min-width: #{$screen-xs-min}) {
+        @content;
+    }
+}
+@mixin sm { // Small devices
+    @media only screen and (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+@mixin md { // Medium devices
+    @media only screen and (min-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+@mixin lg { // Large devices
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+@mixin xl { // Extra large devices
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+@mixin rwd($screen) { // Custom devices
+    @media (min-width: $screen+'px') {
+        @content;
+    }
+}

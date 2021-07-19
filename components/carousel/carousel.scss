@@ -1,0 +1,8 @@
+.indicator {
+    flex: 1;
+    transition: all 0.3s ease;
+    
+    &.selected{
+        flex: 3;
+    }
+}
