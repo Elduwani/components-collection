@@ -70,8 +70,8 @@ export default function Home() {
           <Content title="Pricing Plans" description="Pricing options component for customizing payment plans.">
             <Plans />
           </Content>
-          <Content title="Canvas Animation" description="A set of canvas animations using p5.js.">
-            <Buttons />
+          <Content title="Knight walker" description="Visualising possible chess knight moves with a 2D array and some game logic.">
+            <KnightWalker />
           </Content>
         </Container>
 
@@ -91,12 +91,6 @@ export default function Home() {
         <Container oneCol>
           <Content title="CSS Chart" description="Grid and flex based chart using no canvas or SVG elements">
             <DemoChart />
-          </Content>
-        </Container>
-
-        <Container>
-          <Content title="Knight walker" description="Visualising possible chess knight moves with a 2D array and some game logic.">
-            <KnightWalker />
           </Content>
         </Container>
       </main>

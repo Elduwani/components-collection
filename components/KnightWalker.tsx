@@ -87,13 +87,7 @@ export default function Board() {
 
     return (
         <div ref={ref} className="space-y-4 relative">
-            <div className="text-gray-400 flex justify-between">
-                <p>
-                    Score: <span className="text-green-300 mr-2">{score}</span>
-                </p>
-                <p>Highest score: <span className="text-green-300">{highScore}</span></p>
-            </div>
-            <div style={{ width: dimension, height: dimension }} className={`grid grid-cols-8`}>
+            <div style={{ width: dimension, height: dimension }} className={`grid grid-cols-8 rounded-lg overflow-hidden border border-gray-700`}>
                 {
                     board.map((row, i) => {
                         const even = i % 2 === 0;
@@ -131,16 +125,22 @@ export default function Board() {
                     })
                 }
             </div>
-            {
-                !selectedSquare || gameOver ?
-                    <motion.p
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1 }}
-                        className="absolute bottom-auto left-0 text-sm text-gray-400"
-                    >Tap a cell to start</motion.p>
-                    : null
-            }
+            <div className="text-gray-400 flex justify-between items-center">
+                <p>
+                    Score: <span className="text-green-400 mr-2">{score}</span>
+                </p>
+                {
+                    !selectedSquare || gameOver ?
+                        <motion.p
+                            initial={{ opacity: 0, x: 30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 1, type: "tween" }}
+                            className="text-sm text-green-400"
+                        >Tap a cell to start</motion.p>
+                        : null
+                }
+                <p>Top score: <span className="text-green-300">{highScore}</span></p>
+            </div>
         </div>
     );
 }
