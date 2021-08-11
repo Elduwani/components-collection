@@ -23,7 +23,7 @@ function Pages() {
                 </h1>
                 <p className="text-center text-gray-400">
                     <i className="text-blue-400 inline-block mr-2">Hola! </i>
-                    Welcome to my demo space.
+                    Welcome to my demo space. These are some isolated components developed with React, Framer Motion, TailwindCss
                 </p>
             </div>
             <Container>

@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { Range } from "react-range";
 
 export default function ControlSlider({ name, startAt = 0, cb, min = 0, max = 10 }) {
     const [maxInput, setMaxInput] = useState(20)
@@ -50,3 +51,36 @@ export default function ControlSlider({ name, startAt = 0, cb, min = 0, max = 10
         </div>
     </div>
 }
+
+export const Slider = ({ min = 0, max, values, onChange }) => (
+    <Range
+        step={1}
+        min={min}
+        max={max}
+        values={values}
+        onChange={onChange}
+        renderTrack={({ props, children }) => (
+            <div
+                {...props}
+                className="slider-track"
+                style={{
+                    ...props.style,
+                }}>
+                {children}
+            </div>
+        )}
+        renderThumb={({ props }) => (
+            <div
+                {...props}
+                className="slider-thumb"
+                style={{
+                    ...props.style,
+                    borderRadius: '50%',
+                    outline: 'transparent',
+                    height: '44px',
+                    width: '44px',
+                }}
+            />
+        )}
+    />
+)

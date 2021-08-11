@@ -26,8 +26,8 @@ export default function StorageDetails({ diskSize, setTotal }) {
                             <div className="text-blue-500 mt-1">{checkIcon(name)}</div>
                             <div className="flex-1 space-y-1">
                                 <div className="flex justify-between">
-                                    <div>{name}</div>
-                                    <div className="text-gray-400">{size} GB</div>
+                                    <p>{name}</p>
+                                    <p className="text-gray-400 text-sm">{size} GB</p>
                                 </div>
                                 <ProgressBar
                                     height="h-1.5"

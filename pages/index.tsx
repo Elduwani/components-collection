@@ -14,6 +14,7 @@ import DemoChart from "@components/charts/DemoChart"
 import KnightWalker from "@components/KnightWalker"
 import React from 'react'
 import Footer from '@components/Footer'
+import ColorPreviewer from '@components/ColorPreviewer'
 
 export default function Home() {
   return (
@@ -26,11 +27,11 @@ export default function Home() {
       <main className="pages h-full mx-auto max-w-4xl space-y-10 px-6 py-20 text-white">
         <div className="space-y-6 mx-auto mb-20 ">
           <h1 className="text-center font-sans font-bold text-5xl md:text-6xl text-gray-200 md:whitespace-nowrap">
-            {`<Designer who codes/>`}
+            {`<Designer who codes />`}
           </h1>
           <p className="text-center text-gray-400">
             <i className="text-blue-400 inline-block mr-2">Hola! </i>
-            I'm Freedom. Welcome to my demo space.
+            I'm Freedom. Welcome to my demo space where I make random stuff with React.
           </p>
         </div>
         <Container>
@@ -48,6 +49,12 @@ export default function Home() {
           </Content>
           <Content title="Autocomplete Search" description="A searchable dropdown">
             <Autocomplete />
+          </Content>
+        </Container>
+
+        <Container oneCol>
+          <Content title="HSL Color Previewer" description="">
+            <ColorPreviewer />
           </Content>
         </Container>
 
@@ -78,13 +85,6 @@ export default function Home() {
         <Container>
           <Content title="Carousel" description="Carousel component for galleries and multi-step information.">
             <Carousel />
-          </Content>
-          <Content title="Spinners" description="Spinner components for async events and loading states. Tap to pause/play.">
-            <div className="flex items-center space-x-4">
-              <Spinner size="text-8xl" color='text-blue-500' />
-              <Spinner size="text-6xl" color='text-red-500' />
-              <Spinner color='text-indigo-500' variant={2} />
-            </div>
           </Content>
         </Container>
 

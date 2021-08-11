@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { useRef, useState } from 'react'
 import { FiRefreshCw } from 'react-icons/fi'
 import Button from '../buttons/Button'
-import ControlSlider from "./ControlSlider"
+import ControlSlider from "../ControlSlider"
 import { formatNumber, useCreateChartData } from "./createResource"
 
 export default function DemoChart() {
@@ -22,9 +22,9 @@ export default function DemoChart() {
         <div className="flex flex-col-reverse md:grid md:grid-cols-3 bg-gray-800 border border-gray-700 text-sm rounded-lg overflow-hidden">
             <div ref={sliderRef} className="bg-gray-900 bg-opacity-40 p-6 space-y-6">
                 <ControlSlider name="Bar thickness" startAt={50} cb={setBarWidth} min={10} max={25} />
-                <ControlSlider name="Space horizontally" startAt={60} cb={setWeeks} min={5} max={9} />
+                <ControlSlider name="Count" startAt={60} cb={setWeeks} min={5} max={9} />
                 <ControlSlider name="Rounding" startAt={10} cb={setRadius} min={0} max={30} />
-                <ControlSlider name="Grid opacity" startAt={20} cb={setGridOpacity} min={0} max={100} />
+                <ControlSlider name="Grid opacity" startAt={80} cb={setGridOpacity} min={0} max={100} />
                 <Button onClick={useRefetch} bg="bg-gray-700">
                     <span>Randomize data</span> <FiRefreshCw className="text-blue-400" />
                 </Button>
