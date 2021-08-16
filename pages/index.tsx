@@ -52,11 +52,11 @@ export default function Home() {
           </Content>
         </Container>
 
-        <Container oneCol>
+        {/* <Container oneCol>
           <Content title="HSL Color Previewer" description="">
             <ColorPreviewer />
           </Content>
-        </Container>
+        </Container> */}
 
         <Container>
           <Content title="Ratings" description="Tap to rate your experience.">
