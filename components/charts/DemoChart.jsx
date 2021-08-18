@@ -21,10 +21,10 @@ export default function DemoChart() {
     return (
         <div className="flex flex-col-reverse md:grid md:grid-cols-3 bg-gray-800 border border-gray-700 text-sm rounded-lg overflow-hidden">
             <div ref={sliderRef} className="bg-gray-900 bg-opacity-40 p-6 space-y-6">
-                <ControlSlider name="Bar thickness" startAt={50} cb={setBarWidth} min={10} max={25} />
-                <ControlSlider name="Count" startAt={60} cb={setWeeks} min={5} max={9} />
-                <ControlSlider name="Rounding" startAt={10} cb={setRadius} min={0} max={30} />
-                <ControlSlider name="Grid opacity" startAt={80} cb={setGridOpacity} min={0} max={100} />
+                <ControlSlider name="Bar thickness" startAt={50} onChange={setBarWidth} min={10} max={25} />
+                <ControlSlider name="Count" startAt={60} onChange={setWeeks} min={5} max={9} />
+                <ControlSlider name="Rounding" startAt={10} onChange={setRadius} min={0} max={30} />
+                <ControlSlider name="Grid opacity" startAt={80} onChange={setGridOpacity} min={0} max={100} />
                 <Button onClick={useRefetch} bg="bg-gray-700">
                     <span>Randomize data</span> <FiRefreshCw className="text-blue-400" />
                 </Button>
