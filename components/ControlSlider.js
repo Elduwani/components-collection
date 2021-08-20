@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { getTrackBackground, Range } from "react-range";
+import { Range } from "react-range";
 
 export default function ControlSlider({ name, startAt = 0, onChange, min = 0, max = 10 }) {
     const [maxInput, setMaxInput] = useState(20)
@@ -72,7 +72,7 @@ export const Slider = ({ min = 0, max, values, onChange, color = "bg-gray-700" }
             <div
                 {...props}
                 style={{ ...props.style }}
-                className="_thumb w-5 h-5 rounded-full bg-white outline-none"
+                className={`w-5 h-5 rounded-full bg-white outline-none`}
             />
         )}
     />

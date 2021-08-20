@@ -53,8 +53,11 @@ export default function Home() {
         </Container>
 
         <Container>
-          <Content title="HSL Color Previewer" description="">
+          <Content title="Color Previewer" description="An interactive HSL color generator. Click to copy to clipboard.">
             <ColorPreviewer />
+          </Content>
+          <Content title="Carousel" description="Carousel component for galleries and multi-step information.">
+            <Carousel />
           </Content>
         </Container>
 
@@ -79,12 +82,6 @@ export default function Home() {
           </Content>
           <Content title="Knight walker" description="Visualising possible chess knight moves with a 2D array and some game logic.">
             <KnightWalker />
-          </Content>
-        </Container>
-
-        <Container>
-          <Content title="Carousel" description="Carousel component for galleries and multi-step information.">
-            <Carousel />
           </Content>
         </Container>
 
